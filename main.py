@@ -1,6 +1,6 @@
 import mysql.connector
 from flask import Flask, render_template, request
-import xlrd
+
 
 
 
@@ -19,7 +19,7 @@ mycursor = mydb.cursor()
 
 app = Flask(__name__)
 
-@app.route('/', methods = ["POST","GET"])
+@app.route('/')
 def giris_ekran():
   
 
