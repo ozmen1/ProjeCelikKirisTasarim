@@ -21,18 +21,26 @@ app = Flask(__name__)
 
 @app.route('/', methods = ["POST","GET"])
 def giris_ekran():
-    mycursor.execute("SELECT * from a")   
-    satir = mycursor.fetchall() 
-    print(satir)
-
-    wb = xlrd.open_workbook('ProjeCelikKirisTasarim/a.xls')
-    sheet = wb.sheet_by_index(0)
-    sheet.cell_value(0, 0)
-    baslik=sheet.row_values(0)
-    print(baslik)
-    return render_template("a_tablo.html", rows = satir, cols = baslik) 
+  
 
 
+    return render_template("a_tablo.html") 
+
+
+@app.route("/sec",methods = ["POST","GET"])  
+def sec():
+    if request.method == "POST":  
+        try:  
+            secim = request.form["secim"]  
+
+            mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(secim))
+            satir = mycursor.fetchall() 
+            print(satir)
+            mydb.commit()
+       
+            return render_template("a_tablo.html", rows = satir) 
+        except: 
+            return render_template("a_tablo.html") 
 
 
 if __name__ == '__main__':
