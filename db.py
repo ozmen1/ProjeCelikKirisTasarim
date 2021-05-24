@@ -11,7 +11,7 @@ mydb = mysql.connector.connect(
 
 mycursor = mydb.cursor()
 
-#mycursor.execute("CREATE DATABASE IF NOT EXISTS xxxxxxxxx")
+""" #mycursor.execute("CREATE DATABASE IF NOT EXISTS xxxxxxxxx")
 
 
 
@@ -19,7 +19,7 @@ wb = xlrd.open_workbook('ProjeCelikKirisTasarim/a.xls')
 sheet = wb.sheet_by_index(0)
 sheet.cell_value(0, 0)
 baslik=sheet.row_values(0)
-print(baslik)
+print(baslik) """
 
 """ # başlık eklemek için
 mycursor.execute("CREATE TABLE IF NOT EXISTS a (kesit VARCHAR(50) PRIMARY KEY)".format(sheet.row_values(0)[0]))
@@ -49,10 +49,9 @@ for i in range(1,27):
 
 
 
-
-
-
 mycursor.execute("SELECT * FROM a")
 for x in mycursor.fetchall():
     print(x)
 mydb.commit()
+
+x=input("")
