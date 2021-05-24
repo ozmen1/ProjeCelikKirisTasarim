@@ -21,10 +21,14 @@ app = Flask(__name__)
 
 @app.route('/')
 def giris_ekran():
+    mycursor.execute("SELECT kesit FROM a")
+    kesitler = mycursor.fetchall()
+    print(kesitler)
+    mydb.commit()
   
 
 
-    return render_template("a_tablo.html") 
+    return render_template("a_tablo.html", kesitler=kesitler) 
 
 
 @app.route("/sec",methods = ["POST","GET"])  
@@ -34,9 +38,14 @@ def sec():
             secim = request.form["secim"]  
 
             mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(secim))
-            satir = mycursor.fetchall() 
+            satir_temp = mycursor.fetchall()
+            satir=[]
+            for i in satir_temp:
+                satir.append(i)
             print(satir)
             mydb.commit()
+
+            
        
             return render_template("a_tablo.html", rows = satir) 
         except: 

@@ -36,13 +36,13 @@ select {
 
   <form action = "/sec" method="post">   
    
-    <label for="cars">ürün seçin:</label>
+    <label for="demir">ürün seçin:</label>
     <select id="demir" name="secim">
       <option value="">SEÇİM YAPIN</option>
       <option value="HE 100 A">HE 100 A</option>
-      <option value="HE 1000 M">HE 1000 M</option>
-      <option value="HE 320 M">HE 320 M</option>
-      <option value="IPN 550">IPN 550</option>
+      <option value="HE 100 B">HE 100 B</option>
+      <option value="HE 100 M">HE 100 M</option>
+      <option value="HE 1000 A">HE 1000 A</option>
     </select>
 
     <input type="submit" value="ONAY">
@@ -103,6 +103,19 @@ select {
  {% endfor %}   
  </table>  
   
+
+
+<hr>
+<hr>
+<div>
+  {% for kesit in kesitler %}
+
+<h6>{{kesit[0]}}</h6>
+  {% endfor %} 
+
+</div>
+<hr>
+
 
  </body>  
  </html>
