@@ -3,55 +3,24 @@
  <head>  
      <title>a tablo</title>  
 
-     <style>
-
-        table, th, td {
-          border: 2px solid black;
-          text-align: center;
-        }
-        
-        table {
-          width: 100%;
-          background-color: gainsboro;
-        }
-        
-        th {
-          height:100px;
-        }
-      
-
-select {
-    font-size: .9rem;
-    padding: 2px 5px;
-}
-
-
-        
-        </style>
 
 
  </head>  
  <body>  
  
 
-  <form action = "/sec" method="post">   
-   
-    <label for="demir">kesit seçin:</label>
 
-    <br>
-
-
-    <input type="submit" value="ONAY">
- 
-    </form> 
 
 
     <h2>YÖNTEM 1 İÇİN HESAPLAMA</h2>   
-    <form action = "/sec" method="post">   
-    <table>
+    <form action = "/yontem_1" method="post">   
    
-    <tr><td>P değeri</td><td><input type="text" name="p"></td></tr>   
-    <tr><td>L değeri</td><td><input type="text" name="l"></td></tr> 
+    P değeri<input type="text" name="p">
+    <br> 
+    L değeri<input type="text" name="l">
+    <br>
+    çelik sınıfı<input type="text" name="celik_sinifi"> 
+    <br>
     <select id="demir" name="kesit">
       <option value="">SEÇİM YAPIN</option>
       <option value="HE 100 A">HE 100 A</option>
@@ -59,13 +28,17 @@ select {
       <option value="HE 100 M">HE 100 M</option>
       <option value="HE 1000 A">HE 1000 A</option>
     </select>
-    <tr><td><input type="submit" value="HESAPLA"></td></tr>
-   
-    </table>  
+    <br><br>
+    <input type="submit" value="HESAPLA">
+    <br>
+  
     </form>  
 
+<div>
 
+<h1>{{uygun_mu}}</h1>
 
+</div>
 
 
  </body>  

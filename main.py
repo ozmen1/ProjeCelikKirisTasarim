@@ -21,33 +21,63 @@ app = Flask(__name__)
 
 @app.route('/')
 def giris_ekran():
-    mycursor.execute("SELECT kesit FROM a")
-    kesitler = mycursor.fetchall()
-    print(kesitler)
-    mydb.commit()
-  
+
+    return render_template("a_tablo.html") 
 
 
-    return render_template("a_tablo.html", kesitler=kesitler) 
-
-
-@app.route("/sec",methods = ["POST","GET"])  
-def sec():
+@app.route("/yontem_1",methods = ["POST","GET"])  
+def yontem_1():
     if request.method == "POST":  
         try:  
-            secim = request.form["secim"]  
+            p = request.form["p"] 
+            l = request.form["l"] 
+            celik_sinifi = request.form["celik_sinifi"]
+            kesit = request.form["kesit"]
 
-            mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(secim))
-            satir_temp = mycursor.fetchall()
-            satir=[]
-            for i in satir_temp:
-                satir.append(i)
+            p=float(p)
+            l=float(l)
+            celik_sinifi=float(celik_sinifi)
+
+            mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit))
+            satir= mycursor.fetchall()
             print(satir)
             mydb.commit()
 
-            
+            maksimum_sehim=(p*(l**3))/(48*200000*float(satir[0][15])*(10**4))
+            print(maksimum_sehim)
+
+            maksimum_moment=(p*l*1000)/(4)
+            print(maksimum_moment)
+
+            zati_sehim=((5*float(satir[0][1])*(9.81/1000)*(l**4))/(384*200000*(float(satir[0][15])*(10**4))))
+            print(zati_sehim)
+
+            zati_moment=(float(satir[0][1])*(l**2))/(8)
+            print(zati_moment)
+
+            toplam_sehim=( zati_sehim + maksimum_sehim)
+            print(toplam_sehim)
+
+            toplam_moment=(maksimum_moment+zati_moment)
+            print(toplam_moment)
+
+            akma_sinir_durumu=(celik_sinifi*float(satir[0][17])/1.67)
+            print(akma_sinir_durumu)
+
+            if (akma_sinir_durumu > toplam_moment) and (l/300 > toplam_sehim):
+                uygun_mu="UYGUN"
+                print(uygun_mu)
+            else:
+                # kesit değiştirme yapılacak
+                uygun_mu="UYGUN DEĞİL"
+                print(uygun_mu)
+                pass
+
+
+
+
        
-            return render_template("a_tablo.html", rows = satir) 
+            return render_template("a_tablo.html", uygun_mu = uygun_mu) 
         except: 
             return render_template("a_tablo.html") 
 
