@@ -36,85 +36,36 @@ select {
 
   <form action = "/sec" method="post">   
    
-    <label for="demir">ürün seçin:</label>
-    <select id="demir" name="secim">
-      <option value="">SEÇİM YAPIN</option>
-      <option value="HE 100 A">HE 100 A</option>
-      <option value="HE 100 B">HE 100 B</option>
-      <option value="HE 100 M">HE 100 M</option>
-      <option value="HE 1000 A">HE 1000 A</option>
-    </select>
+    <label for="demir">kesit seçin:</label>
+
+    <br>
+
 
     <input type="submit" value="ONAY">
  
     </form> 
 
 
+    <h2>YÖNTEM 1 İÇİN HESAPLAMA</h2>   
+    <form action = "/sec" method="post">   
+    <table>
+   
+    <tr><td>P değeri</td><td><input type="text" name="p"></td></tr>   
+    <tr><td>L değeri</td><td><input type="text" name="l"></td></tr> 
+    <select id="demir" name="kesit">
+      <option value="">SEÇİM YAPIN</option>
+      <option value="HE 100 A">HE 100 A</option>
+      <option value="HE 100 B">HE 100 B</option>
+      <option value="HE 100 M">HE 100 M</option>
+      <option value="HE 1000 A">HE 1000 A</option>
+    </select>
+    <tr><td><input type="submit" value="HESAPLA"></td></tr>
+   
+    </table>  
+    </form>  
 
 
- <br>
 
-<hr>
-<hr>
- <table>  
-
- 
-<tr>  
-  <tr>
-    <caption>KESİT TABLOSU</caption>
-    <th>kesit</th>
-    <th colspan="26">değerler</th>
-  </tr>
- </tr>  
- 
-
-
-
- {% for row in rows %}  
- <tr>   
- <td>{{row[0]}}</td>
- <td>{{row[1]}}</td>
- <td>{{row[2]}}</td>
- <td>{{row[3]}}</td>
- <td>{{row[4]}}</td>
- <td>{{row[5]}}</td>
- <td>{{row[6]}}</td>
- <td>{{row[7]}}</td>
- <td>{{row[8]}}</td>  
- <td>{{row[9]}}</td>  
- <td>{{row[10]}}</td>
- <td>{{row[11]}}</td>
- <td>{{row[12]}}</td>
- <td>{{row[13]}}</td>
- <td>{{row[14]}}</td>
- <td>{{row[15]}}</td>
- <td>{{row[16]}}</td>
- <td>{{row[17]}}</td>
- <td>{{row[18]}}</td>
- <td>{{row[19]}}</td>
- <td>{{row[20]}}</td>
- <td>{{row[21]}}</td>
- <td>{{row[22]}}</td>
- <td>{{row[23]}}</td>
- <td>{{row[24]}}</td>
- <td>{{row[25]}}</td>
- <td>{{row[26]}}</td>
- </tr>  
- {% endfor %}   
- </table>  
-  
-
-
-<hr>
-<hr>
-<div>
-  {% for kesit in kesitler %}
-
-<h6>{{kesit[0]}}</h6>
-  {% endfor %} 
-
-</div>
-<hr>
 
 
  </body>  
