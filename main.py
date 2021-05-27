@@ -77,7 +77,7 @@ def yontem_1():
 
 
        
-            return render_template("a_tablo.html", uygun_mu = uygun_mu) 
+            return render_template("a_tablo.html", p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu = uygun_mu) 
         except: 
             return render_template("a_tablo.html") 
 

@@ -15,13 +15,15 @@
     <h2>YÖNTEM 1 İÇİN HESAPLAMA</h2>   
     <form action = "/yontem_1" method="post">   
    
-    P değeri<input type="text" name="p">
+    P değeri: <input type="text" name="p">
     <br> 
-    L değeri<input type="text" name="l">
+    L değeri: <input type="text" name="l">
     <br>
-    çelik sınıfı<input type="text" name="celik_sinifi"> 
+    Çelik sınıfı: <input type="text" name="celik_sinifi"> 
     <br>
-    <select id="demir" name="kesit">
+    Kesit seçin: <input type="text" name="kesit">
+
+    <select id="demir" name="kesit_2" size="2">
       <option value="">SEÇİM YAPIN</option>
       <option value="HE 100 A">HE 100 A</option>
       <option value="HE 100 B">HE 100 B</option>
@@ -35,7 +37,7 @@
     </form>  
 
 <div>
-
+<p>p: {{p}}, l: {{l}}, kesit: {{kesit}}, çelik sınıfı: {{celik_sinifi}}</p>
 <h1>{{uygun_mu}}</h1>
 
 </div>
