@@ -6,9 +6,18 @@
 
  </head>  
  <body>  
- 
+
+  
+  <a href="/">ANASAYFA</a>
 
     <h2>YÖNTEM 1 İÇİN HESAPLAMA</h2>   
+
+
+ 
+
+
+
+
     <form action = "/yontem_1" method="post">   
    
     P değeri: <input type="text" name="p">
@@ -30,12 +39,23 @@
   
     </form>  
 
+
+{% if uygun_mu %}
 <div>
 <p>p: {{p}}, l: {{l}}, kesit: {{kesit}}, çelik sınıfı: {{celik_sinifi}}</p>
 <h1>{{uygun_mu}}</h1>
-
 </div>
 
+<div>
+
+  Uygun Kesitler:
+  <select id="demir" name="uygun_kesit">
+    {%  for i in uygun_kesit  %}
+    <option value="{{i}}">{{i}}</option>
+    {%endfor%}
+
+</div>
+{%endif%}
 
  </body>  
  </html>

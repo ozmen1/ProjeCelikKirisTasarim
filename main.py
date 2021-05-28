@@ -2,8 +2,6 @@ import mysql.connector
 from flask import Flask, render_template, request
 
 
-
-
 print("VERİTABANI YÜKLENİYOR..")
 
 mydb = mysql.connector.connect(
@@ -28,9 +26,9 @@ def giris_ekran():
     satir_temp= mycursor.fetchall()
     satir_liste=[]
     for i in range(len(satir_temp)):
-        print(satir_temp[i][0])
+        #print(satir_temp[i][0])
         satir_liste.append(satir_temp[i][0])
-    print(satir_liste)
+    #print(satir_liste)
     mydb.commit()
 
     return render_template("a_tablo.html", satir_liste=satir_liste) 
@@ -75,7 +73,7 @@ def yontem_1():
             akma_sinir_durumu=(celik_sinifi*float(satir[0][17])/1.67)
             print(akma_sinir_durumu)
 
-            if (akma_sinir_durumu > toplam_moment) and (l/300 > toplam_sehim):
+            if ((akma_sinir_durumu > toplam_moment) and (l/300 > toplam_sehim)):
                 uygun_mu="UYGUN"
                 print(uygun_mu)
             else:
@@ -91,10 +89,11 @@ def yontem_1():
             return render_template("a_tablo.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu = uygun_mu) 
         except:
             uygun_mu="GEÇERLİ DEĞER GİRİLMEDİ"
+            print(uygun_mu)
             return render_template("a_tablo.html", satir_liste=satir_liste, uygun_mu=uygun_mu) 
 
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run(host="0.0.0.0", port="8080")
   
