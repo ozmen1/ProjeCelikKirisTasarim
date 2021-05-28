@@ -9,13 +9,11 @@
 
   
   <a href="/">ANASAYFA</a>
+  <a href="/">1. YÖNTEM</a>
 
-  <a href="/yontem_2.html">2. YÖNTEM</a>
+    <h2>YÖNTEM 2 İÇİN HESAPLAMA</h2>   
 
-    <h2>YÖNTEM 1 İÇİN HESAPLAMA</h2>   
-
-
-    <form action = "/yontem_1" method="post">   
+    <form action = "/yontem_2" method="post">   
    
     P değeri (N): <input type="text" name="p">
     <br> 
@@ -29,13 +27,14 @@
       <option value="355">S355</option>
       </select>
     <br>
-    Kesit seçin:
-    <select id="demir" name="kesit">
+    <select id="kesit_tipi" name="kesit_tipi">
       <option value="">SEÇİM YAPIN</option>
-      {%  for i in satir_liste  %}
-      <option value="{{i}}">{{i}}</option>
-      {%endfor%}
-
+      <option value="A">HEA</option>
+      <option value="B">HEB</option>
+      <option value="M">HEM</option>
+      <option value="IPE">IPE</option>
+      <option value="IPN">IPN</option>
+      </select>
     <br><br>
     <input type="submit" value="HESAPLA">
     <br>
@@ -43,14 +42,17 @@
     </form>  
 
 
-{% if uygun_mu %}
-<div>
-<p>p (N): {{p}}, l (m): {{l}}, kesit: {{kesit}}, çelik sınıfı: {{celik_sinifi}}</p>
-<h1>{{uygun_mu}}</h1>
-</div>
-
-
-{%endif%}
+    {% if uygun_mu %}
+    <div>
+    <p>p (N): {{p}}, l (m): {{l}}, kesit: {{kesit}}, çelik sınıfı: {{celik_sinifi}}</p>
+    <br>
+    <h1>{{kesitt}}</h1>
+    <br>
+    <h1>{{uygun_mu}}</h1>
+    </div>
+    
+    
+    {%endif%}
 
  </body>  
  </html>
