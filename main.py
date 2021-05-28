@@ -82,9 +82,6 @@ def yontem_1():
                 print(uygun_mu)
                 pass
 
-
-
-
        
             return render_template("a_tablo.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu = uygun_mu) 
         except:
@@ -97,3 +94,9 @@ if __name__ == '__main__':
     #app.debug = True
     app.run(host="0.0.0.0", port="8080")
   
+
+
+
+
+
+# S235   S275     S355   
