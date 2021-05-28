@@ -106,18 +106,19 @@ def yontem_2():
             p = request.form["p"] 
             l = request.form["l"] 
             celik_sinifi = request.form["celik_sinifi"]
-            kesit_tipi=request.form["kesit_tipi"]
+            kesit_tipi = request.form["kesit_tipi"]
         
 
             p=float(p)
             l=float(l)
             celik_sinifi=float(celik_sinifi)
+            global key_liste
 
             maksimum_moment=(p*l)/(4)
-            print("maksimum moment",maksimum_moment)
+            #print("maksimum moment",maksimum_moment)
 
             wp_gerekli=maksimum_moment*1.67/celik_sinifi
-            print("Wp gerekli : ",wp_gerekli)
+            #print("Wp gerekli : ",wp_gerekli)
 
             mycursor.execute("SELECT * FROM a")
             satir= mycursor.fetchall()
@@ -134,8 +135,7 @@ def yontem_2():
             #print(satir_dict)
 
             fark=10000000000
-            for x, y in satir_dict.items():
-                
+            for x, y in satir_dict.items():                
                 #print(x, y)
                 if wp_gerekli<=float(y):
                     fark_temp=float(y)-wp_gerekli
@@ -175,13 +175,7 @@ def yontem_2():
                 # kesit değiştirme yapılacak
                 uygun_mu="UYGUN DEĞİL"
                 print(uygun_mu)
-                pass
-
                      
-            
-
-
-       
             return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu) 
         except:
             uygun_mu="GEÇERLİ DEĞER GİRİLMEDİ"
