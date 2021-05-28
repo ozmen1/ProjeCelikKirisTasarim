@@ -1,16 +1,12 @@
 <!DOCTYPE html>  
  <html>  
  <head>  
+
      <title>a tablo</title>  
-
-
 
  </head>  
  <body>  
  
-
-
-
 
     <h2>YÖNTEM 1 İÇİN HESAPLAMA</h2>   
     <form action = "/yontem_1" method="post">   
@@ -21,15 +17,13 @@
     <br>
     Çelik sınıfı: <input type="text" name="celik_sinifi"> 
     <br>
-    Kesit seçin: <input type="text" name="kesit">
-
-    <select id="demir" name="kesit_2" size="2">
+    Kesit seçin:
+    <select id="demir" name="kesit">
       <option value="">SEÇİM YAPIN</option>
-      <option value="HE 100 A">HE 100 A</option>
-      <option value="HE 100 B">HE 100 B</option>
-      <option value="HE 100 M">HE 100 M</option>
-      <option value="HE 1000 A">HE 1000 A</option>
-    </select>
+      {%  for i in satir_liste  %}
+      <option value="{{i}}">{{i}}</option>
+      {%endfor%}
+
     <br><br>
     <input type="submit" value="HESAPLA">
     <br>

@@ -49,9 +49,22 @@ for i in range(1,27):
 
 
 
-mycursor.execute("SELECT * FROM a")
+""" mycursor.execute("SELECT * FROM a")
 for x in mycursor.fetchall():
     print(x)
 mydb.commit()
 
-x=input("")
+x=input("") """
+
+mycursor.execute("SELECT kesit FROM a")
+satir= mycursor.fetchall()
+satir_liste=[]
+for i in range(len(satir)):
+  print(satir[i][0])
+  satir_liste.append(satir[i][0])
+
+
+print(satir_liste)
+
+
+mydb.commit()

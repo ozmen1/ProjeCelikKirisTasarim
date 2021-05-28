@@ -22,7 +22,18 @@ app = Flask(__name__)
 @app.route('/')
 def giris_ekran():
 
-    return render_template("a_tablo.html") 
+    global satir_liste
+
+    mycursor.execute("SELECT kesit FROM a")
+    satir_temp= mycursor.fetchall()
+    satir_liste=[]
+    for i in range(len(satir_temp)):
+        print(satir_temp[i][0])
+        satir_liste.append(satir_temp[i][0])
+    print(satir_liste)
+    mydb.commit()
+
+    return render_template("a_tablo.html", satir_liste=satir_liste) 
 
 
 @app.route("/yontem_1",methods = ["POST","GET"])  
@@ -77,9 +88,10 @@ def yontem_1():
 
 
        
-            return render_template("a_tablo.html", p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu = uygun_mu) 
-        except: 
-            return render_template("a_tablo.html") 
+            return render_template("a_tablo.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu = uygun_mu) 
+        except:
+            uygun_mu="GEÇERLİ DEĞER GİRİLMEDİ"
+            return render_template("a_tablo.html", satir_liste=satir_liste, uygun_mu=uygun_mu) 
 
 
 if __name__ == '__main__':
