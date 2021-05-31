@@ -16,9 +16,17 @@ mycursor = mydb.cursor()
 
 app = Flask(__name__)
 
-
 @app.route('/')
-def giris_ekran():
+def index():
+
+
+
+    return render_template("index.html")
+
+
+
+@app.route('/yontem_1.html')
+def yontem1():
 
     global satir_liste
 
@@ -31,7 +39,7 @@ def giris_ekran():
     # print(satir_liste)
     mydb.commit()
 
-    return render_template("a_tablo.html", satir_liste=satir_liste)
+    return render_template("yontem_1.html", satir_liste=satir_liste)
 
 
 @app.route('/yontem_2.html')
@@ -89,11 +97,11 @@ def yontem_1():
                 uygun_mu = "UYGUN DEĞİL"
                 print(uygun_mu)
 
-            return render_template("a_tablo.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu=uygun_mu)
+            return render_template("yontem_1.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu=uygun_mu)
         except:
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
-            return render_template("a_tablo.html", satir_liste=satir_liste, uygun_mu=uygun_mu)
+            return render_template("yontem_1.html", satir_liste=satir_liste, uygun_mu=uygun_mu)
 
 
 # --2
