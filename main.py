@@ -173,7 +173,9 @@ def yontem_2():
               return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
           elif len(satir_dict)>0:
               satir_dict.pop(kesit_2)
+              print(satir_dict,"pop sonrası değer")          
               continue
+
           else:
             uygun_mu="VERİ TABANINDA UYGUN KESİT BULUNAMADI"
             print(uygun_mu)
