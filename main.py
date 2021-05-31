@@ -55,31 +55,31 @@ def yontem_1():
 
             mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit))
             satir= mycursor.fetchall()
-            print(satir)
+            #print(satir)
             mydb.commit()
 
             maksimum_sehim=(p*(l*1000)**3)/(48*200000*float(satir[0][15])*(10**4))
-            print(maksimum_sehim)
+            print("maksimum sehim :",maksimum_sehim)
 
             maksimum_moment=(p*l)/(4)
-            print(maksimum_moment)
+            print("maksimum moment :",maksimum_moment)
 
             zati_sehim=((5*float(satir[0][1])*(9.81/1000)*(l*1000)**4)/(384*200000*(float(satir[0][15])*(10**4))))
-            print(zati_sehim)
+            print("zati sehim :",zati_sehim)
 
             zati_moment=(float(satir[0][1])*9.81*(l**2))/(8)
-            print(zati_moment)
+            print("zati moment :",zati_moment)
 
             toplam_sehim=( zati_sehim + maksimum_sehim)
-            print(toplam_sehim)
+            print("toplam sehim",toplam_sehim)
 
             toplam_moment=(maksimum_moment+zati_moment)
-            print(toplam_moment)
+            print("toplam moment :",toplam_moment)
 
             akma_sinir_durumu=(celik_sinifi*float(satir[0][17])/1.67)
-            print(akma_sinir_durumu)
+            print("akma sınır durumu :",akma_sinir_durumu)
 
-            if ((akma_sinir_durumu > toplam_moment) and (l*1000/300) > toplam_sehim):
+            if ((akma_sinir_durumu > toplam_moment) and ((l*1000/300) > toplam_sehim)):
                 uygun_mu="UYGUN"
                 print(uygun_mu)
             else:
@@ -113,10 +113,10 @@ def yontem_2():
         celik_sinifi=float(celik_sinifi)
 
         maksimum_moment=(p*l)/(4)
-        #print("maksimum moment",maksimum_moment)
+        print("maksimum moment :",maksimum_moment)
 
         wp_gerekli=maksimum_moment*1.67/celik_sinifi
-        #print("Wp gerekli : ",wp_gerekli)
+        print("Wp gerekli : ",wp_gerekli)
 
         mycursor.execute("SELECT * FROM a")
         satir= mycursor.fetchall()
@@ -141,7 +141,7 @@ def yontem_2():
                   if fark>fark_temp:
                       fark=fark_temp
                       kesit_2=x
-          #print(kesit_2)
+          print("kesit_2 :",kesit_2)
 
 
           mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit_2))
@@ -150,33 +150,35 @@ def yontem_2():
           mydb.commit()
 
           zati_sehim=((5*float(satir_2[0][1])*(9.81/1000)*(l*1000)**4)/(384*200000*(float(satir_2[0][15])*(10**4))))
-          #print(zati_sehim)
+          print("zati sehim :",zati_sehim)
 
           zati_moment=(float(satir_2[0][1])*9.81*(l**2))/(8)
-          #print(zati_moment)
+          print("zati moment :",zati_moment)
 
           maksimum_sehim=(p*(l*1000)**3)/(48*200000*float(satir_2[0][15])*(10**4))
-          #print(maksimum_sehim)
+          print("maksimum sehim :",maksimum_sehim)
 
           toplam_sehim=( zati_sehim + maksimum_sehim)
-          #print(toplam_sehim)
+          print("toplam sehim :",toplam_sehim)
 
           toplam_moment=(maksimum_moment+zati_moment)
-          #print(toplam_moment)
+          print("toplam moment :",toplam_moment)
 
           akma_sinir_durumu=(celik_sinifi*float(satir_2[0][17])/1.67)
-          #print(akma_sinir_durumu)
+          print("akma sınır durumu :",akma_sinir_durumu)
 
           if ((akma_sinir_durumu > toplam_moment) and (l*1000/300) > toplam_sehim):
               uygun_mu="UYGUN"
               print(uygun_mu)
               return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
-          else:
-              # kesit değiştirme yapılacak
-              # uygun_mu="UYGUN DEĞİL"
-              # print(uygun_mu)
+          elif len(satir_dict)>0:
               satir_dict.pop(kesit_2)
-              continue                 
+              continue
+          else:
+            uygun_mu="VERİ TABANINDA UYGUN KESİT BULUNAMADI"
+            print(uygun_mu)
+            return render_template("yontem_2.html", uygun_mu=uygun_mu)
+
           
       except:
         uygun_mu="GEÇERLİ DEĞER GİRİLMEDİ"
