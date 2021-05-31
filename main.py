@@ -89,7 +89,7 @@ def yontem_1():
                 pass
 
        
-            return render_template("a_tablo.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu = uygun_mu) 
+            return render_template("a_tablo.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi="S"+str(int(celik_sinifi)), uygun_mu = uygun_mu)
         except:
             uygun_mu="GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
@@ -142,41 +142,53 @@ def yontem_2():
                     if fark>fark_temp:
                         fark=fark_temp
                         kesit_2=x
-            #print(kesit_2)
+            print("kesit2=",kesit_2)
+
+            print(satir_dict)
+            kesit_listesi=sorted(satir_dict)
+            print(kesit_listesi)
+            indis=kesit_listesi.index(kesit_2)
+            print("indis=",indis)
 
 
-            mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit_2))
-            satir_2= mycursor.fetchall()
-            #print(satir)
-            mydb.commit()
+            for i in range(indis,len(kesit_listesi)):
+                print("detay kesit=",kesit_listesi[i])
+#                mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit_2))
+                mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit_listesi[i]))
+                satir_2= mycursor.fetchall()
+                print(satir_2)
+                mydb.commit()
 
-            zati_sehim=((5*float(satir_2[0][1])*(9.81/1000)*(l*1000)**4)/(384*200000*(float(satir_2[0][15])*(10**4))))
-            #print(zati_sehim)
+                zati_sehim=((5*float(satir_2[0][1])*(9.81/1000)*(l*1000)**4)/(384*200000*(float(satir_2[0][15])*(10**4))))
+                print("zati sehim = ",zati_sehim)
 
-            zati_moment=(float(satir_2[0][1])*9.81*(l**2))/(8)
-            #print(zati_moment)
+                zati_moment=(float(satir_2[0][1])*9.81*(l**2))/(8)
+                print("zati moment = ",zati_moment)
 
-            maksimum_sehim=(p*(l*1000)**3)/(48*200000*float(satir_2[0][15])*(10**4))
-            #print(maksimum_sehim)
+                maksimum_sehim=(p*(l*1000)**3)/(48*200000*float(satir_2[0][15])*(10**4))
+                print("maksimum moment = ",maksimum_sehim)
 
-            toplam_sehim=( zati_sehim + maksimum_sehim)
-            #print(toplam_sehim)
+                toplam_sehim=( zati_sehim + maksimum_sehim)
+                print("toplam sehim = ",toplam_sehim)
 
-            toplam_moment=(maksimum_moment+zati_moment)
-            #print(toplam_moment)
+                toplam_moment=(maksimum_moment+zati_moment)
+                print("toplam moment = ",toplam_moment)
 
-            akma_sinir_durumu=(celik_sinifi*float(satir_2[0][17])/1.67)
-            #print(akma_sinir_durumu)
+                akma_sinir_durumu=(celik_sinifi*float(satir_2[0][17])/1.67)
+                print("akma sinir durumu = ",akma_sinir_durumu)
 
-            if ((akma_sinir_durumu > toplam_moment) and (l*1000/300) > toplam_sehim):
-                uygun_mu="UYGUN"
-                print(uygun_mu)
-            else:
-                # kesit değiştirme yapılacak
-                uygun_mu="UYGUN DEĞİL"
-                print(uygun_mu)
+                if ((akma_sinir_durumu > toplam_moment) and (l*1000/300) > toplam_sehim):
+                    uygun_mu="UYGUN"
+                    print(uygun_mu)
+                    kesit_2=kesit_listesi[i]
+                    break
+                else:
+                    # kesit değiştirme yapılacak
+                    uygun_mu="UYGUN DEĞİL"
+                    print(kesit_listesi[i])
+                    print(uygun_mu)
                      
-            return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu) 
+            return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
         except:
             uygun_mu="GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
