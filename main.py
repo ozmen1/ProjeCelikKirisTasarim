@@ -133,7 +133,7 @@ def yontem_2():
         #print(satir_dict)
         
         while True:
-          fark=10000000000
+          fark=100000000000000000000000
           for x, y in satir_dict.items():                
               #print(x, y)
               if wp_gerekli<=float(y):
