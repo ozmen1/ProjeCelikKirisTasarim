@@ -167,7 +167,7 @@ def yontem_2():
           akma_sinir_durumu=(celik_sinifi*float(satir_2[0][17])/1.67)
           print("akma sınır durumu :",akma_sinir_durumu)
 
-          if ((akma_sinir_durumu > toplam_moment) and (l*1000/300) > toplam_sehim):
+          if ((akma_sinir_durumu > toplam_moment) and ((l*1000/300) > toplam_sehim)):
               uygun_mu="UYGUN"
               print(uygun_mu)
               return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
