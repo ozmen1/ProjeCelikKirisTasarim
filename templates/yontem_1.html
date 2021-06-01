@@ -45,10 +45,10 @@
 
 
       <label for="">P değeri (N):</label>
-      <input type="text" style="max-width:250px;" name="p">
+      <input type="number" style="max-width:250px;" name="p">
       <br>
       <label for="">L değeri (m):</label>
-      <input type="text" style="max-width:250px;" name="l">
+      <input type="number" style="max-width:250px;" name="l">
       <br>
       <label for="">Çelik sınıfı:</label>
       <select class="w3-select" id="celik_sinif" style="max-width:250px;" name="celik_sinifi">
@@ -75,7 +75,7 @@
   </div>
 
   {% if uygun_mu %}
-  <div class="w3-center w3-yellow w3-padding-32">
+  <div class="w3-center w3-yellow w3-padding-16">
     <p>p (N): {{p}}, l (m): {{l}}, kesit: {{kesit}}, çelik sınıfı: {{celik_sinifi}}</p>
     <h1>{{uygun_mu}}</h1>
   </div>
@@ -93,7 +93,7 @@
 
 
   <!-- Footer -->
-  <footer class="w3-center w3-black w3-padding-16">
+  <footer class="w3-center w3-black w3-padding-8">
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
         class="w3-hover-text-green">w3.css</a></p>
   </footer>
