@@ -178,7 +178,7 @@ def yontem_2():
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
                     return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
-                elif len(satir_dict) > 0:
+                elif len(satir_dict) != 0:
                     satir_dict.pop(kesit_2)
                     print(satir_dict, "pop sonrası değer")
                     continue
