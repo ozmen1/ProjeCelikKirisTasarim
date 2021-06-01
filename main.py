@@ -16,13 +16,11 @@ mycursor = mydb.cursor()
 
 app = Flask(__name__)
 
+
 @app.route('/')
 def index():
 
-
-
     return render_template("index.html")
-
 
 
 @app.route('/yontem_1.html')
@@ -139,7 +137,7 @@ def yontem_2():
             # print(satir_dict)
 
             while True:
-                
+
                 fark = 100000000000000000000000
                 for x, y in satir_dict.items():
                     #print(x, y)
@@ -175,8 +173,6 @@ def yontem_2():
 
                 akma_sinir_durumu = (celik_sinifi*float(satir_2[0][17])/1.67)
                 print("akma sınır durumu :", akma_sinir_durumu)
-                
-
 
                 if ((akma_sinir_durumu > toplam_moment) and ((l*1000/300) > toplam_sehim)):
                     uygun_mu = "UYGUN"
@@ -186,13 +182,11 @@ def yontem_2():
                     satir_dict.pop(kesit_2)
                     print(satir_dict, "pop sonrası değer")
                     continue
-                
+
                 else:
                     uygun_mu = "VERİ TABANINDA UYGUN KESİT BULUNAMADI"
                     print(uygun_mu)
                     return render_template("yontem_2.html", uygun_mu=uygun_mu)
-
-
 
         except:
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
