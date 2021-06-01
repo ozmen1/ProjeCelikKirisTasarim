@@ -170,12 +170,8 @@ def yontem_2():
                     print(uygun_mu)
                     return render_template("yontem_2.html", uygun_mu=uygun_mu)
 
-
-
-
-                
-
                 print("kesit_2 :", kesit_2)
+                
 
                 mycursor.execute(
                     "SELECT * FROM a WHERE kesit='{}'".format(kesit_2))
