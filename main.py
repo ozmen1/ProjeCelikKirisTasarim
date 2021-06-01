@@ -109,6 +109,10 @@ def yontem_1():
 def yontem_2():
     if request.method == "POST":
         try:
+            mycursor.execute("SELECT * FROM a")
+            satir = mycursor.fetchall()
+            mydb.commit()
+
             p = request.form["p"]
             l = request.form["l"]
             celik_sinifi = request.form["celik_sinifi"]
@@ -124,28 +128,34 @@ def yontem_2():
             wp_gerekli = maksimum_moment*1.67/celik_sinifi
             print("Wp gerekli : ", wp_gerekli)
 
-            mycursor.execute("SELECT * FROM a")
-            satir = mycursor.fetchall()
-            mydb.commit()
-
             satir_dict = {}
 
             for i in range(len(satir)):
 
                 if kesit_tipi in satir[i][0]:
                     satir_dict[satir[i][0]] = satir[i][17]
-            # print(satir_dict)
+            print(satir_dict)
 
             while True:
+                print("while girdi")
 
-                fark = 100000000000000000000000
-                for x, y in satir_dict.items():
-                    #print(x, y)
+                fark = 100000
+                kesit_2=0
+                for x, y in satir_dict.items():                    
+                    print(x, y)
                     if wp_gerekli <= float(y):
                         fark_temp = float(y)-wp_gerekli
                         if fark > fark_temp:
                             fark = fark_temp
                             kesit_2 = x
+
+
+
+                if kesit_2==0:
+                    uygun_mu = "VERİ TABANINDA UYGUN KESİT BULUNAMADI"
+                    print(uygun_mu)
+                    return render_template("yontem_2.html", uygun_mu=uygun_mu)
+
                 print("kesit_2 :", kesit_2)
 
                 mycursor.execute(
@@ -195,5 +205,5 @@ def yontem_2():
 
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run(host="0.0.0.0", port="8080")
