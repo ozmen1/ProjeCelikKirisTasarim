@@ -71,6 +71,8 @@ def yontem_1():
             maksimum_moment = (p*l)/(4)
             print("maksimum moment :", maksimum_moment)
 
+            maksimum_kesme=p/2
+
             zati_sehim = ((5*float(satir[0][1])*(9.81/1000)*(l*1000)
                           ** 4)/(384*200000*(float(satir[0][15])*(10**4))))
             print("zati sehim :", zati_sehim)
@@ -78,16 +80,29 @@ def yontem_1():
             zati_moment = (float(satir[0][1])*9.81*(l**2))/(8)
             print("zati moment :", zati_moment)
 
+            zati_kesme=float(satir[0][1])*l/2*9.81
+            print("zati kesme :",zati_kesme)
+
             toplam_sehim = (zati_sehim + maksimum_sehim)
             print("toplam sehim", toplam_sehim)
 
             toplam_moment = (maksimum_moment+zati_moment)
             print("toplam moment :", toplam_moment)
 
+            toplam_kesme=maksimum_kesme+zati_kesme
+            print("toplam kesme :",toplam_kesme)
+
             akma_sinir_durumu = (celik_sinifi*float(satir[0][17])/1.67)
             print("akma sınır durumu :", akma_sinir_durumu)
 
-            if ((akma_sinir_durumu > toplam_moment) and ((l*1000/300) > toplam_sehim)):
+            aw=float(satir[0][9])*float(satir[0][4])
+
+            cv1=1 # daha sonra formül eklenecek
+
+            guvenli_kesme=0.6*celik_sinifi*aw*cv1/1.5
+            print("güvenli kesme :",guvenli_kesme)
+
+            if ((akma_sinir_durumu >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme>=toplam_kesme)):
                 uygun_mu = "UYGUN"
                 print(uygun_mu)
             else:
@@ -150,11 +165,15 @@ def yontem_2():
                             kesit_2 = x
 
 
-
                 if kesit_2==0:
                     uygun_mu = "VERİ TABANINDA UYGUN KESİT BULUNAMADI"
                     print(uygun_mu)
                     return render_template("yontem_2.html", uygun_mu=uygun_mu)
+
+
+
+
+                
 
                 print("kesit_2 :", kesit_2)
 
@@ -163,6 +182,21 @@ def yontem_2():
                 satir_2 = mycursor.fetchall()
                 # print(satir)
                 mydb.commit()
+
+                maksimum_kesme=p/2
+
+                zati_kesme=float(satir[0][1])*l/2*9.81
+                print("zati kesme :",zati_kesme)
+
+                toplam_kesme=maksimum_kesme+zati_kesme
+                print("toplam kesme :",toplam_kesme)
+
+                aw=float(satir[0][9])*float(satir[0][4])
+
+                cv1=1 # daha sonra formül eklenecek
+
+                guvenli_kesme=0.6*celik_sinifi*aw*cv1/1.5
+                print("güvenli kesme :",guvenli_kesme)
 
                 zati_sehim = ((5*float(satir_2[0][1])*(9.81/1000)*(l*1000)**4)/(
                     384*200000*(float(satir_2[0][15])*(10**4))))
@@ -184,7 +218,7 @@ def yontem_2():
                 akma_sinir_durumu = (celik_sinifi*float(satir_2[0][17])/1.67)
                 print("akma sınır durumu :", akma_sinir_durumu)
 
-                if ((akma_sinir_durumu > toplam_moment) and ((l*1000/300) > toplam_sehim)):
+                if ((akma_sinir_durumu >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme>=toplam_kesme)):
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
                     return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
@@ -205,5 +239,5 @@ def yontem_2():
 
 
 if __name__ == '__main__':
-    app.debug = True
+    #app.debug = True
     app.run(host="0.0.0.0", port="8080")
