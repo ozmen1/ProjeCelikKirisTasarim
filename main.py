@@ -45,6 +45,7 @@ def yontem2():
 
     return render_template("yontem_2.html")
 
+# --1
 
 @app.route("/yontem_1", methods=["POST", "GET"])
 def yontem_1():
