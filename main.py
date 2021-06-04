@@ -2,8 +2,9 @@ import mysql.connector
 from flask import Flask, render_template, request
 
 
-print("VERİTABANI YÜKLENİYOR..")
+app = Flask(__name__)
 
+print("VERİTABANI YÜKLENİYOR..")
 mydb = mysql.connector.connect(
     host="remotemysql.com",
     user="P0xYObZY55",
@@ -14,17 +15,29 @@ mydb = mysql.connector.connect(
 mycursor = mydb.cursor()
 
 
-app = Flask(__name__)
-
-
 @app.route('/')
 def index():
-
+    print("VERİTABANI YÜKLENİYOR..")
+    mydb = mysql.connector.connect(
+    host="remotemysql.com",
+    user="P0xYObZY55",
+    password="3bT6PmoVEb",
+    database="P0xYObZY55"
+    )
+    mycursor = mydb.cursor()
     return render_template("index.html")
 
 
 @app.route('/yontem_1.html')
 def yontem1():
+    print("VERİTABANI YÜKLENİYOR..")
+    mydb = mysql.connector.connect(
+    host="remotemysql.com",
+    user="P0xYObZY55",
+    password="3bT6PmoVEb",
+    database="P0xYObZY55"
+    )
+    mycursor = mydb.cursor()
 
     global satir_liste
 
@@ -42,6 +55,14 @@ def yontem1():
 
 @app.route('/yontem_2.html')
 def yontem2():
+    print("VERİTABANI YÜKLENİYOR..")
+    mydb = mysql.connector.connect(
+    host="remotemysql.com",
+    user="P0xYObZY55",
+    password="3bT6PmoVEb",
+    database="P0xYObZY55"
+    )
+    mycursor = mydb.cursor()
 
     return render_template("yontem_2.html")
 
@@ -49,6 +70,15 @@ def yontem2():
 
 @app.route("/yontem_1", methods=["POST", "GET"])
 def yontem_1():
+    print("VERİTABANI YÜKLENİYOR..")
+    mydb = mysql.connector.connect(
+    host="remotemysql.com",
+    user="P0xYObZY55",
+    password="3bT6PmoVEb",
+    database="P0xYObZY55"
+    )
+    mycursor = mydb.cursor()
+
     if request.method == "POST":
         try:
             p = request.form["p"]
@@ -123,6 +153,15 @@ def yontem_1():
 
 @app.route("/yontem_2", methods=["POST", "GET"])
 def yontem_2():
+    print("VERİTABANI YÜKLENİYOR..")
+    mydb = mysql.connector.connect(
+    host="remotemysql.com",
+    user="P0xYObZY55",
+    password="3bT6PmoVEb",
+    database="P0xYObZY55"
+    )
+    mycursor = mydb.cursor()
+    
     if request.method == "POST":
         try:
             mycursor.execute("SELECT * FROM a")
@@ -236,5 +275,5 @@ def yontem_2():
 
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run(host="0.0.0.0", port="8080")

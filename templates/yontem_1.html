@@ -23,34 +23,30 @@
     </div>
   </div>
 
-  <!-- Header -->
+  <!-- 
   <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
     <img class="w3-image" src="\static\architect.jpg" alt="Architecture" style="display: block; margin: auto;"
-      width="900" height="100">">
+      width="100%" height="100">">
     <div class="w3-display-middle w3-margin-top w3-center">
       <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>ÇELİK</b></span> <span
           class="w3-hide-small w3-text-light-grey">YAPI</span></h1>
     </div>
   </header>
-
-
-
-
-
-
+ -->
+<br><br><br><br>
   <h2 class="w3-text-red w3-center">YÖNTEM 1 İÇİN HESAPLAMA</h2>
 
-  <div class="w3-center w3-yellow w3-padding-32">
-    <form action="/yontem_1" method="post">
+  <div class="w3-center w3-yellow w3-padding-10">
+    <form action="/yontem_1" method="post" style="background-color:greenyellow;">
 
 
-      <label for="">P değeri (N):</label>
-      <input type="number" style="max-width:250px;" name="p" min="0" max="100000000000">
+      <label for="pp">P değeri (N):</label>
+      <input type="number" style="max-width:250px;" name="p" id="pp" placeholder="p değeri girin">
       <br>
-      <label for="">L değeri (m):</label>
-      <input type="number" style="max-width:250px;" name="l" min="1" max="100">
+      <label for="ll">L değeri (m):</label>
+      <input type="number" style="max-width:250px;" name="l" id="ll" placeholder="l değeri girin">
       <br>
-      <label for="">Çelik sınıfı:</label>
+      <label for="celik_sinif">Çelik sınıfı:</label>
       <select class="w3-select" id="celik_sinif" style="max-width:250px;" name="celik_sinifi">
         <option value="">SEÇİM YAPIN</option>
         <option value="235">S235</option>
@@ -58,7 +54,7 @@
         <option value="355">S355</option>
       </select>
       <br>
-      <label for="">Kesit seçin:</label>
+      <label for="demir">Kesit seçin:</label>
       <select class="w3-select" style="max-width:250px;" id="demir" name="kesit">
         <option value="">SEÇİM YAPIN</option>
         {% for i in satir_liste %}
@@ -73,10 +69,12 @@
 
     </form>
   </div>
-
+<hr><hr>
   {% if uygun_mu %}
-  <div class="w3-center w3-yellow w3-padding-16">
+  <div class="w3-center w3-yellow w3-padding-10">
+
     <p>p (N): {{p}}, l (m): {{l}}, kesit: {{kesit}}, çelik sınıfı: {{celik_sinifi}}</p>
+    <hr>
     <h1>{{uygun_mu}}</h1>
   </div>
 
@@ -93,7 +91,7 @@
 
 
   <!-- Footer -->
-  <footer class="w3-center w3-black w3-padding-8">
+  <footer class="w3-center w3-black w3-padding-10 w3-bottom">
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
         class="w3-hover-text-green">w3.css</a></p>
   </footer>
