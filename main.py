@@ -20,10 +20,10 @@ mycursor = mydb.cursor()
 def index():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-    host="remotemysql.com",
-    user="P0xYObZY55",
-    password="3bT6PmoVEb",
-    database="P0xYObZY55"
+        host="remotemysql.com",
+        user="P0xYObZY55",
+        password="3bT6PmoVEb",
+        database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
     return render_template("index.html")
@@ -33,10 +33,10 @@ def index():
 def yontem1():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-    host="remotemysql.com",
-    user="P0xYObZY55",
-    password="3bT6PmoVEb",
-    database="P0xYObZY55"
+        host="remotemysql.com",
+        user="P0xYObZY55",
+        password="3bT6PmoVEb",
+        database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
 
@@ -58,10 +58,10 @@ def yontem1():
 def yontem2():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-    host="remotemysql.com",
-    user="P0xYObZY55",
-    password="3bT6PmoVEb",
-    database="P0xYObZY55"
+        host="remotemysql.com",
+        user="P0xYObZY55",
+        password="3bT6PmoVEb",
+        database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
 
@@ -69,14 +69,15 @@ def yontem2():
 
 # --1
 
+
 @app.route("/yontem_1", methods=["POST", "GET"])
 def yontem_1():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-    host="remotemysql.com",
-    user="P0xYObZY55",
-    password="3bT6PmoVEb",
-    database="P0xYObZY55"
+        host="remotemysql.com",
+        user="P0xYObZY55",
+        password="3bT6PmoVEb",
+        database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
     print("VERİTABANI BAŞARILI ALINDI")
@@ -104,7 +105,7 @@ def yontem_1():
             maksimum_moment = (p*l)/(4)
             print("maksimum moment :", maksimum_moment)
 
-            maksimum_kesme=p/2
+            maksimum_kesme = p/2
 
             zati_sehim = ((5*float(satir[0][1])*(9.81/1000)*(l*1000)
                           ** 4)/(384*200000*(float(satir[0][15])*(10**4))))
@@ -113,8 +114,8 @@ def yontem_1():
             zati_moment = (float(satir[0][1])*9.81*(l**2))/(8)
             print("zati moment :", zati_moment)
 
-            zati_kesme=float(satir[0][1])*l/2*9.81
-            print("zati kesme :",zati_kesme)
+            zati_kesme = float(satir[0][1])*l/2*9.81
+            print("zati kesme :", zati_kesme)
 
             toplam_sehim = (zati_sehim + maksimum_sehim)
             print("toplam sehim", toplam_sehim)
@@ -122,66 +123,65 @@ def yontem_1():
             toplam_moment = (maksimum_moment+zati_moment)
             print("toplam moment :", toplam_moment)
 
-            toplam_kesme=maksimum_kesme+zati_kesme
-            print("toplam kesme :",toplam_kesme)
+            toplam_kesme = maksimum_kesme+zati_kesme
+            print("toplam kesme :", toplam_kesme)
 
             akma_sinir_durumu = (celik_sinifi*float(satir[0][17])/1.67)
-            mp=akma_sinir_durumu
+            mp = akma_sinir_durumu
             print("akma sınır durumu :", akma_sinir_durumu)
 
-            lp=(float(satir[0][18])*(1.76*(math.sqrt(200000/celik_sinifi))))/100
-            print("lp :",lp)
+            lp = (float(satir[0][18]) *
+                  (1.76*(math.sqrt(200000/celik_sinifi))))/100
+            print("lp :", lp)
 
             if l <= lp:
-                m=akma_sinir_durumu
-                print("l <= lp: durumu oldu  ",m)
+                m = akma_sinir_durumu
+                print("l <= lp: durumu oldu  ", m)
             else:
-                d=float(satir[0][9])
-                print("d: ",d)
-                tf=float(satir[0][5])
-                print("tf: ",tf)
-                wex=float(satir[0][16])
-                print("wex: ",wex)
-                j=float(satir[0][25])
-                print("j: ",j)
-                iy=float(satir[0][15])
-                print("iy: ",iy)
-                h0=d-tf
-                print("h0: ",h0)
-                cw=(iy*math.pow(h0,2))/4
-                print("cw: ",cw)
+                d = float(satir[0][9])
+                print("d: ", d)
+                tf = float(satir[0][5])
+                print("tf: ", tf)
+                wex = float(satir[0][16])
+                print("wex: ", wex)
+                j = float(satir[0][25])
+                print("j: ", j)
+                iy = float(satir[0][15])
+                print("iy: ", iy)
+                h0 = d-tf
+                print("h0: ", h0)
+                cw = (iy*math.pow(h0, 2))/4
+                print("cw: ", cw)
 
+                its = math.sqrt((math.sqrt(iy*cw)/wex))
+                print("its: ", its)
+                lr = (1.95*its*(200000/0.7*celik_sinifi)*math.sqrt((j/(wex*h0))+math.sqrt(
+                    math.pow((j/(wex*h0)), 2)+6.76*math.pow((0.7*celik_sinifi/200000), 2))))/100
+                print("lr: ", lr)
 
-                its=math.sqrt((math.sqrt(iy*cw)/wex))
-                print("its: ",its)
-                lr=(1.95*its*(200000/0.7*celik_sinifi)*math.sqrt((j/(wex*h0))+math.sqrt(math.pow((j/(wex*h0)),2)+6.76*math.pow((0.7*celik_sinifi/200000),2))))/100
-                print("lr: ",lr)
+                if lp < l <= lr:
+                    mn = (1*(mp-(mp-0.7*celik_sinifi*wex)*((l-lp)/(lr-lp))))/1.67
+                    print("lp < l <=lr: durumu oldu", mn)
 
+                elif l > lr:
+                    fcr = (1*(math.pi**2)*200000)/(math.pow(l/its), 2) * \
+                        (math.sqrt(1+0.78*(j/(wex*h0))*math.pow((l/its), 2)))
+                    mn = (fcr*wex)/1.67
+                    print("l>lr: durumu oldu", mn)
 
-                if lp < l <=lr:
-                    mn=(1*(mp-(mp-0.7*celik_sinifi*wex)*((l-lp)/(lr-lp))))/1.67
-                    print("lp < l <=lr: durumu oldu",mn)
-                    
-
-                elif l>lr:
-                    fcr=(1*(math.pi**2)*200000)/(math.pow(l/its),2)*(math.sqrt(1+0.78*(j/(wex*h0))*math.pow((l/its),2)))
-                    mn=(fcr*wex)/1.67
-                    print("l>lr: durumu oldu",mn)
-
-            if mn<=mp:
-                m=mn
+            if mn <= mp:
+                m = mn
             else:
-                m=mp
+                m = mp
 
+            aw = float(satir[0][9])*float(satir[0][4])
 
-            aw=float(satir[0][9])*float(satir[0][4])
+            cv1 = 1  # daha sonra formül eklenecek
 
-            cv1=1 # daha sonra formül eklenecek
+            guvenli_kesme = 0.6*celik_sinifi*aw*cv1/1.5
+            print("güvenli kesme :", guvenli_kesme)
 
-            guvenli_kesme=0.6*celik_sinifi*aw*cv1/1.5
-            print("güvenli kesme :",guvenli_kesme)
-
-            if ((m >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme>=toplam_kesme)):
+            if ((m >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                 uygun_mu = "UYGUN"
                 print(uygun_mu)
             else:
@@ -203,13 +203,13 @@ def yontem_1():
 def yontem_2():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-    host="remotemysql.com",
-    user="P0xYObZY55",
-    password="3bT6PmoVEb",
-    database="P0xYObZY55"
+        host="remotemysql.com",
+        user="P0xYObZY55",
+        password="3bT6PmoVEb",
+        database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
-    
+
     if request.method == "POST":
         try:
             mycursor.execute("SELECT * FROM a")
@@ -243,8 +243,8 @@ def yontem_2():
                 print("while girdi")
 
                 fark = 100000
-                kesit_2=0
-                for x, y in satir_dict.items():                    
+                kesit_2 = 0
+                for x, y in satir_dict.items():
                     print(x, y)
                     if wp_gerekli <= float(y):
                         fark_temp = float(y)-wp_gerekli
@@ -252,14 +252,12 @@ def yontem_2():
                             fark = fark_temp
                             kesit_2 = x
 
-
-                if kesit_2==0:
+                if kesit_2 == 0:
                     uygun_mu = "VERİ TABANINDA UYGUN KESİT BULUNAMADI"
                     print(uygun_mu)
                     return render_template("yontem_2.html", uygun_mu=uygun_mu)
 
                 print("kesit_2 :", kesit_2)
-                
 
                 mycursor.execute(
                     "SELECT * FROM a WHERE kesit='{}'".format(kesit_2))
@@ -267,20 +265,20 @@ def yontem_2():
                 # print(satir)
                 mydb.commit()
 
-                maksimum_kesme=p/2
+                maksimum_kesme = p/2
 
-                zati_kesme=float(satir[0][1])*l/2*9.81
-                print("zati kesme :",zati_kesme)
+                zati_kesme = float(satir[0][1])*l/2*9.81
+                print("zati kesme :", zati_kesme)
 
-                toplam_kesme=maksimum_kesme+zati_kesme
-                print("toplam kesme :",toplam_kesme)
+                toplam_kesme = maksimum_kesme+zati_kesme
+                print("toplam kesme :", toplam_kesme)
 
-                aw=float(satir[0][9])*float(satir[0][4])
+                aw = float(satir[0][9])*float(satir[0][4])
 
-                cv1=1 # daha sonra formül eklenecek
+                cv1 = 1  # daha sonra formül eklenecek
 
-                guvenli_kesme=0.6*celik_sinifi*aw*cv1/1.5
-                print("güvenli kesme :",guvenli_kesme)
+                guvenli_kesme = 0.6*celik_sinifi*aw*cv1/1.5
+                print("güvenli kesme :", guvenli_kesme)
 
                 zati_sehim = ((5*float(satir_2[0][1])*(9.81/1000)*(l*1000)**4)/(
                     384*200000*(float(satir_2[0][15])*(10**4))))
@@ -302,7 +300,7 @@ def yontem_2():
                 akma_sinir_durumu = (celik_sinifi*float(satir_2[0][17])/1.67)
                 print("akma sınır durumu :", akma_sinir_durumu)
 
-                if ((akma_sinir_durumu >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme>=toplam_kesme)):
+                if ((akma_sinir_durumu >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
                     return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
