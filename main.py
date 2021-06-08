@@ -325,5 +325,5 @@ def yontem_2():
 
 
 if __name__ == '__main__':
-    app.debug = True
-    app.run(host="0.0.0.0", port="80")
+    #app.debug = True
+    app.run(host="0.0.0.0", port="5000")
