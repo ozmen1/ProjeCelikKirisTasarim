@@ -26,6 +26,7 @@ def index():
         database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
+    print("VERİTABANI BAŞARILI ALINDI")
     return render_template("index.html")
 
 
@@ -39,6 +40,7 @@ def yontem1():
         database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
+    print("VERİTABANI BAŞARILI ALINDI")
 
     global satir_liste
 
@@ -64,6 +66,7 @@ def yontem2():
         database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
+    print("VERİTABANI BAŞARILI ALINDI")
 
     return render_template("yontem_2.html")
 
@@ -209,6 +212,7 @@ def yontem_2():
         database="P0xYObZY55"
     )
     mycursor = mydb.cursor()
+    print("VERİTABANI BAŞARILI ALINDI")
 
     if request.method == "POST":
         try:
@@ -321,5 +325,5 @@ def yontem_2():
 
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run(host="0.0.0.0", port="8080")

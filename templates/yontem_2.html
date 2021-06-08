@@ -24,32 +24,23 @@
   </div>
 
 
-  <!--   <header class="w3-display-container w3-content w3-wide" style="max-width:1500px;" id="home">
-    <img class="w3-image" src="\static\architect.jpg" alt="Architecture" style="display: block; margin: auto;"
-      width="100%" height="100">
-    <div class="w3-display-middle w3-margin-top w3-center">
-      <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-black w3-opacity-min"><b>ÇELİK</b></span> <span
-          class="w3-hide-small w3-text-light-grey">YAPI</span></h1>
-    </div>
-  </header> -->
-
-  <br><br><br><br>
+  <br><br><br>
 
   <h2 class="w3-text-red w3-center">YÖNTEM 2 İÇİN HESAPLAMA</h2>
 
   <div class="w3-center w3-yellow w3-padding-10">
 
     <form action="/yontem_2" method="post" style="background-color:greenyellow;">
-
-      <div class="w3-center">
-      <table>
+      <table style="margin: auto;">
         <tr>
           <td><label for="p_degeri">P değeri (N):</label></td>
-          <td><input class="w3-input" style="max-width:250px;" type="number" id="p_degeri" name="p" placeholder="p değeri girin"></td>
+          <td><input class="w3-input" style="max-width:250px;" type="number" id="p_degeri" name="p"
+              placeholder="p değeri girin"></td>
         </tr>
         <tr>
           <td><label for="ll">L değeri (m):</label></td>
-          <td><input class="w3-input" style="max-width:250px;" type="number" name="l" id="ll" placeholder="l değeri girin"></td>
+          <td><input class="w3-input" style="max-width:250px;" type="number" name="l" id="ll"
+              placeholder="l değeri girin"></td>
         </tr>
         <tr>
           <td><label for="celik_sinif">Çelik sınıfı:</label></td>
@@ -62,7 +53,6 @@
             </select>
           </td>
         </tr>
-
         <tr>
           <td><label for="kesit_tipi">Kesit Tipi:</label></td>
           <td>
@@ -76,44 +66,26 @@
             </select>
           </td>
         </tr>
-
         <tr>
           <td><input class="w3-input" type="submit" value="HESAPLA"></td>
         </tr>
       </table>
-    </div>
-
     </form>
-
   </div>
-
   {% if uygun_mu %}
-  <div class="w3-center w3-yellow w3-padding-10">
-    <br>
+  <div class="w3-center w3-yellow w3-padding-5">
     <h1>{{kesitt}}</h1>
-    <br>
+    <hr>
     <h1>{{uygun_mu}}</h1>
   </div>
-
-
   {%endif%}
-
-
-
-
-
-
   <br>
   <br>
   <br>
-
-
   <!-- Footer -->
   <footer class="w3-center w3-black w3-padding-10 w3-bottom">
     <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank"
         class="w3-hover-text-green">w3.css</a></p>
   </footer>
-
 </body>
-
 </html>
