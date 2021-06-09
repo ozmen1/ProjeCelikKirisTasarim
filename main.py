@@ -91,15 +91,26 @@ def yontem_1():
             l = request.form["l"]
             celik_sinifi = request.form["celik_sinifi"]
             kesit = request.form["kesit"]
+            yukleme_durumlari = request.form["yukleme_durumlari"]
 
             p = float(p)
             l = float(l)
             celik_sinifi = float(celik_sinifi)
+            yukleme_durumlari=int(yukleme_durumlari)
 
             mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit))
             satir = mycursor.fetchall()
             print(satir)
             mydb.commit()
+
+            if yukleme_durumlari==1:
+                print("1_Basit Kiriş - Düzgün Yayılı Yük")
+            elif yukleme_durumlari==7:
+                print("7_Basit Kiriş – Merkezde Noktasal Yük")
+            elif yukleme_durumlari==19:
+                pass
+            elif yukleme_durumlari==22:
+                pass
 
             maksimum_sehim = (p*(l*1000)**3)/(48*200000 *
                                               float(satir[0][15])*(10**4))
@@ -224,10 +235,12 @@ def yontem_2():
             l = request.form["l"]
             celik_sinifi = request.form["celik_sinifi"]
             kesit_tipi = request.form["kesit_tipi"]
+            yukleme_durumlari = request.form["yukleme_durumlari"]
 
             p = float(p)
             l = float(l)
             celik_sinifi = float(celik_sinifi)
+            yukleme_durumlari=int(yukleme_durumlari)
 
             maksimum_moment = (p*l)/(4)
             print("maksimum moment :", maksimum_moment)
