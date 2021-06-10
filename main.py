@@ -1,6 +1,7 @@
 import mysql.connector
 from flask import Flask, render_template, request
 import math
+from functions import *
 
 
 app = Flask(__name__)
@@ -14,7 +15,7 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
-# Ozgun Ozgun Ozgun
+
 
 @app.route('/')
 def index():
@@ -140,60 +141,16 @@ def yontem_1():
             toplam_kesme = maksimum_kesme+zati_kesme
             print("toplam kesme :", toplam_kesme)
 
-            akma_sinir_durumu = (celik_sinifi*float(satir[0][17])/1.67)
-            mp = akma_sinir_durumu
-            print("akma sınır durumu :", akma_sinir_durumu)
-
-            lp = (float(satir[0][18]) *
-                  (1.76*(math.sqrt(200000/celik_sinifi))))/100
-            print("lp :", lp)
-
-            if l <= lp:
-                m = akma_sinir_durumu
-                print("l <= lp: durumu oldu  ", m)
-            else:
-                d = float(satir[0][9])
-                print("d: ", d)
-                tf = float(satir[0][5])
-                print("tf: ", tf)
-                wex = float(satir[0][16])
-                print("wex: ", wex)
-                j = float(satir[0][25])
-                print("j: ", j)
-                iy = float(satir[0][15])
-                print("iy: ", iy)
-                h0 = d-tf
-                print("h0: ", h0)
-                cw = (iy*math.pow(h0, 2))/4
-                print("cw: ", cw)
-
-                its = math.sqrt((math.sqrt(iy*cw)/wex))
-                print("its: ", its)
-                lr = (1.95*its*(200000/0.7*celik_sinifi)*math.sqrt((j/(wex*h0))+math.sqrt(
-                    math.pow((j/(wex*h0)), 2)+6.76*math.pow((0.7*celik_sinifi/200000), 2))))/100
-                print("lr: ", lr)
-
-                if lp < l <= lr:
-                    mn = (1*(mp-(mp-0.7*celik_sinifi*wex)*((l-lp)/(lr-lp))))/1.67
-                    print("lp < l <=lr: durumu oldu", mn)
-
-                elif l > lr:
-                    fcr = (1*(math.pi**2)*200000)/(math.pow(l/its), 2) * \
-                        (math.sqrt(1+0.78*(j/(wex*h0))*math.pow((l/its), 2)))
-                    mn = (fcr*wex)/1.67
-                    print("l>lr: durumu oldu", mn)
-
-            if mn <= mp:
-                m = mn
-            else:
-                m = mp
 
             aw = float(satir[0][9])*float(satir[0][4])
-
             cv1 = 1  # daha sonra formül eklenecek
-
             guvenli_kesme = 0.6*celik_sinifi*aw*cv1/1.5
             print("güvenli kesme :", guvenli_kesme)
+
+
+            m=yonetmelik9_2(l,celik_sinifi,satir)
+
+
 
             if ((m >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                 uygun_mu = "UYGUN"
@@ -314,10 +271,10 @@ def yontem_2():
                 toplam_moment = (maksimum_moment+zati_moment)
                 print("toplam moment :", toplam_moment)
 
-                akma_sinir_durumu = (celik_sinifi*float(satir_2[0][17])/1.67)
-                print("akma sınır durumu :", akma_sinir_durumu)
+                mg = (celik_sinifi*float(satir_2[0][17])/1.67)
+                print("akma sınır durumu :", mg)
 
-                if ((akma_sinir_durumu >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
+                if ((mg >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
                     return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
