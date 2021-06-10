@@ -14,7 +14,7 @@ mydb = mysql.connector.connect(
 )
 
 mycursor = mydb.cursor()
-
+# Ozgun Ozgun Ozgun
 
 @app.route('/')
 def index():
