@@ -7,10 +7,10 @@ app = Flask(__name__)
 
 print("VERİTABANI YÜKLENİYOR..")
 mydb = mysql.connector.connect(
-    host="remotemysql.com",
-    user="P0xYObZY55",
-    password="3bT6PmoVEb",
-    database="P0xYObZY55"
+    host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+    user="projecelikkirist",
+    password="8imtr4WtwXGaUp@",
+    database="projecelikkirist$P0xYObZY55"
 )
 
 mycursor = mydb.cursor()
@@ -20,10 +20,10 @@ mycursor = mydb.cursor()
 def index():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-        host="remotemysql.com",
-        user="P0xYObZY55",
-        password="3bT6PmoVEb",
-        database="P0xYObZY55"
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
     )
     mycursor = mydb.cursor()
     print("VERİTABANI BAŞARILI ALINDI")
@@ -34,10 +34,10 @@ def index():
 def yontem1():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-        host="remotemysql.com",
-        user="P0xYObZY55",
-        password="3bT6PmoVEb",
-        database="P0xYObZY55"
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
     )
     mycursor = mydb.cursor()
     print("VERİTABANI BAŞARILI ALINDI")
@@ -60,10 +60,10 @@ def yontem1():
 def yontem2():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-        host="remotemysql.com",
-        user="P0xYObZY55",
-        password="3bT6PmoVEb",
-        database="P0xYObZY55"
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
     )
     mycursor = mydb.cursor()
     print("VERİTABANI BAŞARILI ALINDI")
@@ -77,10 +77,10 @@ def yontem2():
 def yontem_1():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-        host="remotemysql.com",
-        user="P0xYObZY55",
-        password="3bT6PmoVEb",
-        database="P0xYObZY55"
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
     )
     mycursor = mydb.cursor()
     print("VERİTABANI BAŞARILI ALINDI")
@@ -217,10 +217,10 @@ def yontem_1():
 def yontem_2():
     print("VERİTABANI YÜKLENİYOR..")
     mydb = mysql.connector.connect(
-        host="remotemysql.com",
-        user="P0xYObZY55",
-        password="3bT6PmoVEb",
-        database="P0xYObZY55"
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
     )
     mycursor = mydb.cursor()
     print("VERİTABANI BAŞARILI ALINDI")
