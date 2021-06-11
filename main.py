@@ -125,7 +125,9 @@ def yontem_1():
             elif yukleme_durumlari==22:
                 pass
 
-            maksimum_sehim = (p*(l*1000)**3)/(48*200000 *
+            E=200000  #elastisite modulu (MPa)
+
+            maksimum_sehim = (p*(l*1000)**3)/(48*E *
                                               float(satir[0][15])*(10**4))
             print("maksimum sehim :", maksimum_sehim)
 
@@ -135,7 +137,7 @@ def yontem_1():
             maksimum_kesme = p/2
 
             zati_sehim = ((5*float(satir[0][1])*(9.81/1000)*(l*1000)
-                          ** 4)/(384*200000*(float(satir[0][15])*(10**4))))
+                          ** 4)/(384*E*(float(satir[0][15])*(10**4))))
             print("zati sehim :", zati_sehim)
 
             zati_moment = (float(satir[0][1])*9.81*(l**2))/(8)
@@ -160,11 +162,11 @@ def yontem_1():
             print("güvenli kesme :", guvenli_kesme)
 
 
-            m=yonetmelik9_2(l,celik_sinifi,satir)
+            mg=yonetmelik9_2(l,celik_sinifi,satir)
 
+            print("mg = ",mg)
 
-
-            if ((m >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
+            if ((mg >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                 uygun_mu = "UYGUN"
                 print(uygun_mu)
             else:
@@ -193,6 +195,7 @@ def yontem_2():
     )
     mycursor = mydb.cursor()
     print("VERİTABANI BAŞARILI ALINDI")
+    E = 200000  # elastisite modulu (MPa)
 
     if request.method == "POST":
         try:
@@ -267,14 +270,14 @@ def yontem_2():
                 print("güvenli kesme :", guvenli_kesme)
 
                 zati_sehim = ((5*float(satir_2[0][1])*(9.81/1000)*(l*1000)**4)/(
-                    384*200000*(float(satir_2[0][15])*(10**4))))
+                    384*E*(float(satir_2[0][15])*(10**4))))
                 print("zati sehim :", zati_sehim)
 
                 zati_moment = (float(satir_2[0][1])*9.81*(l**2))/(8)
                 print("zati moment :", zati_moment)
 
                 maksimum_sehim = (p*(l*1000)**3) / \
-                    (48*200000*float(satir_2[0][15])*(10**4))
+                    (48*E*float(satir_2[0][15])*(10**4))
                 print("maksimum sehim :", maksimum_sehim)
 
                 toplam_sehim = (zati_sehim + maksimum_sehim)
@@ -283,8 +286,9 @@ def yontem_2():
                 toplam_moment = (maksimum_moment+zati_moment)
                 print("toplam moment :", toplam_moment)
 
-                mg = (celik_sinifi*float(satir_2[0][17])/1.67)
-                print("akma sınır durumu :", mg)
+#                mg = (celik_sinifi*float(satir_2[0][17])/1.67)
+                mg = yonetmelik9_2(l, celik_sinifi, satir_2)
+                print("guvenli egilme momenti dayanimi:", mg)
 
                 if ((mg >= toplam_moment) and ((l*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
