@@ -13,7 +13,7 @@ def yonetmelik9_2(l,celik_sinifi,satir):
         mn = mp
         print("l <= lp: durumu oldu  ", mn)
     else:
-        d = float(satir[0][9])
+        d = float(satir[0][2])
         print("d: ", d)
         tf = float(satir[0][5])
         print("tf: ", tf)
@@ -25,7 +25,7 @@ def yonetmelik9_2(l,celik_sinifi,satir):
         print("iy: ", iy)
         h0 = d - tf
         print("h0: ", h0)
-        cw = (iy * math.pow(h0, 2)) / 4
+        cw = (iy * math.pow(h0/10, 2)) / 4
         print("cw: ", cw)
 
         its = math.sqrt((math.sqrt(iy * cw) / wex))
