@@ -3,10 +3,10 @@ import xlrd
 
 print("VERİTABANI YÜKLENİYOR..")
 mydb = mysql.connector.connect(
-  host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
-  user="projecelikkirist",
-  password="8imtr4WtwXGaUp@",
-  database="projecelikkirist$P0xYObZY55"
+  host="remotemysql.com",
+  user="P0xYObZY55",
+  password="3bT6PmoVEb",
+  database="P0xYObZY55"
 )
 
 mycursor = mydb.cursor()
