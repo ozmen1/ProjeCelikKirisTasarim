@@ -64,7 +64,7 @@ for i in range(len(satir)):
   satir_liste.append(satir[i][0])
 
 
-print(satir_liste)
+print(satir_liste,sep="\n")
 
 
 mydb.commit()

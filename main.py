@@ -1,59 +1,83 @@
 import mysql.connector
 from flask import Flask, render_template, request
-import math
 from functions import *
-
 
 app = Flask(__name__)
 
-print("VERİTABANI YÜKLENİYOR..")
-#mydb = mysql.connector.connect(
-#    host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
-#    user="projecelikkirist",
-#    password="8imtr4WtwXGaUp@",
-#    database="projecelikkirist$P0xYObZY55"
-#)
-mydb = mysql.connector.connect(
+
+try:
+    print("LOCAL_VERİTABANI YÜKLENİYOR..")
+    mydb = mysql.connector.connect(
     host="remotemysql.com",
     user="P0xYObZY55",
     password="3bT6PmoVEb",
     database="P0xYObZY55"
-)
+    )
+    mycursor = mydb.cursor()
+    print("LOCAL_VERİTABANI BAŞARILI ALINDI")
 
-mycursor = mydb.cursor()
-
+except:
+    print("WEB_VERİTABANI YÜKLENİYOR..")
+    mydb = mysql.connector.connect(
+    host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+    user="projecelikkirist",
+    password="8imtr4WtwXGaUp@",
+    database="projecelikkirist$P0xYObZY55"
+    )
+    mycursor = mydb.cursor()
+    print("WEB_VERİTABANI BAŞARILI ALINDI")
+    
 
 @app.route('/')
 def index():
-    print("VERİTABANI YÜKLENİYOR..")
-#    mydb = mysql.connector.connect(
-#        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
-#        user="projecelikkirist",
-#        password="8imtr4WtwXGaUp@",
-#        database="projecelikkirist$P0xYObZY55"
-#    )
-    mydb = mysql.connector.connect(
+    try:
+        print("LOCAL_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
         host="remotemysql.com",
         user="P0xYObZY55",
         password="3bT6PmoVEb",
         database="P0xYObZY55"
-    )
-    mycursor = mydb.cursor()
-    print("VERİTABANI BAŞARILI ALINDI")
+        )
+        mycursor = mydb.cursor()
+        print("LOCAL_VERİTABANI BAŞARILI ALINDI")
+
+    except:
+        print("WEB_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
+        )
+        mycursor = mydb.cursor()
+        print("WEB_VERİTABANI BAŞARILI ALINDI")
     return render_template("index.html")
 
 
 @app.route('/yontem_1.html')
 def yontem1():
-    print("VERİTABANI YÜKLENİYOR..")
-    mydb = mysql.connector.connect(
+    try:
+        print("LOCAL_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
         host="remotemysql.com",
         user="P0xYObZY55",
         password="3bT6PmoVEb",
         database="P0xYObZY55"
-    )
-    mycursor = mydb.cursor()
-    print("VERİTABANI BAŞARILI ALINDI")
+        )
+        mycursor = mydb.cursor()
+        print("LOCAL_VERİTABANI BAŞARILI ALINDI")
+
+    except:
+        print("WEB_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
+        )
+        mycursor = mydb.cursor()
+        print("WEB_VERİTABANI BAŞARILI ALINDI")
+    
 
     global satir_liste
 
@@ -71,15 +95,27 @@ def yontem1():
 
 @app.route('/yontem_2.html')
 def yontem2():
-    print("VERİTABANI YÜKLENİYOR..")
-    mydb = mysql.connector.connect(
+    try:
+        print("LOCAL_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
         host="remotemysql.com",
         user="P0xYObZY55",
         password="3bT6PmoVEb",
         database="P0xYObZY55"
-    )
-    mycursor = mydb.cursor()
-    print("VERİTABANI BAŞARILI ALINDI")
+        )
+        mycursor = mydb.cursor()
+        print("LOCAL_VERİTABANI BAŞARILI ALINDI")
+
+    except:
+        print("WEB_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
+        )
+        mycursor = mydb.cursor()
+        print("WEB_VERİTABANI BAŞARILI ALINDI")
 
     return render_template("yontem_2.html")
 
@@ -88,15 +124,27 @@ def yontem2():
 
 @app.route("/yontem_1", methods=["POST", "GET"])
 def yontem_1():
-    print("VERİTABANI YÜKLENİYOR..")
-    mydb = mysql.connector.connect(
+    try:
+        print("LOCAL_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
         host="remotemysql.com",
         user="P0xYObZY55",
         password="3bT6PmoVEb",
         database="P0xYObZY55"
-    )
-    mycursor = mydb.cursor()
-    print("VERİTABANI BAŞARILI ALINDI")
+        )
+        mycursor = mydb.cursor()
+        print("LOCAL_VERİTABANI BAŞARILI ALINDI")
+
+    except:
+        print("WEB_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
+        )
+        mycursor = mydb.cursor()
+        print("WEB_VERİTABANI BAŞARILI ALINDI")
 
     if request.method == "POST":
         try:
@@ -121,9 +169,9 @@ def yontem_1():
             elif yukleme_durumlari==7:
                 print("7_Basit Kiriş – Merkezde Noktasal Yük")
             elif yukleme_durumlari==19:
-                pass
+                print("19_Konsol Kiriş – Düzgün Yayılı Yük")
             elif yukleme_durumlari==22:
-                pass
+                print("22_Konsol Kiriş – Serbest Uçta Noktasal Yük")
 
             E=200000  #elastisite modulu (MPa)
 
@@ -186,15 +234,29 @@ def yontem_1():
 
 @app.route("/yontem_2", methods=["POST", "GET"])
 def yontem_2():
-    print("VERİTABANI YÜKLENİYOR..")
-    mydb = mysql.connector.connect(
+    try:
+        print("LOCAL_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
         host="remotemysql.com",
         user="P0xYObZY55",
         password="3bT6PmoVEb",
         database="P0xYObZY55"
-    )
-    mycursor = mydb.cursor()
-    print("VERİTABANI BAŞARILI ALINDI")
+        )
+        mycursor = mydb.cursor()
+        print("LOCAL_VERİTABANI BAŞARILI ALINDI")
+
+    except:
+        print("WEB_VERİTABANI YÜKLENİYOR..")
+        mydb = mysql.connector.connect(
+        host="projecelikkiristasarim.mysql.pythonanywhere-services.com",
+        user="projecelikkirist",
+        password="8imtr4WtwXGaUp@",
+        database="projecelikkirist$P0xYObZY55"
+        )
+        mycursor = mydb.cursor()
+    print("WEB_VERİTABANI BAŞARILI ALINDI")
+
+
     E = 200000  # elastisite modulu (MPa)
 
     if request.method == "POST":
@@ -213,6 +275,18 @@ def yontem_2():
             l = float(l)
             celik_sinifi = float(celik_sinifi)
             yukleme_durumlari=int(yukleme_durumlari)
+
+            
+
+            if yukleme_durumlari==1:
+                print("1_Basit Kiriş - Düzgün Yayılı Yük")
+            elif yukleme_durumlari==7:
+                print("7_Basit Kiriş – Merkezde Noktasal Yük")
+            elif yukleme_durumlari==19:
+                print("19_Konsol Kiriş – Düzgün Yayılı Yük")
+            elif yukleme_durumlari==22:
+                print("22_Konsol Kiriş – Serbest Uçta Noktasal Yük")
+
 
             maksimum_moment = (p*l)/(4)
             print("maksimum moment :", maksimum_moment)
@@ -286,7 +360,6 @@ def yontem_2():
                 toplam_moment = (maksimum_moment+zati_moment)
                 print("toplam moment :", toplam_moment)
 
-#                mg = (celik_sinifi*float(satir_2[0][17])/1.67)
                 mg = yonetmelik9_2(l, celik_sinifi, satir_2)
                 print("guvenli egilme momenti dayanimi:", mg)
 
