@@ -163,25 +163,29 @@ def yontem_1():
             print(satir)
             mydb.commit()
 
+            E = 200000  # elastisite modulu (MPa)
+
             if yukleme_durumlari == 1:
                 print("1_Basit Kiriş - Düzgün Yayılı Yük")
+
+
             elif yukleme_durumlari == 7:
                 print("7_Basit Kiriş – Merkezde Noktasal Yük")
+                maksimum_sehim = (p*(l*1000)**3)/(48*E *float(satir[0][15])*(10**4))
+                print("maksimum sehim :", maksimum_sehim)
+                maksimum_moment = (p*l)/(4)
+                print("maksimum moment :", maksimum_moment)
+                maksimum_kesme = p/2
+                print("maksimum kesme :", maksimum_kesme)
+
             elif yukleme_durumlari == 19:
                 print("19_Konsol Kiriş – Düzgün Yayılı Yük")
+
+                
             elif yukleme_durumlari == 22:
                 print("22_Konsol Kiriş – Serbest Uçta Noktasal Yük")
 
-            E = 200000  # elastisite modulu (MPa)
-
-            maksimum_sehim = (p*(l*1000)**3)/(48*E *
-                                              float(satir[0][15])*(10**4))
-            print("maksimum sehim :", maksimum_sehim)
-
-            maksimum_moment = (p*l)/(4)
-            print("maksimum moment :", maksimum_moment)
-
-            maksimum_kesme = p/2
+            
 
             zati_sehim = ((5*float(satir[0][1])*(9.81/1000)*(l*1000)
                           ** 4)/(384*E*(float(satir[0][15])*(10**4))))
