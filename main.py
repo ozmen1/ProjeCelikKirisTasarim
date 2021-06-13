@@ -372,50 +372,7 @@ def yontem_2():
                 satir_2 = mycursor.fetchall()
                 # print(satir)
                 mydb.commit()
-
-
-
-                if yukleme_durumlari == 1:
-                    print("1_Basit Kiriş - Düzgün Yayılı Yük")
-                    maksimum_sehim=(5*yayili_yuk*(l**4))/(384*E*float(satir[0][15])*(10**4))
-                    print("maksimum sehim :", maksimum_sehim)
-                    maksimum_moment=(yayili_yuk*(l**2))/(8)
-                    print("maksimum moment :", maksimum_moment)
-                    maksimum_kesme=(yayili_yuk*l)/(2)
-                    print("maksimum kesme :", maksimum_kesme)
-
-                elif yukleme_durumlari == 7:
-                    print("7_Basit Kiriş – Merkezde Noktasal Yük")
-                    maksimum_sehim = (p*(l*1000)**3)/(48*E*float(satir[0][15])*(10**4))
-                    print("maksimum sehim :", maksimum_sehim)
-                    maksimum_moment = (p*l)/(4)
-                    print("maksimum moment :", maksimum_moment)
-                    maksimum_kesme = p/2
-                    print("maksimum kesme :", maksimum_kesme)
-
-                elif yukleme_durumlari == 19:
-                    print("19_Konsol Kiriş – Düzgün Yayılı Yük")
-                    maksimum_sehim=(yayili_yuk*(l**4))/(8*E*float(satir[0][15])*(10**4))
-                    print("maksimum sehim :", maksimum_sehim)
-                    maksimum_moment=(yayili_yuk*(l**2))/(2)
-                    print("maksimum moment :", maksimum_moment)
-                    maksimum_kesme=(yayili_yuk*l)
-                    print("maksimum kesme :", maksimum_kesme)
-
-
-                elif yukleme_durumlari == 22:
-                    print("22_Konsol Kiriş – Serbest Uçta Noktasal Yük")
-                    maksimum_sehim = (p*(l*1000)**3)/(3*E*float(satir[0][15])*(10**4))
-                    print("maksimum sehim :", maksimum_sehim)
-                    maksimum_moment = (p*l)
-                    print("maksimum moment :", maksimum_moment)
-                    maksimum_kesme=(p)
-                    print("maksimum kesme :", maksimum_kesme)
-
-
-
-
-
+    
 
 
 
