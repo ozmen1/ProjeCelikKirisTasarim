@@ -244,7 +244,7 @@ def yontem_1():
                 uygun_mu = "UYGUN DEĞİL"
                 print(uygun_mu)
 
-            return render_template("yontem_1.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, uygun_mu=uygun_mu)
+            return render_template("yontem_1.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
         except:
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
@@ -337,7 +337,7 @@ def yontem_2():
                 print("maksimum kesme :", maksimum_kesme)
 
 
-                
+
 
             wp_gerekli = maksimum_moment*1.67/celik_sinifi
             print("Wp gerekli : ", wp_gerekli)
