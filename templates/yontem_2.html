@@ -7,6 +7,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <title>YÖNTEM 2</title>
+  <script>
+    function gizle() {
+
+      var x = document.getElementById("yuk_dur").value;
+
+      if (x == "7") {
+        document.getElementById("ww").style.display = "none";
+        document.getElementById("ww2").style.display = "none";
+        document.getElementById("p_degeri").style.display = "block";
+        document.getElementById("p_degeri2").style.display = "block";
+      } else if (x == "22") {
+        document.getElementById("ww").style.display = "none";
+        document.getElementById("ww2").style.display = "none";
+        document.getElementById("p_degeri").style.display = "block";
+        document.getElementById("p_degeri2").style.display = "block";
+      } else {
+        document.getElementById("ww").style.display = "block";
+        document.getElementById("ww2").style.display = "block";
+        document.getElementById("p_degeri").style.display = "none";
+        document.getElementById("p_degeri2").style.display = "none";
+      }
+
+    }
+  </script>
 </head>
 
 <body>
@@ -40,13 +64,26 @@
     <form action="/yontem_2" method="post" style="background-color:greenyellow;">
       <table style="margin: auto;">
         <tr>
-          <td><label for="p_degeri">P değeri (N):</label></td>
-          <td><input class="w3-input" style="max-width:250px;" type="number" min="0" id="p_degeri" name="p"
-              placeholder="p değeri girin"></td>
+          <td><label for="yuk_dur">Yükleme Durumları:</label></td>
+          <td>
+            <select class="w3-select" id="yuk_dur" style="max-width:250px;" name="yukleme_durumlari" onchange="gizle()">
+              <option value="">SEÇİM YAPIN</option>
+              <option value="1">Basit Kiriş - Düzgün Yayılı Yük</option>
+              <option value="7">Basit Kiriş – Merkezde Noktasal Yük</option>
+              <option value="19"> Konsol Kiriş – Düzgün Yayılı Yük</option>
+              <option value="22">Konsol Kiriş – Serbest Uçta Noktasal Yük</option>
+            </select>
+          </td>
         </tr>
         <tr>
+          <tr>
+            <td><label id="p_degeri2" for="p_degeri">P değeri (N):</label></td>
+            <td><input class="w3-input" style="max-width:250px;" type="number" value="0" min="0" id="p_degeri" name="p"
+                placeholder="p değeri girin"></td>
+          </tr>
+        <tr>
           <td><label for="ll">L değeri (m):</label></td>
-          <td><input class="w3-input" style="max-width:250px;" type="number" min="0" name="l" id="ll"
+          <td><input class="w3-input" style="max-width:250px;" value="0" type="number" min="0" name="l" id="ll"
               placeholder="l değeri girin"></td>
         </tr>
         <tr>
@@ -74,16 +111,9 @@
           </td>
         </tr>
         <tr>
-          <td><label for="yuk_dur">Yükleme Durumları:</label></td>
-          <td>
-            <select class="w3-select" id="yuk_dur" style="max-width:250px;" name="yukleme_durumlari">
-              <option value="">SEÇİM YAPIN</option>
-              <option value="1">Basit Kiriş - Düzgün Yayılı Yük</option>
-              <option value="7">Basit Kiriş – Merkezde Noktasal Yük</option>
-              <option value="19"> Konsol Kiriş – Düzgün Yayılı Yük</option>
-              <option value="22">Konsol Kiriş – Serbest Uçta Noktasal Yük</option>
-            </select>
-          </td>
+          <td><label id="ww2" for="ww">Yayılı Yük (w) :</label></td>
+          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="w" id="ww"
+              placeholder="w değeri girin"></td>
         </tr>
         <tr>
           <td><input class="w3-input" type="submit" value="HESAPLA"></td>
