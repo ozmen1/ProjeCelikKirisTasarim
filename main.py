@@ -1,6 +1,9 @@
+from logging import log
 import mysql.connector
 from flask import Flask, render_template, request
 from functions import *
+import datetime,os,shutil
+
 
 app = Flask(__name__)
 
@@ -117,6 +120,16 @@ def yontem2():
         print("WEB_VERİTABANI BAŞARILI ALINDI")
 
     return render_template("yontem_2.html")
+
+
+
+@app.route('/log.html')
+def log(a):
+
+    aa=a
+        
+
+    return render_template("log.html", a=aa)
 
 # --1
 
@@ -240,7 +253,9 @@ def yontem_1():
                 # kesit değiştirme yapılacak
                 uygun_mu = "UYGUN DEĞİL"
                 print(uygun_mu)
+            
 
+            log(uygun_mu)
             return render_template("yontem_1.html", satir_liste=satir_liste, p=p, l=l, kesit=kesit, celik_sinifi=celik_sinifi, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
         except:
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
