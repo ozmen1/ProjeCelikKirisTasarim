@@ -80,17 +80,17 @@
         </tr>
         <tr>
           <td><label id="p_degeri2" for="p_degeri">P değeri (N):</label></td>
-          <td><input class="w3-input" style="max-width:250px;" type="number" value="0" min="0" id="p_degeri" name="p"
+          <td><input class="w3-input" style="max-width:250px;" type="number" value="0" min="0" id="p_degeri" name="P"
               placeholder="p değeri girin"></td>
         </tr>
                 <tr>
-          <td><label id="ww2" for="ww">Yayılı Yük (w) :</label></td>
+          <td><label id="ww2" for="ww">Yayılı Yük, w (N/m) :</label></td>
           <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="w" id="ww"
               placeholder="w değeri girin"></td>
         </tr>
         <tr>
           <td><label for="ll">L değeri (m):</label></td>
-          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="l" id="ll"
+          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="L" id="ll"
               placeholder="l değeri girin"></td>
         </tr>
         <tr>
@@ -123,7 +123,7 @@
   </div>
   {% if uygun_mu %}
   <div class="w3-center w3-yellow w3-padding-5">
-    <p>p (N): {{p}}, l (m): {{l}}, kesit: {{kesit}}, çelik sınıfı: {{celik_sinifi}}, yayılı yük (w): {{ yayili_yuk }}</p>
+    <p>P (N): {{P}}, L (m): {{L}}, kesit: {{kesit}}, çelik sınıfı: {{celik_sinifi}}, yayılı yük w (N/m): {{ yayili_yuk }}</p>
     <hr>
     <h1>{{uygun_mu}}</h1>
   </div>
