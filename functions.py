@@ -2,14 +2,14 @@ import math
 
 def yonetmelik9_2(l,celik_sinifi,satir):
     E=200000
-    mp = celik_sinifi * float(satir[0][17])
-    lp = (float(satir[0][23]) *
+    Mp = celik_sinifi * float(satir[0][17])
+    Lp = (float(satir[0][23]) *
           (1.76 * (math.sqrt(E / celik_sinifi)))) / 100
-    print("lp :", lp)
+    print("Lp :", Lp)
 
-    if l <= lp:
-        mn = mp
-        print("l <= lp: durumu oldu  ", mn)
+    if l <= Lp:
+        Mn = Mp
+        print("L <= Lp: durumu oldu  ", Mn)
     else:
         d = float(satir[0][2])
         print("d: ", d)
@@ -21,38 +21,38 @@ def yonetmelik9_2(l,celik_sinifi,satir):
         print("h: ", h)
         tw = float(satir[0][4])
         print("tw: ", tw)
-        wex = float(satir[0][16])
-        print("wex: ", wex)
-        j = float(satir[0][25])
-        print("j: ", j)
-        iy = float(satir[0][15])
-        print("iy: ", iy)
+        Wex = float(satir[0][16])
+        print("Wex: ", Wex)
+        J = float(satir[0][25])
+        print("J: ", J)
+        Iy = float(satir[0][15])
+        print("Iy: ", Iy)
         h0 = d - tf
         print("h0: ", h0)
         its = bf/math.sqrt(12*(1+h*tw/(6*bf*tf)))/10
         print("its: ", its)
-        lr = (1.95 * its * (E / 0.7 / celik_sinifi) * math.sqrt((j / (wex * h0/10)) + math.sqrt(
-            math.pow((j / (wex * h0/10)), 2) + 6.76 * math.pow((0.7 * celik_sinifi / E), 2)))) / 100
-        print("lr: ", lr)
+        Lr = (1.95 * its * (E / 0.7 / celik_sinifi) * math.sqrt((J / (Wex * h0/10)) + math.sqrt(
+            math.pow((J / (Wex * h0/10)), 2) + 6.76 * math.pow((0.7 * celik_sinifi / E), 2)))) / 100
+        print("Lr: ", Lr)
 
-#        if lp < l <= lr:
-        if lp < l  and l <= lr:
-            mn = 1 * (mp - (mp - 0.7 * celik_sinifi * wex) * ((l - lp) / (lr - lp)))
-            print("lp < l <=lr: durumu oldu", mn)
+#        if Lp < l <= Lr:
+        if Lp < l  and l <= Lr:
+            Mn = 1 * (Mp - (Mp - 0.7 * celik_sinifi * Wex) * ((l - Lp) / (Lr - Lp)))
+            print("Lp < L <=Lr: durumu oldu", Mn)
         else:
-            fcr = (1 * (math.pi ** 2) * E) / math.pow((l*100 / its),2)*math.sqrt(1 + 0.078 * j
-                / (wex * h0/10) * math.pow((l*100 / its), 2))
-            mn = fcr * wex
-            print("l>lr: durumu oldu", mn)
+            Fcr = (1 * (math.pi ** 2) * E) / math.pow((l*100 / its),2)*math.sqrt(1 + 0.078 * J
+                / (Wex * h0/10) * math.pow((l*100 / its), 2))
+            Mn = Fcr * Wex
+            print("L > Lr: durumu oldu", Mn)
 
-    if mn <= mp:
-        m = mn
+    if Mn <= Mp:
+        M = Mn
     else:
-        m = mp
+        M = Mp
 
-    mg = m / 1.67
+    mg = M / 1.67
 
-    print("mn = ",m)
+    print("Mn = ",M)
     print("guvenli egilme momenti dayanimi :", mg)
 
     return(mg)
