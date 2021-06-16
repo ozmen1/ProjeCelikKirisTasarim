@@ -166,12 +166,23 @@ def yontem_1():
             kesit = request.form["kesit"]
             yukleme_durumlari = request.form["yukleme_durumlari"]
             yayili_yuk= request.form["w"]
+            sehim_limiti = request.form["sehim_limit"]
+            ilave_q = request.form["ilave_q"]
+            Lb=request.form["Lb"]
+            
 
             P = float(P)
             L = float(L)
             celik_sinifi = float(celik_sinifi)
             yukleme_durumlari = int(yukleme_durumlari)
             yayili_yuk = float(yayili_yuk)
+            sehim_limiti=float(sehim_limiti)
+            ilave_q =float(ilave_q)  ############################----------------#### ## eklenecek 
+            Lb=float(Lb)
+            if Lb==0 or Lb>L:
+                Lb=L
+                print("Lb :",Lb)
+
 
             mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit))
             satir = mycursor.fetchall()
@@ -242,11 +253,24 @@ def yontem_1():
             guvenli_kesme = 0.6*celik_sinifi*aw*cv1/1.5
             print("güvenli kesme :", guvenli_kesme)
 
-            mg = yonetmelik9_2(L, celik_sinifi, satir)
+            liste_s275=["HE 260 A", "HE 280 A", "HE 300 A"]
+            liste_s355=["HE 180 A", "HE 200 A", "HE 220 A", "HE 240 A", "HE 260 A", "HE 280 A", "HE 300 A", "HE 320 A", "HE 340 A"]
+
+            
+
+            if (celik_sinifi==275 and (kesit in liste_s275)):
+                print("kompakt olmayan-s275 listesinden aldı")
+                mg = yonetmelik9_3(celik_sinifi, satir, Lb)
+            elif (celik_sinifi==355 and (kesit in liste_s355)):
+                print("kompakt olmayan-s355 listesinden aldı")
+                mg = yonetmelik9_3(celik_sinifi, satir, Lb)
+            else:
+                print("kompakt aldı")
+                mg = yonetmelik9_2(celik_sinifi, satir, Lb)
 
             print("mg = ", mg)
 
-            if ((mg >= toplam_moment) and ((L*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
+            if ((mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                 uygun_mu = "UYGUN"
                 print(uygun_mu)
             else:
@@ -304,12 +328,24 @@ def yontem_2():
             kesit_tipi = request.form["kesit_tipi"]
             yukleme_durumlari = request.form["yukleme_durumlari"]
             yayili_yuk= request.form["w"]
+            sehim_limiti = request.form["sehim_limit"]
+            ilave_q = request.form["ilave_q"]
+            Lb=request.form["Lb"]
+
+                
 
             P = float(P)
             L = float(L)
             celik_sinifi = float(celik_sinifi)
             yukleme_durumlari = int(yukleme_durumlari)
             yayili_yuk = float(yayili_yuk)
+            sehim_limiti=float(sehim_limiti)
+            ilave_q =float(ilave_q)  ################################ ## eklenecek
+            Lb=float(Lb)
+            if Lb==0 or Lb>L:
+                Lb=L
+                print("Lb :",Lb)
+            
 
             if yukleme_durumlari == 1:
                 print("1_Basit Kiriş - Düzgün Yayılı Yük")
@@ -359,9 +395,6 @@ def yontem_2():
                     print(uygun_mu)
                     return render_template("yontem_2.html", uygun_mu=uygun_mu)
 
-                print("kesit_2 :", kesit_2)
-                if kesit_2 == "IPE 330":
-                    print("kesit_2 = ",kesit_2)
 
 
                 mycursor.execute(
@@ -410,12 +443,6 @@ def yontem_2():
 
 
 
-
-
-
-
-                # maksimum_kesme = P/2   ## silinecek
-
                 zati_kesme = float(satir_2[0][1])*L/2*9.81
                 print("zati kesme :", zati_kesme)
 
@@ -436,20 +463,31 @@ def yontem_2():
                 zati_moment = (float(satir_2[0][1])*9.81*(L**2))/(8)
                 print("zati moment :", zati_moment)
 
-                """maksimum_sehim = (P*(L*1000)**3) / \
-                    (48*E*float(satir_2[0][15])*(10**4))
-                print("maksimum sehim :", maksimum_sehim)""" #silinecek
-
                 toplam_sehim = (zati_sehim + maksimum_sehim)
                 print("toplam sehim :", toplam_sehim)
 
                 toplam_moment = (maksimum_moment+zati_moment)
                 print("toplam moment :", toplam_moment)
 
-                mg = yonetmelik9_2(L, celik_sinifi, satir_2)
-#                print("guvenli egilme momenti dayanimi:", mg)
 
-                if ((mg >= toplam_moment) and ((L*1000/300) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
+
+                liste_s275=["HE 260 A", "HE 280 A", "HE 300 A"]
+                liste_s355=["HE 180 A", "HE 200 A", "HE 220 A", "HE 240 A", "HE 260 A", "HE 280 A", "HE 300 A", "HE 320 A", "HE 340 A"]
+
+                if (celik_sinifi==275 and (kesit_2 in liste_s275)):
+                    print("kompakt olmayan-s275 listesinden aldı")
+                    mg = yonetmelik9_3(celik_sinifi, satir_2, Lb)
+                elif (celik_sinifi==355 and (kesit_2 in liste_s355)):
+                    print("kompakt olmayan-s355 listesinden aldı")
+                    mg = yonetmelik9_3(celik_sinifi, satir_2, Lb)
+                else:
+                    print("kompakt aldı")
+                    mg = yonetmelik9_2(celik_sinifi, satir_2, Lb)
+
+                print("mg = ", mg)
+                
+
+                if ((mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
                     return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
@@ -470,5 +508,5 @@ def yontem_2():
 
 
 if __name__ == '__main__':
-    app.debug = True
+    #app.debug = True
     app.run(host="0.0.0.0", port="5000")
