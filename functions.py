@@ -59,7 +59,7 @@ def yonetmelik9_2(celik_sinifi,satir, Lb):
 
 
 def yonetmelik9_3(celik_sinifi,satir, Lb):
-   E = 200000
+    E = 200000
     Mp = celik_sinifi * float(satir[0][17])
 
     bf = float(satir[0][3])
