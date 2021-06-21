@@ -2,7 +2,9 @@ from logging import log
 import mysql.connector
 from flask import Flask, render_template, request
 from functions import *
-import datetime,os,shutil
+import datetime
+import os
+import shutil
 
 
 app = Flask(__name__)
@@ -122,12 +124,10 @@ def yontem2():
     return render_template("yontem_2.html")
 
 
-
 @app.route('/log.html')
 def log(a):
 
-    aa=a
-        
+    aa = a
 
     return render_template("log.html", a=aa)
 
@@ -165,24 +165,22 @@ def yontem_1():
             celik_sinifi = request.form["celik_sinifi"]
             kesit = request.form["kesit"]
             yukleme_durumlari = request.form["yukleme_durumlari"]
-            yayili_yuk= request.form["w"]
+            yayili_yuk = request.form["w"]
             sehim_limiti = request.form["sehim_limit"]
             ilave_q = request.form["ilave_q"]
-            Lb=request.form["Lb"]
-            
+            Lb = request.form["Lb"]
 
             P = float(P)
             L = float(L)
             celik_sinifi = float(celik_sinifi)
             yukleme_durumlari = int(yukleme_durumlari)
             yayili_yuk = float(yayili_yuk)
-            sehim_limiti=float(sehim_limiti)
-            ilave_q =float(ilave_q)  ############################----------------#### ## eklenecek 
-            Lb=float(Lb)
-            if Lb==0 or Lb>L:
-                Lb=L
-                print("Lb :",Lb)
-
+            sehim_limiti = float(sehim_limiti)
+            ilave_q = float(ilave_q)  # ----------------#### ## eklenecek
+            Lb = float(Lb)
+            if Lb == 0 or Lb > L:
+                Lb = L
+                print("Lb :", Lb)
 
             mycursor.execute("SELECT * FROM a WHERE kesit='{}'".format(kesit))
             satir = mycursor.fetchall()
@@ -193,16 +191,18 @@ def yontem_1():
 
             if yukleme_durumlari == 1:
                 print("1_Basit Kiriş - Düzgün Yayılı Yük")
-                maksimum_sehim=(5*yayili_yuk*(L**4))/(384*E*float(satir[0][15])*(10**4))
+                maksimum_sehim = (5*yayili_yuk*(L**4)) / \
+                    (384*E*float(satir[0][15])*(10**4))
                 print("maksimum sehim :", maksimum_sehim)
-                maksimum_moment=(yayili_yuk*(L**2))/(8)
+                maksimum_moment = (yayili_yuk*(L**2))/(8)
                 print("maksimum moment :", maksimum_moment)
-                maksimum_kesme=(yayili_yuk*L)/(2)
+                maksimum_kesme = (yayili_yuk*L)/(2)
                 print("maksimum kesme :", maksimum_kesme)
 
             elif yukleme_durumlari == 7:
                 print("7_Basit Kiriş – Merkezde Noktasal Yük")
-                maksimum_sehim = (P*(L*1000)**3)/(48*E*float(satir[0][15])*(10**4))
+                maksimum_sehim = (P*(L*1000)**3) / \
+                    (48*E*float(satir[0][15])*(10**4))
                 print("maksimum sehim :", maksimum_sehim)
                 maksimum_moment = (P*L)/(4)
                 print("maksimum moment :", maksimum_moment)
@@ -211,23 +211,23 @@ def yontem_1():
 
             elif yukleme_durumlari == 19:
                 print("19_Konsol Kiriş – Düzgün Yayılı Yük")
-                maksimum_sehim=(yayili_yuk*(L**4))/(8*E*float(satir[0][15])*(10**4))
+                maksimum_sehim = (yayili_yuk*(L**4)) / \
+                    (8*E*float(satir[0][15])*(10**4))
                 print("maksimum sehim :", maksimum_sehim)
-                maksimum_moment=(yayili_yuk*(L**2))/(2)
+                maksimum_moment = (yayili_yuk*(L**2))/(2)
                 print("maksimum moment :", maksimum_moment)
-                maksimum_kesme=(yayili_yuk*L)
+                maksimum_kesme = (yayili_yuk*L)
                 print("maksimum kesme :", maksimum_kesme)
-
 
             elif yukleme_durumlari == 22:
                 print("22_Konsol Kiriş – Serbest Uçta Noktasal Yük")
-                maksimum_sehim = (P*(L*1000)**3)/(3*E*float(satir[0][15])*(10**4))
+                maksimum_sehim = (P*(L*1000)**3) / \
+                    (3*E*float(satir[0][15])*(10**4))
                 print("maksimum sehim :", maksimum_sehim)
                 maksimum_moment = (P*L)
                 print("maksimum moment :", maksimum_moment)
-                maksimum_kesme=(P)
+                maksimum_kesme = (P)
                 print("maksimum kesme :", maksimum_kesme)
-
 
             zati_sehim = ((5*float(satir[0][1])*(9.81/1000)*(L*1000)
                           ** 4)/(384*E*(float(satir[0][15])*(10**4))))
@@ -253,15 +253,14 @@ def yontem_1():
             guvenli_kesme = 0.6*celik_sinifi*aw*cv1/1.5
             print("güvenli kesme :", guvenli_kesme)
 
-            liste_s275=["HE 260 A", "HE 280 A", "HE 300 A"]
-            liste_s355=["HE 180 A", "HE 200 A", "HE 220 A", "HE 240 A", "HE 260 A", "HE 280 A", "HE 300 A", "HE 320 A", "HE 340 A"]
+            liste_s275 = ["HE 260 A", "HE 280 A", "HE 300 A"]
+            liste_s355 = ["HE 180 A", "HE 200 A", "HE 220 A", "HE 240 A",
+                          "HE 260 A", "HE 280 A", "HE 300 A", "HE 320 A", "HE 340 A"]
 
-            
-
-            if (celik_sinifi==275 and (kesit in liste_s275)):
+            if (celik_sinifi == 275 and (kesit in liste_s275)):
                 print("kompakt olmayan-s275 listesinden aldı")
                 mg = yonetmelik9_3(celik_sinifi, satir, Lb)
-            elif (celik_sinifi==355 and (kesit in liste_s355)):
+            elif (celik_sinifi == 355 and (kesit in liste_s355)):
                 print("kompakt olmayan-s355 listesinden aldı")
                 mg = yonetmelik9_3(celik_sinifi, satir, Lb)
             else:
@@ -277,7 +276,6 @@ def yontem_1():
                 # kesit değiştirme yapılacak
                 uygun_mu = "UYGUN DEĞİL"
                 print(uygun_mu)
-            
 
             log(uygun_mu)
             return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, kesit=kesit, celik_sinifi=celik_sinifi, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
@@ -327,29 +325,26 @@ def yontem_2():
             celik_sinifi = request.form["celik_sinifi"]
             kesit_tipi = request.form["kesit_tipi"]
             yukleme_durumlari = request.form["yukleme_durumlari"]
-            yayili_yuk= request.form["w"]
+            yayili_yuk = request.form["w"]
             sehim_limiti = request.form["sehim_limit"]
             ilave_q = request.form["ilave_q"]
-            Lb=request.form["Lb"]
-
-                
+            Lb = request.form["Lb"]
 
             P = float(P)
             L = float(L)
             celik_sinifi = float(celik_sinifi)
             yukleme_durumlari = int(yukleme_durumlari)
             yayili_yuk = float(yayili_yuk)
-            sehim_limiti=float(sehim_limiti)
-            ilave_q =float(ilave_q)  ################################ ## eklenecek
-            Lb=float(Lb)
-            if Lb==0 or Lb>L:
-                Lb=L
-                print("Lb :",Lb)
-            
+            sehim_limiti = float(sehim_limiti)
+            ilave_q = float(ilave_q)  # eklenecek
+            Lb = float(Lb)
+            if Lb == 0 or Lb > L:
+                Lb = L
+                print("Lb :", Lb)
 
             if yukleme_durumlari == 1:
                 print("1_Basit Kiriş - Düzgün Yayılı Yük")
-                maksimum_moment=(yayili_yuk*(L**2))/(8)
+                maksimum_moment = (yayili_yuk*(L**2))/(8)
                 print("maksimum moment :", maksimum_moment)
             elif yukleme_durumlari == 7:
                 print("7_Basit Kiriş – Merkezde Noktasal Yük")
@@ -357,14 +352,12 @@ def yontem_2():
                 print("maksimum moment :", maksimum_moment)
             elif yukleme_durumlari == 19:
                 print("19_Konsol Kiriş – Düzgün Yayılı Yük")
-                maksimum_moment=(yayili_yuk*(L**2))/(2)
+                maksimum_moment = (yayili_yuk*(L**2))/(2)
                 print("maksimum moment :", maksimum_moment)
             elif yukleme_durumlari == 22:
                 print("22_Konsol Kiriş – Serbest Uçta Noktasal Yük")
                 maksimum_moment = (P*L)
                 print("maksimum moment :", maksimum_moment)
-
-
 
             Wp_gerekli = maksimum_moment*1.67/celik_sinifi
             print("Wp gerekli : ", Wp_gerekli)
@@ -395,8 +388,6 @@ def yontem_2():
                     print(uygun_mu)
                     return render_template("yontem_2.html", uygun_mu=uygun_mu)
 
-
-
                 mycursor.execute(
                     "SELECT * FROM a WHERE kesit='{}'".format(kesit_2))
                 satir_2 = mycursor.fetchall()
@@ -405,7 +396,8 @@ def yontem_2():
 
                 if yukleme_durumlari == 1:
                     print("1_Basit Kiriş - Düzgün Yayılı Yük")
-                    maksimum_sehim = (5 * yayili_yuk/1000 * ((L*1000) ** 4)) / (384 * E * float(satir_2[0][15]) * (10 ** 4))
+                    maksimum_sehim = (5 * yayili_yuk/1000 * ((L*1000) ** 4)) / \
+                        (384 * E * float(satir_2[0][15]) * (10 ** 4))
                     print("maksimum sehim :", maksimum_sehim)
                     maksimum_moment = (yayili_yuk * (L ** 2)) / (8)
                     print("maksimum moment :", maksimum_moment)
@@ -414,7 +406,8 @@ def yontem_2():
 
                 elif yukleme_durumlari == 7:
                     print("7_Basit Kiriş – Merkezde Noktasal Yük")
-                    maksimum_sehim = (P * (L * 1000) ** 3) / (48 * E * float(satir_2[0][15]) * (10 ** 4))
+                    maksimum_sehim = (P * (L * 1000) ** 3) / \
+                        (48 * E * float(satir_2[0][15]) * (10 ** 4))
                     print("maksimum sehim :", maksimum_sehim)
                     maksimum_moment = (P * L) / (4)
                     print("maksimum moment :", maksimum_moment)
@@ -423,25 +416,23 @@ def yontem_2():
 
                 elif yukleme_durumlari == 19:
                     print("19_Konsol Kiriş – Düzgün Yayılı Yük")
-                    maksimum_sehim = (yayili_yuk/1000 * ((L*1000) ** 4)) / (8 * E * float(satir_2[0][15]) * (10 ** 4))
+                    maksimum_sehim = (yayili_yuk/1000 * ((L*1000) ** 4)) / \
+                        (8 * E * float(satir_2[0][15]) * (10 ** 4))
                     print("maksimum sehim :", maksimum_sehim)
                     maksimum_moment = (yayili_yuk * (L ** 2)) / (2)
                     print("maksimum moment :", maksimum_moment)
                     maksimum_kesme = (yayili_yuk * L)
                     print("maksimum kesme :", maksimum_kesme)
 
-
                 elif yukleme_durumlari == 22:
                     print("22_Konsol Kiriş – Serbest Uçta Noktasal Yük")
-                    maksimum_sehim = (P * (L * 1000) ** 3) / (3 * E * float(satir_2[0][15]) * (10 ** 4))
+                    maksimum_sehim = (P * (L * 1000) ** 3) / \
+                        (3 * E * float(satir_2[0][15]) * (10 ** 4))
                     print("maksimum sehim :", maksimum_sehim)
                     maksimum_moment = (P * L)
                     print("maksimum moment :", maksimum_moment)
                     maksimum_kesme = P
                     print("maksimum kesme :", maksimum_kesme)
-
-
-
 
                 zati_kesme = float(satir_2[0][1])*L/2*9.81
                 print("zati kesme :", zati_kesme)
@@ -469,15 +460,14 @@ def yontem_2():
                 toplam_moment = (maksimum_moment+zati_moment)
                 print("toplam moment :", toplam_moment)
 
+                liste_s275 = ["HE 260 A", "HE 280 A", "HE 300 A"]
+                liste_s355 = ["HE 180 A", "HE 200 A", "HE 220 A", "HE 240 A",
+                              "HE 260 A", "HE 280 A", "HE 300 A", "HE 320 A", "HE 340 A"]
 
-
-                liste_s275=["HE 260 A", "HE 280 A", "HE 300 A"]
-                liste_s355=["HE 180 A", "HE 200 A", "HE 220 A", "HE 240 A", "HE 260 A", "HE 280 A", "HE 300 A", "HE 320 A", "HE 340 A"]
-
-                if (celik_sinifi==275 and (kesit_2 in liste_s275)):
+                if (celik_sinifi == 275 and (kesit_2 in liste_s275)):
                     print("kompakt olmayan-s275 listesinden aldı")
                     mg = yonetmelik9_3(celik_sinifi, satir_2, Lb)
-                elif (celik_sinifi==355 and (kesit_2 in liste_s355)):
+                elif (celik_sinifi == 355 and (kesit_2 in liste_s355)):
                     print("kompakt olmayan-s355 listesinden aldı")
                     mg = yonetmelik9_3(celik_sinifi, satir_2, Lb)
                 else:
@@ -485,7 +475,6 @@ def yontem_2():
                     mg = yonetmelik9_2(celik_sinifi, satir_2, Lb)
 
                 print("mg = ", mg)
-                
 
                 if ((mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
@@ -508,5 +497,5 @@ def yontem_2():
 
 
 if __name__ == '__main__':
-    #app.debug = True
+    app.debug = True
     app.run(host="0.0.0.0", port="5000")

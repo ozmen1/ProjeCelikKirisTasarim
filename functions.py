@@ -1,7 +1,8 @@
 import math
 
-def yonetmelik9_2(celik_sinifi,satir, Lb):
-    E=200000
+
+def yonetmelik9_2(celik_sinifi, satir, Lb):
+    E = 200000
     Mp = celik_sinifi * float(satir[0][17])
     Lp = (float(satir[0][23]) *
           (1.76 * (math.sqrt(E / celik_sinifi)))) / 100
@@ -35,13 +36,13 @@ def yonetmelik9_2(celik_sinifi,satir, Lb):
             math.pow((J / (Wex * h0/10)), 2) + 6.76 * math.pow((0.7 * celik_sinifi / E), 2)))) / 100
         print("Lr: ", Lr)
 
-
-        if Lp < Lb  and Lb <= Lr:
-            Mn = 1 * (Mp - (Mp - 0.7 * celik_sinifi * Wex) * ((Lb - Lp) / (Lr - Lp)))
+        if Lp < Lb and Lb <= Lr:
+            Mn = 1 * (Mp - (Mp - 0.7 * celik_sinifi * Wex)
+                      * ((Lb - Lp) / (Lr - Lp)))
             print("Lp < Lb <=Lr: durumu oldu", Mn)
         else:
-            Fcr = (1 * (math.pi ** 2) * E) / math.pow((Lb*100 / its),2)*math.sqrt(1 + 0.078 * J
-                / (Wex * h0/10) * math.pow((Lb*100 / its), 2))
+            Fcr = (1 * (math.pi ** 2) * E) / math.pow((Lb*100 / its), 2)*math.sqrt(1 + 0.078 * J
+                                                                                   / (Wex * h0/10) * math.pow((Lb*100 / its), 2))
             Mn = Fcr * Wex
             print("Lb > Lr: durumu oldu", Mn)
 
@@ -52,13 +53,13 @@ def yonetmelik9_2(celik_sinifi,satir, Lb):
 
     mg = M / 1.67
 
-    print("Mn = ",M)
+    print("Mn = ", M)
     print("guvenli egilme momenti dayanimi :", mg)
 
     return(mg)
 
 
-def yonetmelik9_3(celik_sinifi,satir, Lb):
+def yonetmelik9_3(celik_sinifi, satir, Lb):
     E = 200000
     Mp = celik_sinifi * float(satir[0][17])
 
@@ -66,10 +67,11 @@ def yonetmelik9_3(celik_sinifi,satir, Lb):
     tf = float(satir[0][5])
 
     Nf = (bf/2) / tf
-    Npf = 0,38 * math.sqrt(E/celik_sinifi)
-    Nrf = 1,00 * math.sqrt(E/celik_sinifi)
+    Npf = 0, 38 * math.sqrt(E/celik_sinifi)
+    Nrf = 1, 00 * math.sqrt(E/celik_sinifi)
 
-    Mn1 = (Mp-((Mp-(0,7*celik_sinifi*(float(satir[0][16])*1000)))*((Nf-Npf)/(Nrf-Npf))))/1000
+    Mn1 = (
+        Mp-((Mp-(0, 7*celik_sinifi*(float(satir[0][16])*1000)))*((Nf-Npf)/(Nrf-Npf))))/1000
 
     Lp = (float(satir[0][23]) *
           (1.76 * (math.sqrt(E / celik_sinifi)))) / 100
@@ -99,17 +101,15 @@ def yonetmelik9_3(celik_sinifi,satir, Lb):
             math.pow((J / (Wex * h0/10)), 2) + 6.76 * math.pow((0.7 * celik_sinifi / E), 2)))) / 100
         print("Lr: ", Lr)
 
-
-        if Lp < Lb  and Lb <= Lr:
-            Mn = 1 * (Mp - (Mp - 0.7 * celik_sinifi * Wex) * ((Lb - Lp) / (Lr - Lp)))
+        if Lp < Lb and Lb <= Lr:
+            Mn = 1 * (Mp - (Mp - 0.7 * celik_sinifi * Wex)
+                      * ((Lb - Lp) / (Lr - Lp)))
             print("Lp < Lb <=Lr: durumu oldu", Mn)
         else:
-            Fcr = (1 * (math.pi ** 2) * E) / math.pow((Lb*100 / its),2)*math.sqrt(1 + 0.078 * J
-                / (Wex * h0/10) * math.pow((Lb*100 / its), 2))
+            Fcr = (1 * (math.pi ** 2) * E) / math.pow((Lb*100 / its), 2)*math.sqrt(1 + 0.078 * J
+                                                                                   / (Wex * h0/10) * math.pow((Lb*100 / its), 2))
             Mn = Fcr * Wex
             print("Lb > Lr: durumu oldu", Mn)
-
-
 
     if Mn1 <= Mn:
         M = Mn1
@@ -118,6 +118,5 @@ def yonetmelik9_3(celik_sinifi,satir, Lb):
 
     mg = M / 1.67
 
-    
     print("guvenli egilme momenti dayanimi :", mg)
     return(mg)
