@@ -1,4 +1,3 @@
-from logging import log
 import mysql.connector
 from flask import Flask, render_template, request
 from functions import *
