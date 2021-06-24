@@ -1,12 +1,12 @@
 import mysql.connector
 from flask import Flask, render_template, request
 from functions import *
-import datetime
-import os
-import shutil
+import time
+
 
 
 app = Flask(__name__)
+
 
 
 try:
@@ -55,6 +55,7 @@ def index():
         )
         mycursor = mydb.cursor()
         print("WEB_VERİTABANI BAŞARILI ALINDI")
+
     return render_template("index.html")
 
 
@@ -124,11 +125,9 @@ def yontem2():
 
 
 @app.route('/log.html')
-def log(a):
+def log():
 
-    aa = a
-
-    return render_template("log.html", a=aa)
+    return render_template("log.html")
 
 # --1
 
@@ -158,6 +157,13 @@ def yontem_1():
         print("WEB_VERİTABANI BAŞARILI ALINDI")
 
     if request.method == "POST":
+
+        global logg
+
+        cikti=[]
+
+
+
         try:
             P = request.form["P"]
             L = request.form["L"]
@@ -268,6 +274,10 @@ def yontem_1():
 
             print("mg = ", mg)
 
+            cikti=[mg]
+            logg=cikti
+
+
             if ((mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                 uygun_mu = "UYGUN"
                 print(uygun_mu)
@@ -275,9 +285,23 @@ def yontem_1():
                 # kesit değiştirme yapılacak
                 uygun_mu = "UYGUN DEĞİL"
                 print(uygun_mu)
+            
+            yol=str(time.time())
+            yol=yol.replace(".","")
+            yol=(yol+".txt")
+            yol=('{}'.format("ali")+yol)
+            
+            dosya=open('{}'.format(yol), 'a+t')
+            dosya.write('mg degeri: {}\n'.format(mg))
+            dosya.write('mg degeri: {}\n'.format(sehim_limiti))
+            dosya.close()
+            dosya=open('{}'.format(yol), 'a+t')
+            text = dosya.read()
+            dosya.close()
+            print(text,"txt yazdırıldı")
+            
 
-            log(uygun_mu)
-            return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, kesit=kesit, celik_sinifi=celik_sinifi, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
+            return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, kesit=kesit, celik_sinifi=celik_sinifi, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu, lgg=text)
         except:
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
@@ -493,6 +517,14 @@ def yontem_2():
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
             return render_template("yontem_2.html", uygun_mu=uygun_mu)
+
+
+@app.route("/log", methods=["POST"])
+def loogg():
+    try:
+        return render_template("log.html", a=logg)
+    except:
+        return render_template("log.html", a="hata oldu")
 
 
 if __name__ == '__main__':

@@ -12,21 +12,43 @@
 
       var x = document.getElementById("yuk_dur").value;
 
-      if (x == "7") {
+      if (x == "1") {
+
+        document.getElementById("resim1").style.opacity = 1;
+        document.getElementById("resim2").style.opacity = 0.3;
+        document.getElementById("resim3").style.opacity = 0.3;
+        document.getElementById("resim4").style.opacity = 0.3;
+
+        document.getElementById("ww").style.display = "block";
+        document.getElementById("ww2").style.display = "block";
+        document.getElementById("p_degeri").style.display = "none";
+        document.getElementById("p_degeri2").style.display = "none";
+        document.getElementById("qq").style.display = "none";
+        document.getElementById("qq2").style.display = "none";
+
+      }
+
+      else if (x == "7") {
+        document.getElementById("resim2").style.opacity = 1;
+        document.getElementById("resim1").style.opacity = 0.3;
+        document.getElementById("resim3").style.opacity = 0.3;
+        document.getElementById("resim4").style.opacity = 0.3;
+
         document.getElementById("ww").style.display = "none";
         document.getElementById("ww2").style.display = "none";
         document.getElementById("p_degeri").style.display = "block";
         document.getElementById("p_degeri2").style.display = "block";
         document.getElementById("qq").style.display = "block";
         document.getElementById("qq2").style.display = "block";
-      } else if (x == "22") {
-        document.getElementById("ww").style.display = "none";
-        document.getElementById("ww2").style.display = "none";
-        document.getElementById("p_degeri").style.display = "block";
-        document.getElementById("p_degeri2").style.display = "block";
-        document.getElementById("qq").style.display = "block";
-        document.getElementById("qq2").style.display = "block";
-      } else {
+      } 
+
+      else if (x == "19") {
+
+        document.getElementById("resim3").style.opacity = 1;
+        document.getElementById("resim1").style.opacity = 0.3;
+        document.getElementById("resim2").style.opacity = 0.3;
+        document.getElementById("resim4").style.opacity = 0.3;
+
         document.getElementById("ww").style.display = "block";
         document.getElementById("ww2").style.display = "block";
         document.getElementById("p_degeri").style.display = "none";
@@ -35,7 +57,24 @@
         document.getElementById("qq2").style.display = "none";
       }
 
+      else if (x == "22") {
+
+        document.getElementById("resim4").style.opacity = 1;
+        document.getElementById("resim1").style.opacity = 0.3;
+        document.getElementById("resim2").style.opacity = 0.3;
+        document.getElementById("resim3").style.opacity = 0.3;
+
+        document.getElementById("ww").style.display = "none";
+        document.getElementById("ww2").style.display = "none";
+        document.getElementById("p_degeri").style.display = "block";
+        document.getElementById("p_degeri2").style.display = "block";
+        document.getElementById("qq").style.display = "block";
+        document.getElementById("qq2").style.display = "block";
+      }
+
     }
+
+
   </script>
 </head>
 
@@ -147,6 +186,29 @@
       </table>
     </form>
   </div>
+
+
+    <!-- First Photo Grid-->
+    <div class="w3-row-padding w3-padding-16 w3-center" id="resimler">
+      <div class="w3-quarter" id="resim1">
+        <img src="\static\basit_kiris_duzgun_yayili_yuk.png" alt="resim1" style="width:70%">
+        <h4>Basit Kiriş Düzgün Yayılı Yük</h4>
+      </div>
+      <div class="w3-quarter" id="resim2">
+        <img src="\static\basit_kiris_merkezde_noktasal_yuk.png" alt="resim2" style="width:70%">
+        <h4>Basit Kiriş Merkezde Noktasal Yük</h4>
+      </div>
+      <div class="w3-quarter" id="resim3">
+        <img src="\static\konsol_kiris_duzgun_yayili_yuk.png" alt="resim3" style="width:70%">
+        <h4>Konsol Kiriş Düzgün Yayılı Yük</h4>
+      </div>
+      <div class="w3-quarter" id="resim4">
+        <img src="\static\konsol_kiris_serbest_ucta_noktasal_yuk.png" alt="resim4" style="width:70%">
+        <h4>Konsol Kiriş Serbest Uçta Noktasal Yük</h4>
+      </div>
+    </div>
+
+    
   {% if uygun_mu %}
   <div class="w3-center w3-yellow w3-padding-5">
     <h1>{{kesitt}}</h1>
