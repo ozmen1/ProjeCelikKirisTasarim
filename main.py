@@ -273,14 +273,15 @@ def yontem_1():
 
             if (celik_sinifi == 275 and (kesit in liste_s275)):
                 print("kompakt olmayan-s275 listesinden aldı")
-                Mg = yonetmelik9_3(celik_sinifi, satir, Lb)
+                Mn = yonetmelik9_3(celik_sinifi, satir, Lb)
             elif (celik_sinifi == 355 and (kesit in liste_s355)):
                 print("kompakt olmayan-s355 listesinden aldı")
-                Mg = yonetmelik9_3(celik_sinifi, satir, Lb)
+                Mn = yonetmelik9_3(celik_sinifi, satir, Lb)
             else:
                 print("kompakt aldı")
-                Mg = yonetmelik9_2(celik_sinifi, satir, Lb)
+                Mn = yonetmelik9_2(celik_sinifi, satir, Lb)
 
+            Mg = Mn / 1.67    
             print("Mg = ", Mg)
 
             cikti=[Mg]
