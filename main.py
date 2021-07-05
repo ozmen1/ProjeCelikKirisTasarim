@@ -124,10 +124,6 @@ def yontem2():
     return render_template("yontem_2.html")
 
 
-@app.route('/log.html')
-def log():
-
-    return render_template("log.html")
 
 # --1
 
@@ -157,10 +153,6 @@ def yontem_1():
         print("WEB_VERİTABANI BAŞARILI ALINDI")
 
     if request.method == "POST":
-
-        global logg
-
-        cikti=[]
 
 
 
@@ -284,8 +276,6 @@ def yontem_1():
             Mg = Mn / 1.67    
             print("Mg = ", Mg)
 
-            cikti=[Mg]
-            logg=cikti
 
 
             if ((Mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
@@ -296,22 +286,8 @@ def yontem_1():
                 uygun_mu = "UYGUN DEĞİL"
                 print(uygun_mu)
             
-            yol=str(time.time())
-            yol=yol.replace(".","")
-            yol=(yol+".txt")
-            yol=('{}'.format("ali")+yol)
-            
-            dosya=open('{}'.format(yol), 'a+t')
-            dosya.write('Mg degeri: {}\n'.format(Mg))
-            dosya.write('Mg degeri: {}\n'.format(sehim_limiti))
-            dosya.close()
-            dosya=open('{}'.format(yol), 'a+t')
-            text = dosya.read()
-            dosya.close()
-            print(text,"txt yazdırıldı")
-            
 
-            return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, kesit=kesit, celik_sinifi=celik_sinifi, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu, lgg=text)
+            return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, kesit=kesit, celik_sinifi=celik_sinifi, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
         except:
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
@@ -528,13 +504,6 @@ def yontem_2():
             print(uygun_mu)
             return render_template("yontem_2.html", uygun_mu=uygun_mu)
 
-
-@app.route("/log", methods=["POST"])
-def loogg():
-    try:
-        return render_template("log.html", a=logg)
-    except:
-        return render_template("log.html", a="hata oldu")
 
 
 if __name__ == '__main__':
