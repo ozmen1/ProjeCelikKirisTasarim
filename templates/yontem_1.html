@@ -7,78 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="\static\button.css" rel="stylesheet" />
+  <script src="\static\myscript.js"></script>
   <title>YÖNTEM 1</title>
 
-
-  <script>
-    function gizle() {
-
-      var x = document.getElementById("yuk_dur").value;
-
-      if (x == "1") {
-
-        document.getElementById("resim1").style.opacity = 1;
-        document.getElementById("resim2").style.opacity = 0.3;
-        document.getElementById("resim3").style.opacity = 0.3;
-        document.getElementById("resim4").style.opacity = 0.3;
-
-        document.getElementById("ww").style.display = "block";
-        document.getElementById("ww2").style.display = "block";
-        document.getElementById("p_degeri").style.display = "none";
-        document.getElementById("p_degeri2").style.display = "none";
-        document.getElementById("qq").style.display = "none";
-        document.getElementById("qq2").style.display = "none";
-
-      }
-
-      else if (x == "7") {
-        document.getElementById("resim2").style.opacity = 1;
-        document.getElementById("resim1").style.opacity = 0.3;
-        document.getElementById("resim3").style.opacity = 0.3;
-        document.getElementById("resim4").style.opacity = 0.3;
-
-        document.getElementById("ww").style.display = "none";
-        document.getElementById("ww2").style.display = "none";
-        document.getElementById("p_degeri").style.display = "block";
-        document.getElementById("p_degeri2").style.display = "block";
-        document.getElementById("qq").style.display = "block";
-        document.getElementById("qq2").style.display = "block";
-      }
-
-      else if (x == "19") {
-
-        document.getElementById("resim3").style.opacity = 1;
-        document.getElementById("resim1").style.opacity = 0.3;
-        document.getElementById("resim2").style.opacity = 0.3;
-        document.getElementById("resim4").style.opacity = 0.3;
-
-        document.getElementById("ww").style.display = "block";
-        document.getElementById("ww2").style.display = "block";
-        document.getElementById("p_degeri").style.display = "none";
-        document.getElementById("p_degeri2").style.display = "none";
-        document.getElementById("qq").style.display = "none";
-        document.getElementById("qq2").style.display = "none";
-      }
-
-      else if (x == "22") {
-
-        document.getElementById("resim4").style.opacity = 1;
-        document.getElementById("resim1").style.opacity = 0.3;
-        document.getElementById("resim2").style.opacity = 0.3;
-        document.getElementById("resim3").style.opacity = 0.3;
-
-        document.getElementById("ww").style.display = "none";
-        document.getElementById("ww2").style.display = "none";
-        document.getElementById("p_degeri").style.display = "block";
-        document.getElementById("p_degeri2").style.display = "block";
-        document.getElementById("qq").style.display = "block";
-        document.getElementById("qq2").style.display = "block";
-      }
-
-    }
-
-
-  </script>
 
 
 </head>
@@ -107,113 +38,6 @@
 
   <br><br><br>
   <h2 class="w3-text-red w3-center">YÖNTEM 1 İÇİN HESAPLAMA</h2>
-
-  <!-- <div class="w3-center w3-yellow w3-padding-10">
-    <form action="/yontem_1" method="post" style="background-color:greenyellow;">
-
-      <table style="margin: auto;">
-        <tr>
-          <td><label for="yuk_dur">Yükleme Durumu:</label></td>
-          <td>
-            <select class="w3-select" id="yuk_dur" style="max-width:250px;" name="yukleme_durumlari" onchange="gizle()">
-              <option value="">SEÇİM YAPIN</option>
-              <option value="1">Basit Kiriş - Düzgün Yayılı Yük</option>
-              <option value="7">Basit Kiriş – Merkezde Noktasal Yük</option>
-              <option value="19"> Konsol Kiriş – Düzgün Yayılı Yük</option>
-              <option value="22">Konsol Kiriş – Serbest Uçta Noktasal Yük</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label id="p_degeri2" for="p_degeri">P değeri (N):</label></td>
-          <td><input class="w3-input" style="max-width:250px;" type="number" value="0" min="0" id="p_degeri" name="P"
-              placeholder="p değeri girin"></td>
-        </tr>
-
-        <tr>
-          <td><label for="sehim_limiti">Sehim Limiti (L/?):</label></td>
-          <td>
-            <select class="w3-select" id="sehim_limiti" style="max-width:250px;" name="sehim_limit">
-              <option value="300">300</option>
-              <option value="150">150</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label id="ww2" for="ww">Yayılı Yük, w (N/m) :</label></td>
-          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="w" id="ww"
-              placeholder="w değeri girin"></td>
-        </tr>
-        <tr>
-          <td><label id="qq2" for="qq">İlave Yayılı Yük, q (N/m) :</label></td>
-          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="ilave_q" id="qq"
-              placeholder="q değeri girin"></td>
-        </tr>
-        <tr>
-          <td><label for="ll">L değeri (m):</label></td>
-          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="L" id="ll"
-              placeholder="l değeri girin"></td>
-        </tr>
-        <tr>
-          <td><label for="llb">Lb değeri (m):</label></td>
-          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="Lb" id="llb"
-              placeholder="Lb değeri girin"></td>
-        </tr>
-        <tr>
-          <td><label for="celik_sinif">Çelik sınıfı:</label></td>
-          <td>
-            <select class="w3-select" id="celik_sinif" style="max-width:250px;" name="celik_sinifi">
-              <option value="">SEÇİM YAPIN</option>
-              <option value="235">S235</option>
-              <option value="275">S275</option>
-              <option value="355">S355</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="demir">Kesit seçin:</label></td>
-          <td>
-            <select class="w3-select" style="max-width:250px;" id="demir" name="kesit">
-              <option value="">SEÇİM YAPIN</option>
-              {% for i in satir_liste %}
-              <option value="{{i}}">{{i}}</option>
-              {%endfor%}
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><input class="w3-input" type="submit" value="HESAPLA"></td>
-        </tr>
-      </table>
-    </form>
-  </div>
-
-
-
-  First Photo Grid
-  <div class="w3-row-padding w3-padding-16 w3-center" id="resimler">
-    <div class="w3-quarter" id="resim1">
-      <img src="\static\basit_kiris_duzgun_yayili_yuk.png" alt="resim1" style="width:70%">
-      <h4>Basit Kiriş Düzgün Yayılı Yük</h4>
-    </div>
-    <div class="w3-quarter" id="resim2">
-      <img src="\static\basit_kiris_merkezde_noktasal_yuk.png" alt="resim2" style="width:70%">
-      <h4>Basit Kiriş Merkezde Noktasal Yük</h4>
-    </div>
-    <div class="w3-quarter" id="resim3">
-      <img src="\static\konsol_kiris_duzgun_yayili_yuk.png" alt="resim3" style="width:70%">
-      <h4>Konsol Kiriş Düzgün Yayılı Yük</h4>
-    </div>
-    <div class="w3-quarter" id="resim4">
-      <img src="\static\konsol_kiris_serbest_ucta_noktasal_yuk.png" alt="resim4" style="width:70%">
-      <h4>Konsol Kiriş Serbest Uçta Noktasal Yük</h4>
-    </div>
-  </div>
-
-
- -->
-
-
 
 
   <div class="w3-row w3-container" style="margin:50px 0">
@@ -328,15 +152,6 @@
       </div>
     </div>
   </div>
-
-
-
-
-
-
-
-
-
 
 
 
