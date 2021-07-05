@@ -325,12 +325,113 @@
   </div>
 
 
-  {% if uygun_mu %}
+{% if uygun_mu %}
   <div class="w3-center w3-yellow w3-padding-5">
     <h1>{{kesitt}}</h1>
     <hr>
     <h1>{{uygun_mu}}</h1>
   </div>
+  {%endif%}
+
+  {%if uygun_mu == "UYGUN"%}
+
+
+  <div id="aciklama" class="w3-yellow w3-padding-5">
+    <p>
+    <pre style="padding-left: 5%;">
+TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI
+[ÇYTHYE2016 Güvenlik Katsatıları ile Tasarım (GKT)]
+©2021 -  Özgün Demircan, Sıla İklim Taşkafa, Kerem Özmen, Ali Arıbaş
+---------------------------------------------------------------------------------------------------------
+GİRDİLER:
+---------------------------------------------------------------------------------------------------------
+Yükleme Durumu: 
+P (N) = {{P}}
+Yayılı yük, w (N/m) = {{yayili_yuk}}
+İlave yayılı yük, q (N/m) = {{ilave_q}}
+L (m) = {{L}}
+Lb (m) = {{Lb}}
+Çelik sınıfı: {{celik_sinifi}} {S235 / S275 / S355 stringlerinden biri yazdırılacak}
+Kesit: {{kesit}}
+---------------------------------------------------------------------------------------------------------
+TASARIM SONUÇLARI:
+---------------------------------------------------------------------------------------------------------
+E (MPa) = {{E}}
+Kesit Özellikleri:
+d (mm)    =  
+tf (mm)   =
+bf (mm)   =
+h (mm)    =
+tw (mm)   =
+Wex (cm3) = 
+J (cm4)   =
+Iy (cm4)  =
+h0 (mm)   =
+Sehim değerleri (mm):
+Δ1  =  {{maksimum_sehim}} (maksimum_sehim yazdırılacak)
+Δ2  =  {{zati_sehim}} (zati_sehim yazdırılacak)
+Δ3  =  {{ilave_sehim}} (ilave_sehim yazdırılacak)
+Moment değerleri (N.m):
+M1 =  {{maksimum_moment}} (maksimum_moment yazdırılacak)
+M2 =  {{zati_moment}} (zati_moment yazdırılacak)
+M3 =  {{ilave_moment}}  (ilave_moment yazdırılacak)
+Kesme kuvvetleri (N):
+V1 =   {{maksimum_kesme}} (maksimum_kesme yazdırılacak)
+V2 =   {{zati_kesme}} (zati_kesme yazdırılacak)
+V3 =   {{ilave_kesme}}  (ilave_kesme yazdırılacak)
+Toplam sehim (mm) =  {{toplam_sehim}} (toplam_sehim)
+Toplam moment (N.m) =  {{toplam_moment}} (toplam_moment)
+Toplam kesme (N) =  {{toplam_kesme}}  (toplam_kesme)
+---------------------------------------------------------------------------------------------------------
+Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
+Aw =  {{Aw}}
+Cv1 = 1.0
+Vg (N) =  {{guvenli_kesme}} (guvenli_kesme)
+---------------------------------------------------------------------------------------------------------
+Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
+Mp (N.m) = 
+gövde: kompakt
+başlıklar:  (kompakt → yönetmelik 9.2 /  kompakt değil → yönetmelik 9.3)
+Lp (m)   =
+its (cm) =
+Lr (m)   =
+Lb (m)   =
+{9.2 ise:}
+Yanal burulmalı burkulma sınır durumu, Mn = ... (M)
+{9.3 ise:}
+Yanal burulmalı burkulma sınır durumu, Mn1 = ... (Mn1)
+Yerel burkulma sınır durumu, Mn2 =  ... (Mn2)
+Mn (N.m) =  {{Mn}}  (M)
+Mg (N.m) =  {{Mg}} (Mg {main.py'den})
+---------------------------------------------------------------------------------------------------------
+Tasarim Kontrolü:
+Mg = {{Mg}}  >= Toplam moment= {{toplam_moment}}     .......................................TAMAM !  {<  ise TAMAM DEĞİL! }
+L*1000/ (sehim_limiti) = {{sehim_limiti}}   >=  toplam sehim = {{toplam_sehim}}   ..........TAMAM !  {<  ise TAMAM DEĞİL! }
+Vg (güvenli kesme)= {{guvenli_kesme}}   >=  toplam kesme = {{toplam_kesme}} ................TAMAM !  {<  ise TAMAM DEĞİL! } 
+KESİT:  {{kesitt}}
+Seçilen kesit : {{uygun_mu}} !
+---------------------------------------------------------------------------------------------------------
+Kullanılan Simgeler:
+E:   Elastisite modulu (Mpa)
+Δ1: Girilen noktasal yük veya yayılı yükten oluşan sehim (mm)
+Δ2: Kesitin zati ağırlığından oluşan sehim (mm)
+Δ3: İlave yayılı yükten oluşan sehim (mm)
+M1: Girilen noktasal yük veya yayılı yükten oluşan moment (N.m)
+M2: Kesitin zati ağırlığından oluşan moment (N.m)
+M3: İlave yayılı yükten oluşan moment (N.m)
+V1: Girilen noktasal yük veya yayılı yükten oluşan kesme kuvveti (N)
+V2: Kesitin zati ağırlığından oluşan kesme kuvveti (N)
+V3: İlave yayılı yükten oluşan kesme kuvveti (N)
+Aw: Gövde alanı (mm2)
+Vg: Güvenli kesme kuvveti dayanımı (N)
+Mg: Güvenli eğilme momenti dayanımı (N.m)
+    </pre>
+    </p>
+    <br>
+    <br>
+
+  </div>
+
   {%endif%}
   <br>
   <br>
