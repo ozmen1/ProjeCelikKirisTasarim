@@ -7,76 +7,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="\static\button.css" rel="stylesheet" />
+  <script src="\static\myscript.js"></script>
   <title>YÖNTEM 2</title>
-  <script>
-    function gizle() {
 
-      var x = document.getElementById("yuk_dur").value;
-
-      if (x == "1") {
-
-        document.getElementById("resim1").style.opacity = 1;
-        document.getElementById("resim2").style.opacity = 0.3;
-        document.getElementById("resim3").style.opacity = 0.3;
-        document.getElementById("resim4").style.opacity = 0.3;
-
-        document.getElementById("ww").style.display = "block";
-        document.getElementById("ww2").style.display = "block";
-        document.getElementById("p_degeri").style.display = "none";
-        document.getElementById("p_degeri2").style.display = "none";
-        document.getElementById("qq").style.display = "none";
-        document.getElementById("qq2").style.display = "none";
-
-      }
-
-      else if (x == "7") {
-        document.getElementById("resim2").style.opacity = 1;
-        document.getElementById("resim1").style.opacity = 0.3;
-        document.getElementById("resim3").style.opacity = 0.3;
-        document.getElementById("resim4").style.opacity = 0.3;
-
-        document.getElementById("ww").style.display = "none";
-        document.getElementById("ww2").style.display = "none";
-        document.getElementById("p_degeri").style.display = "block";
-        document.getElementById("p_degeri2").style.display = "block";
-        document.getElementById("qq").style.display = "block";
-        document.getElementById("qq2").style.display = "block";
-      }
-
-      else if (x == "19") {
-
-        document.getElementById("resim3").style.opacity = 1;
-        document.getElementById("resim1").style.opacity = 0.3;
-        document.getElementById("resim2").style.opacity = 0.3;
-        document.getElementById("resim4").style.opacity = 0.3;
-
-        document.getElementById("ww").style.display = "block";
-        document.getElementById("ww2").style.display = "block";
-        document.getElementById("p_degeri").style.display = "none";
-        document.getElementById("p_degeri2").style.display = "none";
-        document.getElementById("qq").style.display = "none";
-        document.getElementById("qq2").style.display = "none";
-      }
-
-      else if (x == "22") {
-
-        document.getElementById("resim4").style.opacity = 1;
-        document.getElementById("resim1").style.opacity = 0.3;
-        document.getElementById("resim2").style.opacity = 0.3;
-        document.getElementById("resim3").style.opacity = 0.3;
-
-        document.getElementById("ww").style.display = "none";
-        document.getElementById("ww2").style.display = "none";
-        document.getElementById("p_degeri").style.display = "block";
-        document.getElementById("p_degeri2").style.display = "block";
-        document.getElementById("qq").style.display = "block";
-        document.getElementById("qq2").style.display = "block";
-      }
-
-    }
-
-
-  </script>
 </head>
 
 <body>
@@ -104,110 +37,6 @@
   <br><br><br>
 
   <h2 class="w3-text-red w3-center">YÖNTEM 2 İÇİN HESAPLAMA</h2>
-
-  <!--   <div class="w3-center w3-yellow w3-padding-10">
-
-    <form action="/yontem_2" method="post" style="background-color:greenyellow;">
-      <table style="margin: auto;">
-        <tr>
-          <td><label for="yuk_dur">Yükleme Durumu:</label></td>
-          <td>
-            <select class="w3-select" id="yuk_dur" style="max-width:250px;" name="yukleme_durumlari" onchange="gizle()">
-              <option value="">SEÇİM YAPIN</option>
-              <option value="1">Basit Kiriş - Düzgün Yayılı Yük</option>
-              <option value="7">Basit Kiriş – Merkezde Noktasal Yük</option>
-              <option value="19"> Konsol Kiriş – Düzgün Yayılı Yük</option>
-              <option value="22">Konsol Kiriş – Serbest Uçta Noktasal Yük</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-        <tr>
-          <td><label id="p_degeri2" for="p_degeri">P değeri (N):</label></td>
-          <td><input class="w3-input" style="max-width:250px;" type="number" value="0" min="0" id="p_degeri" name="P"
-              placeholder="p değeri girin"></td>
-        </tr>
-
-        <tr>
-          <td><label for="sehim_limiti">Sehim Limiti (L/?):</label></td>
-          <td>
-            <select class="w3-select" id="sehim_limiti" style="max-width:250px;" name="sehim_limit">
-              <option value="300">300</option>
-              <option value="150">150</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label id="ww2" for="ww">Yayılı Yük, w (N/m) :</label></td>
-          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="w" id="ww"
-              placeholder="w değeri girin"></td>
-        </tr>
-        <tr>
-          <td><label id="qq2" for="qq">İlave Yayılı Yük, q (N/m) :</label></td>
-          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="ilave_q" id="qq"
-              placeholder="q değeri girin"></td>
-        </tr>
-        <tr>
-          <td><label for="ll">L değeri (m):</label></td>
-          <td><input class="w3-input" style="max-width:250px;" value="0" type="number" min="0" name="L" id="ll"
-              placeholder="l değeri girin"></td>
-        </tr>
-        <tr>
-          <td><label for="llb">Lb değeri (m):</label></td>
-          <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="Lb" id="llb"
-              placeholder="Lb değeri girin"></td>
-        </tr>
-        <tr>
-          <td><label for="celik_sinif">Çelik sınıfı:</label></td>
-          <td>
-            <select class="w3-select" style="max-width:250px;" id="celik_sinif" name="celik_sinifi">
-              <option value="">SEÇİM YAPIN</option>
-              <option value="235">S235</option>
-              <option value="275">S275</option>
-              <option value="355">S355</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><label for="kesit_tipi">Kesit Tipi:</label></td>
-          <td>
-            <select class="w3-select" style="max-width:250px;" id="kesit_tipi" name="kesit_tipi">
-              <option value="">SEÇİM YAPIN</option>
-              <option value="A">HEA</option>
-              <option value="B">HEB</option>
-              <option value="M">HEM</option>
-              <option value="IPE">IPE</option>
-              <option value="IPN">IPN</option>
-            </select>
-          </td>
-        </tr>
-        <tr>
-          <td><input class="w3-input" type="submit" value="HESAPLA"></td>
-        </tr>
-      </table>
-    </form>
-  </div>
-
-
-    First Photo Grid
-    <div class="w3-row-padding w3-padding-16 w3-center" id="resimler">
-      <div class="w3-quarter" id="resim1">
-        <img src="\static\basit_kiris_duzgun_yayili_yuk.png" alt="resim1" style="width:70%">
-        <h4>Basit Kiriş Düzgün Yayılı Yük</h4>
-      </div>
-      <div class="w3-quarter" id="resim2">
-        <img src="\static\basit_kiris_merkezde_noktasal_yuk.png" alt="resim2" style="width:70%">
-        <h4>Basit Kiriş Merkezde Noktasal Yük</h4>
-      </div>
-      <div class="w3-quarter" id="resim3">
-        <img src="\static\konsol_kiris_duzgun_yayili_yuk.png" alt="resim3" style="width:70%">
-        <h4>Konsol Kiriş Düzgün Yayılı Yük</h4>
-      </div>
-      <div class="w3-quarter" id="resim4">
-        <img src="\static\konsol_kiris_serbest_ucta_noktasal_yuk.png" alt="resim4" style="width:70%">
-        <h4>Konsol Kiriş Serbest Uçta Noktasal Yük</h4>
-      </div>
-    </div> -->
 
   <div class="w3-row w3-container" style="margin:50px 0">
     <div class="w3-half w3-container">
@@ -325,12 +154,113 @@
   </div>
 
 
-  {% if uygun_mu %}
+{% if uygun_mu %}
   <div class="w3-center w3-yellow w3-padding-5">
     <h1>{{kesitt}}</h1>
     <hr>
     <h1>{{uygun_mu}}</h1>
   </div>
+  {%endif%}
+
+  {%if uygun_mu == "UYGUN"%}
+
+
+  <div id="aciklama" class="w3-yellow w3-padding-5">
+    <p>
+    <pre style="padding-left: 5%;">
+TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI
+[ÇYTHYE2016 Güvenlik Katsatıları ile Tasarım (GKT)]
+©2021 -  Özgün Demircan, Sıla İklim Taşkafa, Kerem Özmen, Ali Arıbaş
+---------------------------------------------------------------------------------------------------------
+GİRDİLER:
+---------------------------------------------------------------------------------------------------------
+Yükleme Durumu: 
+P (N) = {{P}}
+Yayılı yük, w (N/m) = {{yayili_yuk}}
+İlave yayılı yük, q (N/m) = {{ilave_q}}
+L (m) = {{L}}
+Lb (m) = {{Lb}}
+Çelik sınıfı: {{celik_sinifi}} {S235 / S275 / S355 stringlerinden biri yazdırılacak}
+Kesit: {{kesit}}
+---------------------------------------------------------------------------------------------------------
+TASARIM SONUÇLARI:
+---------------------------------------------------------------------------------------------------------
+E (MPa) = {{E}}
+Kesit Özellikleri:
+d (mm)    =  
+tf (mm)   =
+bf (mm)   =
+h (mm)    =
+tw (mm)   =
+Wex (cm3) = 
+J (cm4)   =
+Iy (cm4)  =
+h0 (mm)   =
+Sehim değerleri (mm):
+Δ1  =  {{maksimum_sehim}} (maksimum_sehim yazdırılacak)
+Δ2  =  {{zati_sehim}} (zati_sehim yazdırılacak)
+Δ3  =  {{ilave_sehim}} (ilave_sehim yazdırılacak)
+Moment değerleri (N.m):
+M1 =  {{maksimum_moment}} (maksimum_moment yazdırılacak)
+M2 =  {{zati_moment}} (zati_moment yazdırılacak)
+M3 =  {{ilave_moment}}  (ilave_moment yazdırılacak)
+Kesme kuvvetleri (N):
+V1 =   {{maksimum_kesme}} (maksimum_kesme yazdırılacak)
+V2 =   {{zati_kesme}} (zati_kesme yazdırılacak)
+V3 =   {{ilave_kesme}}  (ilave_kesme yazdırılacak)
+Toplam sehim (mm) =  {{toplam_sehim}} (toplam_sehim)
+Toplam moment (N.m) =  {{toplam_moment}} (toplam_moment)
+Toplam kesme (N) =  {{toplam_kesme}}  (toplam_kesme)
+---------------------------------------------------------------------------------------------------------
+Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
+Aw =  {{Aw}}
+Cv1 = 1.0
+Vg (N) =  {{guvenli_kesme}} (guvenli_kesme)
+---------------------------------------------------------------------------------------------------------
+Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
+Mp (N.m) = 
+gövde: kompakt
+başlıklar:  (kompakt → yönetmelik 9.2 /  kompakt değil → yönetmelik 9.3)
+Lp (m)   =
+its (cm) =
+Lr (m)   =
+Lb (m)   =
+{9.2 ise:}
+Yanal burulmalı burkulma sınır durumu, Mn = ... (M)
+{9.3 ise:}
+Yanal burulmalı burkulma sınır durumu, Mn1 = ... (Mn1)
+Yerel burkulma sınır durumu, Mn2 =  ... (Mn2)
+Mn (N.m) =  {{Mn}}  (M)
+Mg (N.m) =  {{Mg}} (Mg {main.py'den})
+---------------------------------------------------------------------------------------------------------
+Tasarim Kontrolü:
+Mg = {{Mg}}  >= Toplam moment= {{toplam_moment}}     .......................................TAMAM !  {<  ise TAMAM DEĞİL! }
+L*1000/ (sehim_limiti) = {{sehim_limiti}}   >=  toplam sehim = {{toplam_sehim}}   ..........TAMAM !  {<  ise TAMAM DEĞİL! }
+Vg (güvenli kesme)= {{guvenli_kesme}}   >=  toplam kesme = {{toplam_kesme}} ................TAMAM !  {<  ise TAMAM DEĞİL! } 
+KESİT:  {{kesitt}}
+Seçilen kesit : {{uygun_mu}} !
+---------------------------------------------------------------------------------------------------------
+Kullanılan Simgeler:
+E:   Elastisite modulu (Mpa)
+Δ1: Girilen noktasal yük veya yayılı yükten oluşan sehim (mm)
+Δ2: Kesitin zati ağırlığından oluşan sehim (mm)
+Δ3: İlave yayılı yükten oluşan sehim (mm)
+M1: Girilen noktasal yük veya yayılı yükten oluşan moment (N.m)
+M2: Kesitin zati ağırlığından oluşan moment (N.m)
+M3: İlave yayılı yükten oluşan moment (N.m)
+V1: Girilen noktasal yük veya yayılı yükten oluşan kesme kuvveti (N)
+V2: Kesitin zati ağırlığından oluşan kesme kuvveti (N)
+V3: İlave yayılı yükten oluşan kesme kuvveti (N)
+Aw: Gövde alanı (mm2)
+Vg: Güvenli kesme kuvveti dayanımı (N)
+Mg: Güvenli eğilme momenti dayanımı (N.m)
+    </pre>
+    </p>
+    <br>
+    <br>
+
+  </div>
+
   {%endif%}
   <br>
   <br>
