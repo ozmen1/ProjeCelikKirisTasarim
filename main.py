@@ -1,7 +1,6 @@
 import mysql.connector
 from flask import Flask, render_template, request
 from functions import *
-import time
 
 
 
@@ -189,6 +188,8 @@ def yontem_1():
             maksimum_moment=0
             maksimum_kesme=0
             ilave_sehim=0
+            ilave_moment=0
+            ilave_kesme=0
 
             if yukleme_durumlari == 1:
                 print("1_Basit Kiriş - Düzgün Yayılı Yük")
@@ -271,7 +272,7 @@ def yontem_1():
                 Mn = yonetmelik9_3(celik_sinifi, satir, Lb)
             else:
                 print("kompakt aldı")
-                Mn = yonetmelik9_2(celik_sinifi, satir, Lb)
+                Mn= yonetmelik9_2(celik_sinifi, satir, Lb)
 
             Mg = Mn / 1.67    
             print("Mg = ", Mg)
@@ -285,9 +286,10 @@ def yontem_1():
                 # kesit değiştirme yapılacak
                 uygun_mu = "UYGUN DEĞİL"
                 print(uygun_mu)
+                
             
 
-            return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, kesit=kesit, celik_sinifi=celik_sinifi, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
+            return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, Lb=Lb, E=E, Mn=Mn, Mg=Mg,  guvenli_kesme=guvenli_kesme, Aw=Aw, toplam_kesme=toplam_kesme, toplam_moment=toplam_moment, toplam_sehim=toplam_sehim, ilave_kesme=ilave_kesme, zati_kesme=zati_kesme, maksimum_kesme=maksimum_kesme, ilave_moment=ilave_moment, zati_moment=zati_moment, maksimum_moment=maksimum_moment, ilave_sehim=ilave_sehim, zati_sehim=zati_sehim, maksimum_sehim=maksimum_sehim, ilave_q=ilave_q, kesit=kesit, celik_sinifi=celik_sinifi, sehim_limiti=sehim_limiti, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
         except:
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
@@ -322,6 +324,12 @@ def yontem_2():
     print("WEB_VERİTABANI BAŞARILI ALINDI")
 
     E = 200000  # elastisite modulu (MPa)
+    maksimum_sehim=0
+    maksimum_moment=0
+    maksimum_kesme=0
+    ilave_sehim=0
+    ilave_moment=0
+    ilave_kesme=0
 
     if request.method == "POST":
         try:
@@ -489,7 +497,7 @@ def yontem_2():
                 if ((Mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
-                    return render_template("yontem_2.html", kesitt=kesit_2, uygun_mu=uygun_mu)
+                    return render_template("yontem_2.html", P=P, L=L, Lb=Lb, E=E, Mn=Mn, Mg=Mg,  guvenli_kesme=guvenli_kesme, Aw=Aw, toplam_kesme=toplam_kesme, toplam_moment=toplam_moment, toplam_sehim=toplam_sehim, ilave_kesme=ilave_kesme, zati_kesme=zati_kesme, maksimum_kesme=maksimum_kesme, ilave_moment=ilave_moment, zati_moment=zati_moment, maksimum_moment=maksimum_moment, ilave_sehim=ilave_sehim, zati_sehim=zati_sehim, maksimum_sehim=maksimum_sehim, ilave_q=ilave_q, kesitt=kesit_2, celik_sinifi=celik_sinifi, sehim_limiti=sehim_limiti, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
                 elif len(satir_dict) != 0:
                     satir_dict.pop(kesit_2)
                     print(satir_dict, "pop sonrası değer")
