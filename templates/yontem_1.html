@@ -152,7 +152,7 @@
             <tr>
               <td>
                 <div class="container">
-                  <button class="button">Hesapla</button>
+                  <button class="button" onclick="myFunction()">Hesapla</button>
                 </div>
               </td>
             </tr>
@@ -162,7 +162,7 @@
     </div>
 
     <div class="w3-half w3-container" id="sonuc" style="background-color: #757575;">
-      <div class="w3-topbar w3-border-amber">
+      <div class="w3-topbar w3-border-amber" id="sonuc2">
         {% if uygun_mu %}
         <div class="w3-center w3-yellow w3-padding-5">
           <h1>{{uygun_mu}}</h1>
