@@ -7,89 +7,109 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <title>Anasayfa</title>
+
+  <style>
+    .btn {
+      border: none;
+      outline: none;
+      padding: 10px 16px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+
+    /* Style the active class (and buttons on mouse-over) */
+    .active,
+    .btn:hover {
+      background-color: #666;
+      color: white;
+    }
+  </style>
+
 </head>
 
 <body style="background-color: #212121">
   <!-- Navbar (sit on top) -->
+
   <div class="w3-top">
     <div class="w3-bar w3-wide w3-padding w3-card" style="background-color: #757575;">
-      <a href="/" class="w3-bar-item w3-button w3-animate-opacity" style="color: #FFFFFF;"><img src="static\favicon3.ico"
-          alt="çelik yapı" title="çelik yapı"><b> ÇELİK</b> YAPI</a>
-      <!-- Float links to the right. Hide them on small screens -->
-      <div class="w3-right w3-hide-small" style="background-color: #BDBDBD;">
-        <a href="/" class="w3-bar-item w3-button"> <img src="static\home2.ico" alt="anasayfa" title="anasayfa">
+      <a href="/" class="w3-bar-item w3-button w3-animate-opacity" style="color: #FFFFFF;"><img
+          src="static\favicon3.ico" alt="çelik yapı" title="çelik yapı"><b> ÇELİK</b> YAPI</a>
+
+      <div class="w3-right" style="background-color: #BDBDBD; font-family: Arial;">
+        <a href="/" class="w3-bar-item w3-button w3-hover-teal btn active"> <img src="static\home2.ico" alt="anasayfa"
+            title="anasayfa">
           Anasayfa</a>
-        <a href="yontem_1.html" class="w3-bar-item w3-button"> <img src="static\calculate.ico" alt="yöntem_1"
-            title="yöntem_1"> Yöntem 1</a>
-        <a href="yontem_2.html" class="w3-bar-item w3-button"><img src="static\calculate.ico" alt="yöntem_2"
-            title="yöntem_2"> Yöntem 2</a>
-        <a href="\static\celik.apk" class="w3-bar-item w3-button" download><img src="\static\android2.ico"
+        <a href="yontem_1.html" class="w3-bar-item w3-button w3-hover-teal"> <img src="static\calculate.ico"
+            alt="yöntem_1" title="yöntem_1"> Manuel Tasarım</a>
+        <a href="yontem_2.html" class="w3-bar-item w3-button w3-hover-teal"><img src="static\calculate.ico"
+            alt="yöntem_2" title="yöntem_2"> Otomatik Tasarım</a>
+        <a href="\static\celik.apk" class="w3-bar-item w3-button w3-hover-teal" download><img src="\static\android2.ico"
             alt="app indir" title="App indir"> App İNDİR</a>
       </div>
     </div>
   </div>
 
+
   <!-- Header -->
-  <header class="w3-display-container w3-content w3-wide" style="max-width:100%;" id="home">
-    <img class="w3-image w3-animate-opacity" src="\static\steel-construction.jpg" alt="Architecture"
+
+  <header class="w3-display-container w3-content w3-wide w3-hide-small" style="max-width:100%;" id="home">
+    <img class="w3-image w3-animate-opacity" src="\static\steel-construction.jpg" alt="Constuction"
       style="display: block; margin: auto;" width="100%" height="40%">
 
 
-    <div class="w3-display-middle w3-margin-top w3-center">
+    <div class="w3-display-middle w3-margin-top w3-center w3-hide-small">
       <h1 class="w3-xxlarge w3-text-white"><span class="w3-padding w3-opacity-min"
           style="background-color: #009688;"><strong>ÇELİK YAPI</strong></span></h1>
 
     </div>
   </header>
+  <div class="w3-content w3-padding" style="max-width:1564px">
+    <div id="aciklama">
+      <div class="resimaciklama"><img class="w3-image w3-animate-zoom w3-hide-small" src="\static\stockphoto3.png"
+          alt="stockphoto" style="float: left; display: block; margin-left: 2%; margin-right: 2%; margin-top: 2%;"
+          width="25%" height="25%"></div>
+      <span style="font-family:Georgia">
+        <div class="anaaciklama" style="color:#ffffff; font-family: Arial, Helvetica, sans-serif;">
+          <p style="margin-left: 28%; background-color: #00796B; font-size:120%; margin-right: 2%;">
+            <b>TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI</b>
+          <p style="margin-left: 2% ">
+          <p>Yönetmelik: ÇYTHYE 2016-Çelik Yapıların Tasarım, Hesap ve Yapım Esasları
+            <br>Tasarım Yaklaşımı: GKT (Güvenlik Katsayıları ile Tasarım)
+            <br>Kesit Tipleri: IPN, IPE, HEA, HEB, HEM
+            <br>Yükleme Durumları:
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;1. Basit Kiriş - Düzgün Yayılı Yük
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;2. Basit Kiriş - Merkezde Noktasal Yük
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;3. Konsol Kiriş - Düzgün Yayılı Yük
+            <br>&nbsp;&nbsp;&nbsp;&nbsp;4. Konsol Kiriş - Serbest Uçta Noktasal Yük
+            <br>Sehim Limitleri: L/300 ve L/150
+            <br>Birimler: (N.m)
+            <br>Manuel Tasarım: Tek bir kesit seçip analiz etmek içindir (Örnek: Mevcut bir kirişin analizi)
+            <br>Otomatik Tasarım: Seçilen kesit tipinde en uygun olan kesiti bulur.
+          </p>
+          <p><strong>UYARI:</strong></p>
+          <p>Kullanıcı uygulamanın sonuçlarını kontrol etmekle yükümlüdür. Bu uygulamanın yanlış veya doğru kullanımı
+            ile
+            karşılaşılabilecek zararlardan uygulamayı hazırlayanlar hiçbir şekilde sorumlu tutulamazlar.</p>
+        </div>
+      </span>
 
-  <div id="aciklama">
-    <div class="resimaciklama"><img class="w3-image w3-animate-zoom" src="\static\stockphoto3.png" alt="stockphoto"
-        style="float: left; display: block; margin-left: 2%; margin-right: 2%; margin-top: 2%;" width="25%"
-        height="25%"></div>
-    <div class="anaaciklama" style="color:#BDBDBD;">
-      <p style="margin-left: 2%;">
-      <h3><b>TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI</b></h3>
-      </p>
-      <p style="margin-left: 2%;">
-      <pre>
-Yönetmelik: ÇYTHYE 2016-Çelik Yapıların Tasarım, Hesap ve Yapım Esasları
-Tasarım Yaklaşımı: GKT (Güvenlik Katsayıları ile Tasarım)
-Kesit Tipleri: IPN, IPE, HEA, HEB, HEM
-Yükleme Durumları:
-  1. Basit Kiriş - Düzgün Yayılı Yük
-  2. Basit Kiriş - Merkezde Noktasal Yük
-  3. Konsol Kiriş - Düzgün Yayılı Yük
-  4. Konsol Kiriş - Serbest Uçta Noktasal Yük
-Sehim Limitleri: L/300 ve L/150
-Birimler: (N.m)
-Manuel Tasarım: Tek bir kesit seçip analiz etmek içindir (Örnek: Mevcut bir kirişin analizi)
-Otomatik Tasarım: Seçilen kesit tipinde en uygun olan kesiti bulur.
-    
-<strong>UYARI:</strong>
-Kullanıcı uygulamanın sonuçlarını kontrol etmekle yükümlüdür. Bu uygulamanın yanlış veya doğru kullanımı ile
-karşılaşılabilecek zararlardan uygulamayı hazırlayanlar hiçbir şekilde sorumlu tutulamazlar.
-        </pre>
-      </p>
-      <br>
-      <br>
-    </div>
   </div>
-
 
   <!-- Footer -->
   <footer class="w3-center w3-black w3-padding-10 w3-bottom">
-    <p style="word-spacing: 3px; ">HAZIRLAYANLAR:
-      <a href="/" style="text-decoration: underline;" title="X" target="_blank" class="w3-hover-text-teal">ÖZGÜN
-        DEMİRCAN</a>
+    <p style="word-spacing: 3px; font-family: Arial, Helvetica, sans-serif;">©2021 - HAZIRLAYANLAR:
+      <a href="mailto:odemircan@protonmail.com" style="text-decoration: underline;" title="X" target="_blank" class="w3-hover-text-teal">ÖZGÜN
+        DEMİRCAN</a><text>,  </text>
       <a href="https://www.linkedin.com/in/s%C4%B1la-iklim-ta%C5%9Fkafa-97386b208/" style="text-decoration: underline;"
         title="X" target="_blank" class="w3-hover-text-teal">SILA
-        İKLİM TAŞKAFA</a>
+        İKLİM TAŞKAFA</a><text>,  </text>
       <a href="https://www.linkedin.com/in/keremozmen" style="text-decoration: underline;" title="X" target="_blank"
         class="w3-hover-text-teal">KEREM
-        ÖZMEN</a>
+        ÖZMEN</a><text>,  </text>
       <a href="https://www.linkedin.com/in/ali-ariba%C5%9F-5736381bb" style="text-decoration: underline;" title="X"
         target="_blank" class="w3-hover-text-teal">ALİ
         ARIBAŞ</a>
+      | Copyright © 2021
     </p>
   </footer>
 
