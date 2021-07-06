@@ -8,6 +8,23 @@
   <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
   <link href="\static\button.css" rel="stylesheet" />
   <title>YÖNTEM 2</title>
+
+  <style>
+    .btn {
+      border: none;
+      outline: none;
+      padding: 10px 16px;
+      background-color: #f1f1f1;
+      cursor: pointer;
+    }
+    
+    /* Style the active class (and buttons on mouse-over) */
+    .active, .btn:hover {
+      background-color: #666;
+      color: white;
+    }
+    </style>
+
   <script>
     function gizle() {
 
@@ -82,20 +99,19 @@
 <body>
   <!-- Navbar (sit on top) -->
   <div class="w3-top">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-      <a href="/" class="w3-bar-item w3-button"><img
-          src="static\interior_architectural_design_house_icon-icons.com_56323.ico" alt="çelik yapı"
-          title="çelik yapı"><b>ÇELİK</b> YAPI</a>
+    <div class="w3-bar w3-wide w3-padding w3-card" style="background-color: #757575;">
+      <a href="/" class="w3-bar-item w3-button w3-animate-opacity" style="color: #FFFFFF;"><img src="static\favicon3.ico"
+          alt="çelik yapı" title="çelik yapı"><b> ÇELİK</b> YAPI</a>
       <!-- Float links to the right. Hide them on small screens -->
-      <div class="w3-right w3-hide-small">
-        <a href="/" class="w3-bar-item w3-button"> <img src="static\home_house_icon-icons.com_49851.ico" alt="anasayfa"
-            title="anasayfa">ANASAYFA</a>
-        <a href="yontem_1.html" class="w3-bar-item w3-button"> <img
-            src="static\settings_wrench_adjustment_icon_188629.ico" alt="yöntem_1" title="yöntem_1">Yöntem 1</a>
-        <a href="yontem_2.html" class="w3-bar-item w3-button"><img
-            src="static\settings_wrench_adjustment_icon_188629.ico" alt="yöntem_2" title="yöntem_2">Yöntem 2</a>
-        <a href="\static\celik.apk" class="w3-bar-item w3-button" download><img
-            src="\static\android_os_logo_icon_134673.ico" alt="app indir" title="App indir">App İNDİR</a>
+      <div class="w3-right w3-hide-small" style="background-color: #BDBDBD;">
+        <a href="/" class="w3-bar-item w3-button w3-hover-teal"> <img src="static\home2.ico" alt="anasayfa" title="anasayfa">
+          Anasayfa</a>
+        <a href="yontem_1.html" class="w3-bar-item w3-button w3-hover-teal"> <img src="static\calculate.ico" alt="yöntem_1"
+            title="yöntem_1"> Yöntem 1</a>
+        <a href="yontem_2.html" class="w3-bar-item w3-button w3-hover-teal btn active"><img src="static\calculate.ico" alt="yöntem_2"
+            title="yöntem_2"> Yöntem 2</a>
+        <a href="\static\celik.apk" class="w3-bar-item w3-button w3-hover-teal" download><img src="\static\android2.ico"
+            alt="app indir" title="App indir"> App İNDİR</a>
       </div>
     </div>
   </div>
@@ -335,20 +351,20 @@
   <br>
   <br>
   <br>
-  <!-- Footer -->
   <footer class="w3-center w3-black w3-padding-10 w3-bottom">
     <p style="word-spacing: 3px; ">HAZIRLAYANLAR:
-      <span><a href="/" style="text-decoration: underline;" title="X" target="_blank" class="w3-hover-text-yellow">ÖZGÜN
-          DEMİRCAN</a></span>
-      <span><a href="https://www.linkedin.com/in/s%C4%B1la-iklim-ta%C5%9Fkafa-97386b208/"
-          style="text-decoration: underline;" title="X" target="_blank" class="w3-hover-text-yellow">SILA
-          İKLİM TAŞKAFA</a></span>
-      <span><a href="https://www.linkedin.com/in/keremozmen" style="text-decoration: underline;" title="X"
-          target="_blank" class="w3-hover-text-yellow">KEREM
-          ÖZMEN</a></span>
-      <span><a href="https://www.linkedin.com/in/ali-ariba%C5%9F-5736381bb" style="text-decoration: underline;"
-          title="X" target="_blank" class="w3-hover-text-yellow">ALİ
-          ARIBAŞ</a></span>
+      <a href="/" style="text-decoration: underline;" title="X" target="_blank" class="w3-hover-text-teal">ÖZGÜN
+        DEMİRCAN</a>
+      <a href="https://www.linkedin.com/in/s%C4%B1la-iklim-ta%C5%9Fkafa-97386b208/" style="text-decoration: underline;"
+        title="X" target="_blank" class="w3-hover-text-teal">SILA
+        İKLİM TAŞKAFA</a>
+      <a href="https://www.linkedin.com/in/keremozmen" style="text-decoration: underline;" title="X" target="_blank"
+        class="w3-hover-text-teal">KEREM
+        ÖZMEN</a>
+      <a href="https://www.linkedin.com/in/ali-ariba%C5%9F-5736381bb" style="text-decoration: underline;" title="X"
+        target="_blank" class="w3-hover-text-teal">ALİ
+        ARIBAŞ</a>
+        | Copyright © 2021
     </p>
   </footer>
 </body>
