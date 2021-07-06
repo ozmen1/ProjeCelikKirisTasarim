@@ -7,25 +7,27 @@ body {
   flex-direction: column;}
 
 .container {
-  margin: auto; }
+  margin-left: 62px;
+  margin-top: 15px;
+  margin-bottom: 15px; }
 
 .button {
   cursor: pointer;
   margin-left: 5px;
   margin-bottom: 15px;
-  text-shadow: 0 -2px 0 #4a8a65, 0 1px 1px #c2dece;
+  text-shadow: 0 -2px 0 #4a8a65, 0 2px 1px #212121;
   box-sizing: border-box;
   font-size: 2em;
   font-family: Helvetica, Arial, Sans-Serif;
   text-decoration: none;
   font-weight: bold;
-  color: #5ea97d;
+  color: #ffffff;
   height: 65px;
   line-height: 65px;
   padding: 0 32.5px;
   display: inline-block;
   width: auto;
-  background: linear-gradient(to bottom, #9ceabd 0%, #9ddab6 26%, #7fbb98 100%);
+  background: linear-gradient(to bottom, #9ceabd 0%, #9ddab6 26%, #00796b 100%);
   border-radius: 5px;
   border-top: 1px solid #c8e2d3;
   border-bottom: 1px solid #c2dece;
@@ -36,7 +38,7 @@ body {
     color: #5ea97d; }
 
 .button:hover {
-  background: linear-gradient(to bottom, #baf1d1 0%, #b7e4ca 26%, #96c7ab 100%); }
+  background: linear-gradient(to top, #baf1d1 0%, #b7e4ca 26%, #00796b 100%); }
 
 .button:active {
   top: 6px;
