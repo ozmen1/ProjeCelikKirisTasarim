@@ -64,7 +64,3 @@ function gizle() {
 
 }
 
-function TestsFunction() {
-	var T = document.getElementById("sonuc2");
-	T.style.display = "block";  // <-- Set it to block
-}

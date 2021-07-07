@@ -9,39 +9,54 @@
   <link href="\static\button.css" rel="stylesheet" />
   <script src="\static\myscript.js"></script>
   <title>YÖNTEM 2</title>
-
 </head>
 
-<body>
-  <!-- Navbar (sit on top) -->
+<body style="background-color: #212121">
+  <!-- Navbar start-->
   <div class="w3-top">
-    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-      <a href="/" class="w3-bar-item w3-button"><img
-          src="static\interior_architectural_design_house_icon-icons.com_56323.ico" alt="çelik yapı"
-          title="çelik yapı"><b>ÇELİK</b> YAPI</a>
-      <!-- Float links to the right. Hide them on small screens -->
-      <div class="w3-right w3-hide-small">
-        <a href="/" class="w3-bar-item w3-button"> <img src="static\home_house_icon-icons.com_49851.ico" alt="anasayfa"
-            title="anasayfa">ANASAYFA</a>
-        <a href="yontem_1.html" class="w3-bar-item w3-button"> <img
-            src="static\settings_wrench_adjustment_icon_188629.ico" alt="yöntem_1" title="yöntem_1">Yöntem 1</a>
-        <a href="yontem_2.html" class="w3-bar-item w3-button"><img
-            src="static\settings_wrench_adjustment_icon_188629.ico" alt="yöntem_2" title="yöntem_2">Yöntem 2</a>
-        <a href="\static\celik.apk" class="w3-bar-item w3-button" download><img
-            src="\static\android_os_logo_icon_134673.ico" alt="app indir" title="App indir">App İNDİR</a>
+    <div class="w3-bar w3-wide w3-padding w3-card" style="background-color: #757575;">
+      <a href="/" class="w3-bar-item w3-button w3-animate-opacity" style="color: #FFFFFF;"><img
+          src="static\favicon3.ico" alt="çelik yapı" title="çelik yapı"><b> ÇELİK</b> YAPI</a>
+      <div class="w3-right" style="background-color: #BDBDBD; font-family: Arial;">
+        <a href="/" class="w3-bar-item w3-button w3-hover-teal"> <img src="static\home2.ico" alt="anasayfa"
+            title="anasayfa">
+          Anasayfa</a>
+        <a href="yontem_1.html" class="w3-bar-item w3-button w3-hover-teal"> <img src="static\calculate.ico"
+            alt="yöntem_1" title="yöntem_1"> Manuel Tasarım</a>
+        <a href="yontem_2.html" class="w3-bar-item w3-button w3-hover-teal btn active"><img src="static\calculate.ico"
+            alt="yöntem_2" title="yöntem_2"> Otomatik Tasarım</a>
+        <a href="\static\celik.apk" class="w3-bar-item w3-button w3-hover-teal" download><img src="\static\android2.ico"
+            alt="app indir" title="App indir"> App İNDİR</a>
       </div>
     </div>
   </div>
-
-
+  <!-- Navbar end-->
   <br><br><br>
-
-  <h2 class="w3-text-red w3-center">YÖNTEM 2 İÇİN HESAPLAMA</h2>
-
-  <div class="w3-row w3-container" style="margin:50px 0">
+  <!-- Hesapla start-->
+  <h2 class="w3-center" style="background-color: #00796B; color:#FFFFFF">YÖNTEM 2 İÇİN HESAPLAMA</h2>
+  <div class="w3-row w3-container" style="margin:20px 0">
     <div class="w3-half w3-container">
-      <div class="w3-topbar w3-border-amber">
-        <form action="/yontem_2" method="post" style="background-color:greenyellow; position: relative; z-index:0;">
+      <div class="w3-leftbar w3-rightbar w3-border-teal">
+        <form action="/yontem_2" method="post"
+          style="background-color: #666666; position: relative; z-index:0; color:#FFFFFF">
+          <div class="w3-row-padding w3-padding-16 w3-center w3-animate-zoom" id="resimler">
+            <div class="w3-quarter" id="resim1">
+              <img src="\static\basit_kiris_duzgun_yayili_yuk.png" alt="resim1" style="width:70%">
+              <h4>Basit Kiriş Düzgün Yayılı Yük</h4>
+            </div>
+            <div class="w3-quarter" id="resim2">
+              <img src="\static\basit_kiris_merkezde_noktasal_yuk.png" alt="resim2" style="width:70%">
+              <h4>Basit Kiriş Merkezde Noktasal Yük</h4>
+            </div>
+            <div class="w3-quarter" id="resim3">
+              <img src="\static\konsol_kiris_duzgun_yayili_yuk.png" alt="resim3" style="width:70%">
+              <h4>Konsol Kiriş Düzgün Yayılı Yük</h4>
+            </div>
+            <div class="w3-quarter" id="resim4">
+              <img src="\static\konsol_kiris_serbest_ucta_noktasal_yuk.png" alt="resim4" style="width:70%">
+              <h4>Konsol Kiriş Serbest Uçta Noktasal Yük</h4>
+            </div>
+          </div>
           <table style="margin: auto;">
             <tr>
               <td><label for="yuk_dur">Yükleme Durumu:</label></td>
@@ -118,160 +133,131 @@
             </tr>
             <tr>
               <td>
+              <td>
                 <div class="container">
                   <button class="button">Hesapla</button>
                 </div>
+              </td>
               </td>
             </tr>
           </table>
         </form>
       </div>
     </div>
+    <!-- Hesapla end-->
 
-    <div class="w3-half w3-container">
-      <div class="w3-topbar w3-border-amber">
-        <!-- First Photo Grid-->
-        <div class="w3-row-padding w3-padding-16 w3-center" id="resimler">
-          <div class="w3-quarter" id="resim1">
-            <img src="\static\basit_kiris_duzgun_yayili_yuk.png" alt="resim1" style="width:70%">
-            <h4>Basit Kiriş Düzgün Yayılı Yük</h4>
-          </div>
-          <div class="w3-quarter" id="resim2">
-            <img src="\static\basit_kiris_merkezde_noktasal_yuk.png" alt="resim2" style="width:70%">
-            <h4>Basit Kiriş Merkezde Noktasal Yük</h4>
-          </div>
-          <div class="w3-quarter" id="resim3">
-            <img src="\static\konsol_kiris_duzgun_yayili_yuk.png" alt="resim3" style="width:70%">
-            <h4>Konsol Kiriş Düzgün Yayılı Yük</h4>
-          </div>
-          <div class="w3-quarter" id="resim4">
-            <img src="\static\konsol_kiris_serbest_ucta_noktasal_yuk.png" alt="resim4" style="width:70%">
-            <h4>Konsol Kiriş Serbest Uçta Noktasal Yük</h4>
-          </div>
-        </div>
+    <div id="sonuc" class="w3-half w3-animate-opacity" style="background-color: #666666; padding-right: 30px; padding-left: 30px;">
+      {% if uygun_mu %}
+      <div class="w3-center" style="color:#FFFFFF">
+        <h1>{{kesitt}}</h1>
+        <hr>
+        <h1>{{uygun_mu}}</h1>
       </div>
+      {%endif%}
+      {%if uygun_mu == "UYGUN"%}
+      <div id="aciklama" class="w3-padding-5" style="background-color: #666666; color:#FFFFFF">
+        <p>TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI
+          <br>[ÇYTHYE2016 Güvenlik Katsatıları ile Tasarım (GKT)]
+          <br>©2021 - Özgün Demircan, Sıla İklim Taşkafa, Kerem Özmen, Ali Arıbaş
+          <hr>
+          GİRDİLER:
+          <hr>
+          Yükleme Durumu:
+          <br>P (N) = {{P}}
+          <br>Yayılı yük, w (N/m) = {{yayili_yuk}}
+          <br>İlave yayılı yük, q (N/m) = {{ilave_q}}
+          <br>L (m) = {{L}}
+          <br>Lb (m) = {{Lb}}
+          <br>Çelik sınıfı: {{celik_sinifi}} {S235 / S275 / S355 stringlerinden biri yazdırılacak}
+          <br>Kesit: {{kesit}}
+          <hr>
+          TASARIM SONUÇLARI:
+          <hr>
+          E (MPa) = {{E}}
+          <br>Sehim değerleri (mm):
+          <br>Δ1 = {{maksimum_sehim}} (maksimum_sehim yazdırılacak)
+          <br>Δ2 = {{zati_sehim}} (zati_sehim yazdırılacak)
+          <br>Δ3 = {{ilave_sehim}} (ilave_sehim yazdırılacak)
+          <br>Moment değerleri (N.m):
+          <br>M1 = {{maksimum_moment}} (maksimum_moment yazdırılacak)
+          <br>M2 = {{zati_moment}} (zati_moment yazdırılacak)
+          <br>M3 = {{ilave_moment}} (ilave_moment yazdırılacak)
+          <br>Kesme kuvvetleri (N):
+          <br>V1 = {{maksimum_kesme}} (maksimum_kesme yazdırılacak)
+          <br>V2 = {{zati_kesme}} (zati_kesme yazdırılacak)
+          <br>V3 = {{ilave_kesme}} (ilave_kesme yazdırılacak)
+          <br>Toplam sehim (mm) = {{toplam_sehim}} (toplam_sehim)
+          <br>Toplam moment (N.m) = {{toplam_moment}} (toplam_moment)
+          <br>Toplam kesme (N) = {{toplam_kesme}} (toplam_kesme)
+          <hr>
+          Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
+          <br>Aw = {{Aw}}
+          <br>Cv1 = 1.0
+          <br>Vg (N) = {{guvenli_kesme}} (guvenli_kesme)
+          <hr>
+          Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
+          <br>Mp (N.m) = {{Mp}}
+          <br>Mn (N.m) = {{Mn}}
+          <br>Mg (N.m) = {{Mg}}
+          <hr>
+          Tasarim Kontrolü:
+          <br>{% if Mg >= toplam_moment %}
+          <br>Mg >= Toplam Moment .....TAMAM !
+          <br>{% else %}
+          <br>Mg < Toplam Moment .....TAMAM DEĞİL ! <br>{%endif%}
+            <br>{% if (L * 1000 / sehim_limiti) >= toplam_sehim %}
+            <br>L * 1000 / Sehim Limiti >= Toplam Sehim .....TAMAM !
+            <br>{% else %}
+            <br> L * 1000 / Sehim Limiti < Toplam Sehim .....TAMAM DEĞİL ! <br>{%endif%}
+              <br>{% if guvenli_kesme >= toplam_kesme %}
+              <br>Vg >= Toplam Kesme .....TAMAM !
+              <br>{% else %}
+              <br>Vg < Toplam Kesme .....TAMAM DEĞİL ! <br>{%endif%}
+                <br>KESİT: {{kesit}}
+                <br>Seçilen kesit : {{uygun_mu}} !
+                <hr>
+                Kullanılan Simgeler:
+                <br>E: Elastisite modulu (Mpa)
+                <br>Δ1: Girilen noktasal yük veya yayılı yükten oluşan sehim (mm)
+                <br>Δ2: Kesitin zati ağırlığından oluşan sehim (mm)
+                <br>Δ3: İlave yayılı yükten oluşan sehim (mm)
+                <br>M1: Girilen noktasal yük veya yayılı yükten oluşan moment (N.m)
+                <br>M2: Kesitin zati ağırlığından oluşan moment (N.m)
+                <br>M3: İlave yayılı yükten oluşan moment (N.m)
+                <br>V1: Girilen noktasal yük veya yayılı yükten oluşan kesme kuvveti (N)
+                <br>V2: Kesitin zati ağırlığından oluşan kesme kuvveti (N)
+                <br>V3: İlave yayılı yükten oluşan kesme kuvveti (N)
+                <br>Aw: Gövde alanı (mm2)
+                <br>Vg: Güvenli kesme kuvveti dayanımı (N)
+                <br>Mg: Güvenli eğilme momenti dayanımı (N.m)
+        </p>
+        <br><br>
+      </div>
+      {%endif%}
     </div>
   </div>
+  <!-- Rapor end-->
+  <br><br><br>
+  <!-- Content end-->
 
-
-{% if uygun_mu %}
-  <div class="w3-center w3-yellow w3-padding-5">
-    <h1>{{kesitt}}</h1>
-    <hr>
-    <h1>{{uygun_mu}}</h1>
-  </div>
-  {%endif%}
-
-  {%if uygun_mu == "UYGUN"%}
-
-
-  <div id="aciklama" class="w3-yellow w3-padding-5">
-    <p>
-    <pre style="padding-left: 5%;">
-TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI
-[ÇYTHYE2016 Güvenlik Katsatıları ile Tasarım (GKT)]
-©2021 -  Özgün Demircan, Sıla İklim Taşkafa, Kerem Özmen, Ali Arıbaş
----------------------------------------------------------------------------------------------------------
-GİRDİLER:
----------------------------------------------------------------------------------------------------------
-Yükleme Durumu: 
-P (N) = {{P}}
-Yayılı yük, w (N/m) = {{yayili_yuk}}
-İlave yayılı yük, q (N/m) = {{ilave_q}}
-L (m) = {{L}}
-Lb (m) = {{Lb}}
-Çelik sınıfı: {{celik_sinifi}} {S235 / S275 / S355 stringlerinden biri yazdırılacak}
-Kesit: {{kesit}}
----------------------------------------------------------------------------------------------------------
-TASARIM SONUÇLARI:
----------------------------------------------------------------------------------------------------------
-E (MPa) = {{E}}
-Sehim değerleri (mm):
-Δ1  =  {{maksimum_sehim}} (maksimum_sehim yazdırılacak)
-Δ2  =  {{zati_sehim}} (zati_sehim yazdırılacak)
-Δ3  =  {{ilave_sehim}} (ilave_sehim yazdırılacak)
-Moment değerleri (N.m):
-M1 =  {{maksimum_moment}} (maksimum_moment yazdırılacak)
-M2 =  {{zati_moment}} (zati_moment yazdırılacak)
-M3 =  {{ilave_moment}}  (ilave_moment yazdırılacak)
-Kesme kuvvetleri (N):
-V1 =   {{maksimum_kesme}} (maksimum_kesme yazdırılacak)
-V2 =   {{zati_kesme}} (zati_kesme yazdırılacak)
-V3 =   {{ilave_kesme}}  (ilave_kesme yazdırılacak)
-Toplam sehim (mm) =  {{toplam_sehim}} (toplam_sehim)
-Toplam moment (N.m) =  {{toplam_moment}} (toplam_moment)
-Toplam kesme (N) =  {{toplam_kesme}}  (toplam_kesme)
----------------------------------------------------------------------------------------------------------
-Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
-Aw =  {{Aw}}
-Cv1 = 1.0
-Vg (N) =  {{guvenli_kesme}} (guvenli_kesme)
----------------------------------------------------------------------------------------------------------
-Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
-Mp (N.m) =  {{Mp}}
-Mn (N.m) =  {{Mn}} 
-Mg (N.m) =  {{Mg}}
----------------------------------------------------------------------------------------------------------
-Tasarim Kontrolü:
-{% if Mg >= toplam_moment %}
-Mg >= Toplam Moment .....TAMAM !
-{% else %}
-Mg < Toplam Moment .....TAMAM DEĞİL !
-{%endif%}
-{% if (L * 1000 / sehim_limiti) >= toplam_sehim %}
-L * 1000 / Sehim Limiti >= Toplam Sehim .....TAMAM !
-{% else %}
-L * 1000 / Sehim Limiti < Toplam Sehim .....TAMAM DEĞİL !
-{%endif%}
-{% if guvenli_kesme >= toplam_kesme %}
-Vg >=  Toplam Kesme .....TAMAM !
-{% else %}
-Vg <  Toplam Kesme .....TAMAM DEĞİL !
-{%endif%}
-KESİT:  {{kesit}}
-Seçilen kesit : {{uygun_mu}} !
----------------------------------------------------------------------------------------------------------
-Kullanılan Simgeler:
-E:   Elastisite modulu (Mpa)
-Δ1: Girilen noktasal yük veya yayılı yükten oluşan sehim (mm)
-Δ2: Kesitin zati ağırlığından oluşan sehim (mm)
-Δ3: İlave yayılı yükten oluşan sehim (mm)
-M1: Girilen noktasal yük veya yayılı yükten oluşan moment (N.m)
-M2: Kesitin zati ağırlığından oluşan moment (N.m)
-M3: İlave yayılı yükten oluşan moment (N.m)
-V1: Girilen noktasal yük veya yayılı yükten oluşan kesme kuvveti (N)
-V2: Kesitin zati ağırlığından oluşan kesme kuvveti (N)
-V3: İlave yayılı yükten oluşan kesme kuvveti (N)
-Aw: Gövde alanı (mm2)
-Vg: Güvenli kesme kuvveti dayanımı (N)
-Mg: Güvenli eğilme momenti dayanımı (N.m)
-    </pre>
-    </p>
-    <br>
-    <br>
-
-  </div>
-
-  {%endif%}
-  <br>
-  <br>
-  <br>
-  <!-- Footer -->
+  <!-- Footer start-->
   <footer class="w3-center w3-black w3-padding-10 w3-bottom">
-    <p style="word-spacing: 3px; ">HAZIRLAYANLAR:
-      <span><a href="/" style="text-decoration: underline;" title="X" target="_blank" class="w3-hover-text-yellow">ÖZGÜN
-          DEMİRCAN</a></span>
-      <span><a href="https://www.linkedin.com/in/s%C4%B1la-iklim-ta%C5%9Fkafa-97386b208/"
-          style="text-decoration: underline;" title="X" target="_blank" class="w3-hover-text-yellow">SILA
-          İKLİM TAŞKAFA</a></span>
-      <span><a href="https://www.linkedin.com/in/keremozmen" style="text-decoration: underline;" title="X"
-          target="_blank" class="w3-hover-text-yellow">KEREM
-          ÖZMEN</a></span>
-      <span><a href="https://www.linkedin.com/in/ali-ariba%C5%9F-5736381bb" style="text-decoration: underline;"
-          title="X" target="_blank" class="w3-hover-text-yellow">ALİ
-          ARIBAŞ</a></span>
+    <p style="word-spacing: 3px; font-family: Arial, Helvetica, sans-serif;">©2021 | HAZIRLAYANLAR:
+      <a href="mailto:odemircan@protonmail.com" style="text-decoration: underline;" title="X" target="_blank"
+        class="w3-hover-text-teal">ÖZGÜN
+        DEMİRCAN</a><text>, </text>
+      <a href="https://www.linkedin.com/in/s%C4%B1la-iklim-ta%C5%9Fkafa-97386b208/" style="text-decoration: underline;"
+        title="X" target="_blank" class="w3-hover-text-teal">SILA
+        İKLİM TAŞKAFA</a><text>, </text>
+      <a href="https://www.linkedin.com/in/keremozmen" style="text-decoration: underline;" title="X" target="_blank"
+        class="w3-hover-text-teal">KEREM
+        ÖZMEN</a><text>, </text>
+      <a href="https://www.linkedin.com/in/ali-ariba%C5%9F-5736381bb" style="text-decoration: underline;" title="X"
+        target="_blank" class="w3-hover-text-teal">ALİ
+        ARIBAŞ</a>
     </p>
   </footer>
+  <!-- Footer end-->
 </body>
 
 </html>
