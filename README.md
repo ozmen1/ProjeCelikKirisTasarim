@@ -9,7 +9,9 @@ Tasarım Yaklaşımı:	GKT (Güvenlik Katsayıları ile Tasarım)
 
 Kesit Tipleri:	IPN, IPE, HEA, HEB, HEM
 
-Yükleme Durumları:	1. Basit Kiriş - Düzgün Yayılı Yük
+Yükleme Durumları:	
+
+1. Basit Kiriş - Düzgün Yayılı Yük
 
 2. Basit Kiriş - Merkezde Noktasal Yük
 
