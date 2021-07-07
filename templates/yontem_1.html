@@ -9,27 +9,6 @@
   <link href="\static\button.css" rel="stylesheet" />
   <script src="\static\myscript.js"></script>
   <title>YÖNTEM 1</title>
-  <style>
-    .btn {
-      border: none;
-      outline: none;
-      padding: 10px 16px;
-      background-color: #f1f1f1;
-      cursor: pointer;
-    }
-
-    /* Style the active class (and buttons on mouse-over) */
-    .active,
-    .btn:hover {
-      background-color: #666;
-      color: white;
-    }
-    .w3-container-new {
-      padding-right: 30px;
-      padding-left: 30px;
-    }
-
-  </style>
 </head>
 
 <body style="background-color: #212121">
@@ -154,7 +133,7 @@
               <td>
               <td>
                 <div class="container">
-                  <button class="button" id="sonucbuton">Hesapla</button>
+                  <button class="button">Hesapla</button>
                 </div>
               </td>
               </td>
@@ -166,8 +145,7 @@
     <!-- Hesapla end-->
 
     <!-- Rapor start-->
-    <div id="sonuc" class="w3-half w3-container-new"
-      style="background-color: #757575;">
+    <div id="sonuc" class="w3-half" style="background-color: #757575; padding-right: 30px; padding-left: 30px;">
       {% if uygun_mu %}
       <div class="w3-center w3-padding-5" style="color:#FFFFFF">
         <h1>{{uygun_mu}}</h1>
@@ -251,8 +229,7 @@
                 <br>Vg: Güvenli kesme kuvveti dayanımı (N)
                 <br>Mg: Güvenli eğilme momenti dayanımı (N.m)
         </p>
-        <br>
-        <br>
+<br><br>
       </div>
       {%endif%}
     </div>
