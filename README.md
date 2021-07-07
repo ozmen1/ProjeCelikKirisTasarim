@@ -26,3 +26,7 @@ Birimler:	(N.m)
 Manuel Tasarım:	Tek bir kesit seçip analiz etmek içindir (Örnek: Mevcut bir kirişin analizi)
 
 Otomatik Tasarım:	Seçilen kesit tipinde en uygun olan kesiti bulur.
+
+UYARI: Kullanıcı uygulamanın sonuçlarını kontrol etmekle yükümlüdür. Bu uygulamanın yanlış veya doğru kullanımı ile karşılaşılabilecek zararlardan uygulamayı hazırlayanlar hiçbir şekilde sorumlu tutulamazlar.
+
+
