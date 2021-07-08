@@ -165,7 +165,7 @@
           <br>İlave yayılı yük, q (N/m) = {{ilave_q}}
           <br>L (m) = {{L}}
           <br>Lb (m) = {{Lb}}
-          <br>Çelik sınıfı: {{celik_sinifi}} {S235 / S275 / S355 stringlerinden biri yazdırılacak}
+          <br>Çelik sınıfı: {{celik_sinifi}}
           <br>Kesit: {{kesit}}
           <hr>
           TASARIM SONUÇLARI:
@@ -173,30 +173,30 @@
           E (MPa) = {{E}}
           <br>Sehim Limiti = {{sehim_limiti}}
           <br>Sehim değerleri (mm):
-          <br>Δ1 = {{maksimum_sehim}} (maksimum_sehim yazdırılacak)
-          <br>Δ2 = {{zati_sehim}} (zati_sehim yazdırılacak)
-          <br>Δ3 = {{ilave_sehim}} (ilave_sehim yazdırılacak)
+          <br>Δ1 = {{maksimum_sehim}}
+          <br>Δ2 = {{zati_sehim}} 
+          <br>Δ3 = {{ilave_sehim}} 
           <br>Moment değerleri (N.m):
-          <br>M1 = {{maksimum_moment}} (maksimum_moment yazdırılacak)
-          <br>M2 = {{zati_moment}} (zati_moment yazdırılacak)
-          <br>M3 = {{ilave_moment}} (ilave_moment yazdırılacak)
+          <br>M1 = {{maksimum_moment}} 
+          <br>M2 = {{zati_moment}} 
+          <br>M3 = {{ilave_moment}} 
           <br>Kesme kuvvetleri (N):
-          <br>V1 = {{maksimum_kesme}} (maksimum_kesme yazdırılacak)
-          <br>V2 = {{zati_kesme}} (zati_kesme yazdırılacak)
-          <br>V3 = {{ilave_kesme}} (ilave_kesme yazdırılacak)
-          <br>Toplam sehim (mm) = {{toplam_sehim}} (toplam_sehim)
-          <br>Toplam moment (N.m) = {{toplam_moment}} (toplam_moment)
-          <br>Toplam kesme (N) = {{toplam_kesme}} (toplam_kesme)
+          <br>V1 = {{maksimum_kesme}} 
+          <br>V2 = {{zati_kesme}} 
+          <br>V3 = {{ilave_kesme}} 
+          <br>Toplam sehim (mm) = {{toplam_sehim}}
+          <br>Toplam moment (N.m) = {{toplam_moment}}
+          <br>Toplam kesme (N) = {{toplam_kesme}}
           <hr>
           Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
           <br>Aw = {{Aw}}
           <br>Cv1 = 1.0
-          <br>Vg (N) = {{guvenli_kesme}} (guvenli_kesme)
+          <br>Vg (N) = {{guvenli_kesme}}
           <hr>
           Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
           <br>Mp (N.m) = {{Mp}}
-          <br>Mn (N.m) = {{Mn}} (M)
-          <br>Mg (N.m) = {{Mg}} (Mg {main.py'den})
+          <br>Mn (N.m) = {{Mn}}
+          <br>Mg (N.m) = {{Mg}} 
           <hr>
           Tasarim Kontrolü:
           <br>{% if Mg >= toplam_moment %}

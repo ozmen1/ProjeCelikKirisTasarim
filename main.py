@@ -494,11 +494,14 @@ def yontem_2():
 
                 Mg = Mn / 1.67
                 print("Mg = ", Mg)
+                Mp = celik_sinifi * float(satir[0][17])
+                print("Mp = ", Mp)
+
 
                 if ((Mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
-                    return render_template("yontem_2.html", P=P, L=L, Lb=Lb, E=E, Mn=Mn, Mg=Mg,  guvenli_kesme=guvenli_kesme, Aw=Aw, toplam_kesme=toplam_kesme, toplam_moment=toplam_moment, toplam_sehim=toplam_sehim, ilave_kesme=ilave_kesme, zati_kesme=zati_kesme, maksimum_kesme=maksimum_kesme, ilave_moment=ilave_moment, zati_moment=zati_moment, maksimum_moment=maksimum_moment, ilave_sehim=ilave_sehim, zati_sehim=zati_sehim, maksimum_sehim=maksimum_sehim, ilave_q=ilave_q, kesitt=kesit_2, celik_sinifi=celik_sinifi, sehim_limiti=sehim_limiti, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
+                    return render_template("yontem_2.html", P=P, L=L, Lb=Lb, E=E, Mn=round(Mn,2), Mg=round(Mg,2), Mp=round(Mp,2),  guvenli_kesme=round(guvenli_kesme,2), Aw=Aw, toplam_kesme=toplam_kesme, toplam_moment=toplam_moment, toplam_sehim=toplam_sehim, ilave_kesme=ilave_kesme, zati_kesme=zati_kesme, maksimum_kesme=maksimum_kesme, ilave_moment=ilave_moment, zati_moment=zati_moment, maksimum_moment=maksimum_moment, ilave_sehim=ilave_sehim, zati_sehim=zati_sehim, maksimum_sehim=maksimum_sehim, ilave_q=ilave_q, kesitt=kesit_2, celik_sinifi=celik_sinifi, sehim_limiti=sehim_limiti, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
                 elif len(satir_dict) != 0:
                     satir_dict.pop(kesit_2)
                     print(satir_dict, "pop sonrası değer")
