@@ -146,23 +146,24 @@
     </div>
     <!-- Hesapla end-->
 
-    <div id="sonuc" class="w3-half w3-animate-opacity" style="background-color: #585858; padding-right: 30px; padding-left: 30px;">
+    <div id="sonuc" class="w3-half w3-animate-opacity" style="background-color: #585858; padding-right: 30px; padding-left: 30px; font-family: monospace;">
       {% if uygun_mu %}
       <div class="w3-center" style="color:#FFFFFF">
         <h1>{{kesitt}}</h1>
-        <hr>
         <h1>{{uygun_mu}}</h1>
       </div>
       {%endif%}
       {%if uygun_mu == "UYGUN"%}
       <div id="aciklama" class="w3-padding-5" style="background-color: #585858; color:#FFFFFF">
+        <center>
         <p>TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI
           <br>[ÇYTHYE2016 Güvenlik Katsatıları ile Tasarım (GKT)]
           <br>©2021 - Özgün Demircan, Sıla İklim Taşkafa, Kerem Özmen, Ali Arıbaş
-          <hr>
-          GİRDİLER:
-          <hr>
-          Yükleme Durumu:
+        </center>
+        <br>----------------------------------------------------------------------------
+        <br>GİRDİLER:
+          <br>----------------------------------------------------------------------------
+          <br>Yükleme Durumu:
           <br>P (N) = {{P}}
           <br>Yayılı yük, w (N/m) = {{yayili_yuk}}
           <br>İlave yayılı yük, q (N/m) = {{ilave_q}}
@@ -170,10 +171,10 @@
           <br>Lb (m) = {{Lb}}
           <br>Çelik sınıfı: {{celik_sinifi}}
           <br>Kesit: {{kesit}}
-          <hr>
-          TASARIM SONUÇLARI:
-          <hr>
-          E (MPa) = {{E}}
+          <br>----------------------------------------------------------------------------
+          <br>TASARIM SONUÇLARI:
+          <br>----------------------------------------------------------------------------
+          <br>E (MPa) = {{E}}
           <br>Sehim değerleri (mm):
           <br>Δ1 = {{maksimum_sehim}}
           <br>Δ2 = {{zati_sehim}}
@@ -189,18 +190,18 @@
           <br>Toplam sehim (mm) = {{toplam_sehim}}
           <br>Toplam moment (N.m) = {{toplam_moment}}
           <br>Toplam kesme (N) = {{toplam_kesme}}
-          <hr>
-          Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
+          <br>----------------------------------------------------------------------------
+          <br>Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
           <br>Aw = {{Aw}}
           <br>Cv1 = 1.0
           <br>Vg (N) = {{guvenli_kesme}}
-          <hr>
-          Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
+          <br>----------------------------------------------------------------------------
+          <br>Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
           <br>Mp (N.m) = {{Mp}}
           <br>Mn (N.m) = {{Mn}}
           <br>Mg (N.m) = {{Mg}}
-          <hr>
-          Tasarim Kontrolü:
+          <br>----------------------------------------------------------------------------
+          <br>Tasarim Kontrolü:
           <br>{% if Mg >= toplam_moment %}
           <br>Mg >= Toplam Moment .....TAMAM !
           <br>{% else %}
@@ -215,8 +216,8 @@
               <br>Vg < Toplam Kesme .....TAMAM DEĞİL ! <br>{%endif%}
                 <br>KESİT: {{kesitt}}
                 <br>Seçilen kesit : {{uygun_mu}} !
-                <hr>
-                Kullanılan Simgeler:
+                <br>----------------------------------------------------------------------------
+                <br>Kullanılan Simgeler:
                 <br>E: Elastisite modulu (Mpa)
                 <br>Δ1: Girilen noktasal yük veya yayılı yükten oluşan sehim (mm)
                 <br>Δ2: Kesitin zati ağırlığından oluşan sehim (mm)
