@@ -9,23 +9,32 @@
   <link href="\static\button.css" rel="stylesheet" />
   <script src="\static\myscript.js"></script>
   <title>Otomatik Tasarım - Çelik Kiriş Tasarımı</title>
+
+  <style>
+    @media print {
+       .dontprint {
+          visibility: hidden;
+       }
+    }
+</style>
+
 </head>
 
 <body style="background-color: #212121">
   <!-- Navbar start-->
   <div class="w3-top">
     <div class="w3-bar w3-wide w3-padding w3-card" style="background-color: #757575;">
-      <a href="/" class="w3-bar-item w3-button w3-animate-opacity" style="color: #FFFFFF;"><img
-          src="static\favicon3.ico" alt="çelik yapı" title="çelik yapı"><b> ÇELİK</b> YAPI</a>
+      <a href="/" class="w3-bar-item w3-button w3-animate-opacity" style="color: #FFFFFF;"><img src="static\favicon.ico"
+          alt="çelik yapı" title="çelik yapı"><b> ÇELİK</b> YAPI</a>
       <div class="w3-right" style="background-color: #BDBDBD;">
-        <a href="/" class="w3-bar-item w3-button w3-hover-teal"> <img src="static\home2.ico" alt="anasayfa"
+        <a href="/" class="w3-bar-item w3-button w3-hover-teal"> <img src="static\home.ico" alt="anasayfa"
             title="anasayfa">
           Anasayfa</a>
         <a href="yontem_1.html" class="w3-bar-item w3-button w3-hover-teal"> <img src="static\calculate.ico"
             alt="yöntem_1" title="yöntem_1"> Manuel Tasarım</a>
         <a href="yontem_2.html" class="w3-bar-item w3-button w3-hover-teal btn active"><img src="static\calculate.ico"
             alt="yöntem_2" title="yöntem_2"> Otomatik Tasarım</a>
-        <a href="\static\celik.apk" class="w3-bar-item w3-button w3-hover-teal" download><img src="\static\android2.ico"
+        <a href="\static\celik.apk" class="w3-bar-item w3-button w3-hover-teal" download><img src="\static\android.ico"
             alt="app indir" title="App indir"> App İNDİR</a>
       </div>
     </div>
@@ -146,7 +155,8 @@
     </div>
     <!-- Hesapla end-->
 
-    <div id="sonuc" class="w3-half w3-animate-opacity" style="background-color: #585858; padding-right: 30px; padding-left: 30px; font-family: monospace;">
+    <div id="sonuc" class="w3-half w3-animate-opacity"
+      style="background-color: #585858; padding-right: 30px; padding-left: 30px; font-family: monospace;">
       {% if uygun_mu %}
       <div class="w3-center" style="color:#FFFFFF">
         <h1>{{kesitt}}</h1>
@@ -156,86 +166,92 @@
       {%if uygun_mu == "UYGUN"%}
       <div id="aciklama" class="w3-padding-5" style="background-color: #585858; color:#FFFFFF">
         <center>
-        <p>TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI
-          <br>[ÇYTHYE2016 Güvenlik Katsatıları ile Tasarım (GKT)]
-          <br>©2021 - Özgün Demircan, Sıla İklim Taşkafa, Kerem Özmen, Ali Arıbaş
+          <p>TEK AÇIKLIKLI ÇELİK KİRİŞ TASARIMI
+            <br>[ÇYTHYE2016 Güvenlik Katsatıları ile Tasarım (GKT)]
+            <br>©2021 - Özgün Demircan, Sıla İklim Taşkafa, Kerem Özmen, Ali Arıbaş
         </center>
         <br>----------------------------------------------------------------------------
         <br>GİRDİLER:
-          <br>----------------------------------------------------------------------------
-          <br>Yükleme Durumu:
-          <br>P (N) = {{P}}
-          <br>Yayılı yük, w (N/m) = {{yayili_yuk}}
-          <br>İlave yayılı yük, q (N/m) = {{ilave_q}}
-          <br>L (m) = {{L}}
-          <br>Lb (m) = {{Lb}}
-          <br>Çelik sınıfı: {{celik_sinifi}}
-          <br>Kesit: {{kesit}}
-          <br>----------------------------------------------------------------------------
-          <br>TASARIM SONUÇLARI:
-          <br>----------------------------------------------------------------------------
-          <br>E (MPa) = {{E}}
-          <br>Sehim değerleri (mm):
-          <br>Δ1 = {{maksimum_sehim}}
-          <br>Δ2 = {{zati_sehim}}
-          <br>Δ3 = {{ilave_sehim}}
-          <br>Moment değerleri (N.m):
-          <br>M1 = {{maksimum_moment}}
-          <br>M2 = {{zati_moment}}
-          <br>M3 = {{ilave_moment}}
-          <br>Kesme kuvvetleri (N):
-          <br>V1 = {{maksimum_kesme}}
-          <br>V2 = {{zati_kesme}}
-          <br>V3 = {{ilave_kesme}}
-          <br>Toplam sehim (mm) = {{toplam_sehim}}
-          <br>Toplam moment (N.m) = {{toplam_moment}}
-          <br>Toplam kesme (N) = {{toplam_kesme}}
-          <br>----------------------------------------------------------------------------
-          <br>Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
-          <br>Aw = {{Aw}}
-          <br>Cv1 = 1.0
-          <br>Vg (N) = {{guvenli_kesme}}
-          <br>----------------------------------------------------------------------------
-          <br>Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
-          <br>Mp (N.m) = {{Mp}}
-          <br>Mn (N.m) = {{Mn}}
-          <br>Mg (N.m) = {{Mg}}
-          <br>----------------------------------------------------------------------------
-          <br>Tasarim Kontrolü:
-          <br>{% if Mg >= toplam_moment %}
-          <br>Mg >= Toplam Moment .....TAMAM !
-          <br>{% else %}
-          <br>Mg < Toplam Moment .....TAMAM DEĞİL ! <br>{%endif%}
-            <br>{% if (L * 1000 / sehim_limiti) >= toplam_sehim %}
-            <br>L * 1000 / Sehim Limiti >= Toplam Sehim .....TAMAM !
-            <br>{% else %}
-            <br> L * 1000 / Sehim Limiti < Toplam Sehim .....TAMAM DEĞİL ! <br>{%endif%}
-              <br>{% if guvenli_kesme >= toplam_kesme %}
-              <br>Vg >= Toplam Kesme .....TAMAM !
-              <br>{% else %}
-              <br>Vg < Toplam Kesme .....TAMAM DEĞİL ! <br>{%endif%}
-                <br>KESİT: {{kesitt}}
-                <br>Seçilen kesit : {{uygun_mu}} !
-                <br>----------------------------------------------------------------------------
-                <br>Kullanılan Simgeler:
-                <br>E: Elastisite modulu (Mpa)
-                <br>Δ1: Girilen noktasal yük veya yayılı yükten oluşan sehim (mm)
-                <br>Δ2: Kesitin zati ağırlığından oluşan sehim (mm)
-                <br>Δ3: İlave yayılı yükten oluşan sehim (mm)
-                <br>M1: Girilen noktasal yük veya yayılı yükten oluşan moment (N.m)
-                <br>M2: Kesitin zati ağırlığından oluşan moment (N.m)
-                <br>M3: İlave yayılı yükten oluşan moment (N.m)
-                <br>V1: Girilen noktasal yük veya yayılı yükten oluşan kesme kuvveti (N)
-                <br>V2: Kesitin zati ağırlığından oluşan kesme kuvveti (N)
-                <br>V3: İlave yayılı yükten oluşan kesme kuvveti (N)
-                <br>Aw: Gövde alanı (mm2)
-                <br>Vg: Güvenli kesme kuvveti dayanımı (N)
-                <br>Mg: Güvenli eğilme momenti dayanımı (N.m)
-        </p>
-        <br><br>
-        <input type="button" value="RAPOR YAZDIR" onclick="printDiv()">
+        <br>----------------------------------------------------------------------------
+        <br>Yükleme Durumu:
+        <br>P (N) = {{P}}
+        <br>Yayılı yük, w (N/m) = {{yayili_yuk}}
+        <br>İlave yayılı yük, q (N/m) = {{ilave_q}}
+        <br>L (m) = {{L}}
+        <br>Lb (m) = {{Lb}}
+        <br>Çelik sınıfı: {{celik_sinifi}}
+        <br>Kesit: {{kesitt}}
+        <br>----------------------------------------------------------------------------
+        <br>TASARIM SONUÇLARI:
+        <br>----------------------------------------------------------------------------
+        <br>E (MPa) = {{E}}
+        <br>Sehim değerleri (mm):
+        <br>Δ1 = {{maksimum_sehim}}
+        <br>Δ2 = {{zati_sehim}}
+        <br>Δ3 = {{ilave_sehim}}
+        <br>Moment değerleri (N.m):
+        <br>M1 = {{maksimum_moment}}
+        <br>M2 = {{zati_moment}}
+        <br>M3 = {{ilave_moment}}
+        <br>Kesme kuvvetleri (N):
+        <br>V1 = {{maksimum_kesme}}
+        <br>V2 = {{zati_kesme}}
+        <br>V3 = {{ilave_kesme}}
+        <br>Toplam sehim (mm) = {{toplam_sehim}}
+        <br>Toplam moment (N.m) = {{toplam_moment}}
+        <br>Toplam kesme (N) = {{toplam_kesme}}
+        <br>----------------------------------------------------------------------------
+        <br>Güvenli kesme kuvveti dayanımı Vg'nin belirlenmesi:
+        <br>Aw = {{Aw}}
+        <br>Cv1 = 1.0
+        <br>Vg (N) = {{guvenli_kesme}}
+        <br>----------------------------------------------------------------------------
+        <br>Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
+        <br>Mp (N.m) = {{Mp}}
+        <br>Mn (N.m) = {{Mn}}
+        <br>Mg (N.m) = {{Mg}}
+        <br>----------------------------------------------------------------------------
+        <br>Tasarim Kontrolü:
+        {% if Mg >= toplam_moment %}
+        <br>Mg >= Toplam Moment .....TAMAM !
+        {% else %}
+        <br>Mg < Toplam Moment .....TAMAM DEĞİL ! {%endif%} {% if (L * 1000 / sehim_limiti)>= toplam_sehim %}
+          <br>L * 1000 / Sehim Limiti >= Toplam Sehim .....TAMAM !
+          {% else %}
+          <br> L * 1000 / Sehim Limiti < Toplam Sehim .....TAMAM DEĞİL ! {%endif%} {% if guvenli_kesme>= toplam_kesme %}
+            <br>Vg >= Toplam Kesme .....TAMAM !
+            {% else %}
+            <br>Vg < Toplam Kesme .....TAMAM DEĞİL ! {%endif%} 
+            <br>
+              <br>KESİT: {{kesitt}}
+              <br>
+              <br>Seçilen kesit : {{uygun_mu}} !
+              <br>----------------------------------------------------------------------------
+              <br>Kullanılan Simgeler:
+              <br>E: Elastisite modulu (Mpa)
+              <br>Δ1: Girilen noktasal yük veya yayılı yükten oluşan sehim (mm)
+              <br>Δ2: Kesitin zati ağırlığından oluşan sehim (mm)
+              <br>Δ3: İlave yayılı yükten oluşan sehim (mm)
+              <br>M1: Girilen noktasal yük veya yayılı yükten oluşan moment (N.m)
+              <br>M2: Kesitin zati ağırlığından oluşan moment (N.m)
+              <br>M3: İlave yayılı yükten oluşan moment (N.m)
+              <br>V1: Girilen noktasal yük veya yayılı yükten oluşan kesme kuvveti (N)
+              <br>V2: Kesitin zati ağırlığından oluşan kesme kuvveti (N)
+              <br>V3: İlave yayılı yükten oluşan kesme kuvveti (N)
+              <br>Aw: Gövde alanı (mm2)
+              <br>Vg: Güvenli kesme kuvveti dayanımı (N)
+              <br>Mg: Güvenli eğilme momenti dayanımı (N.m)
+              <br>----------------------------------------------------------------------------
+              <br>UYARI: Kullanıcı uygulamanın sonuçlarını kontrol etmekle yükümlüdür. Bu uygulamanın yanlış veya doğru
+              kullanımı ile karşılaşılabilecek zararlardan uygulamayı hazırlayanlar hiçbir şekilde sorumlu tutulamazlar.
+              </p>
+              <br>
+              <div class="w3-center dontprint">
+                <input type="button" value="RAPOR YAZDIR" onclick="printDiv()">
+                <br><br>
+              </div>
+              {%endif%}
       </div>
-      {%endif%}
     </div>
   </div>
   <!-- Rapor end-->

@@ -68,8 +68,11 @@ function printDiv() {
     var divContents = document.getElementById("aciklama").innerHTML;
     var a = window.open('', '', 'height=500, width=500');
     a.document.write('<html>');
-    a.document.write('<body ><br>');
+    a.document.write('<head><title>Rapor</title><style>@media print {.dontprint {visibility: hidden;}}</style></head>');
+    a.document.write('<body><br>');
+//    a.document.write('<center>');
     a.document.write(divContents);
+//    a.document.write('</center>');
     a.document.write('</body></html>');
     a.document.close();
     a.print();
