@@ -267,7 +267,13 @@ def yontem_1():
                 
             
 
-            return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, Lb=Lb, E=E, Mp=round(Mp,2), Mn=round(Mn,2), Mg=round(Mg,2),  guvenli_kesme=round(guvenli_kesme,2), Aw=Aw, toplam_kesme=toplam_kesme, toplam_moment=toplam_moment, toplam_sehim=toplam_sehim, ilave_kesme=ilave_kesme, zati_kesme=zati_kesme, maksimum_kesme=maksimum_kesme, ilave_moment=ilave_moment, zati_moment=zati_moment, maksimum_moment=maksimum_moment, ilave_sehim=ilave_sehim, zati_sehim=zati_sehim, maksimum_sehim=maksimum_sehim, ilave_q=ilave_q, kesit=kesit, celik_sinifi=celik_sinifi, sehim_limiti=sehim_limiti, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
+            return render_template("yontem_1.html", satir_liste=satir_liste, P=P, L=L, Lb=Lb, E=E, Mp=round(Mp,2), Mn=round(Mn,2),
+                Mg=round(Mg,2),  guvenli_kesme=round(guvenli_kesme,2), Aw=round(Aw,2), toplam_kesme=round(toplam_kesme,2),
+                toplam_moment=round(toplam_moment,2), toplam_sehim=round(toplam_sehim,2), ilave_kesme=round(ilave_kesme,2),
+                zati_kesme=round(zati_kesme,2), maksimum_kesme=round(maksimum_kesme,2), ilave_moment=round(ilave_moment,2),
+                zati_moment=round(zati_moment,2), maksimum_moment=round(maksimum_moment,2), ilave_sehim=round(ilave_sehim,2),
+                zati_sehim=round(zati_sehim,2), maksimum_sehim=round(maksimum_sehim,2), ilave_q=ilave_q, kesit=kesit,
+                celik_sinifi="S"+str(int(celik_sinifi)), sehim_limiti=int(sehim_limiti), yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
         except:
             uygun_mu = "GEÇERLİ DEĞER GİRİLMEDİ"
             print(uygun_mu)
@@ -478,7 +484,14 @@ def yontem_2():
                 if ((Mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
-                    return render_template("yontem_2.html", P=P, L=L, Lb=Lb, E=E, Mn=round(Mn,2), Mg=round(Mg,2), Mp=round(Mp,2),  guvenli_kesme=round(guvenli_kesme,2), Aw=Aw, toplam_kesme=toplam_kesme, toplam_moment=toplam_moment, toplam_sehim=toplam_sehim, ilave_kesme=ilave_kesme, zati_kesme=zati_kesme, maksimum_kesme=maksimum_kesme, ilave_moment=ilave_moment, zati_moment=zati_moment, maksimum_moment=maksimum_moment, ilave_sehim=ilave_sehim, zati_sehim=zati_sehim, maksimum_sehim=maksimum_sehim, ilave_q=ilave_q, kesitt=kesit_2, celik_sinifi=celik_sinifi, sehim_limiti=sehim_limiti, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
+                    # return render_template("yontem_2.html", P=P, L=L, Lb=Lb, E=E, Mn=round(Mn,2), Mg=round(Mg,2), Mp=round(Mp,2),  guvenli_kesme=round(guvenli_kesme,2), Aw=Aw, toplam_kesme=toplam_kesme, toplam_moment=toplam_moment, toplam_sehim=toplam_sehim, ilave_kesme=ilave_kesme, zati_kesme=zati_kesme, maksimum_kesme=maksimum_kesme, ilave_moment=ilave_moment, zati_moment=zati_moment, maksimum_moment=maksimum_moment, ilave_sehim=ilave_sehim, zati_sehim=zati_sehim, maksimum_sehim=maksimum_sehim, ilave_q=ilave_q, kesitt=kesit_2, celik_sinifi=celik_sinifi, sehim_limiti=sehim_limiti, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
+                    return render_template("yontem_2.html", P=P, L=L, Lb=Lb, E=E, Mp=round(Mp,2), Mn=round(Mn,2),
+                        Mg=round(Mg,2),  guvenli_kesme=round(guvenli_kesme,2), Aw=round(Aw,2), toplam_kesme=round(toplam_kesme,2),
+                        toplam_moment=round(toplam_moment,2), toplam_sehim=round(toplam_sehim,2), ilave_kesme=round(ilave_kesme,2),
+                        zati_kesme=round(zati_kesme,2), maksimum_kesme=round(maksimum_kesme,2), ilave_moment=round(ilave_moment,2),
+                        zati_moment=round(zati_moment,2), maksimum_moment=round(maksimum_moment,2), ilave_sehim=round(ilave_sehim,2),
+                        zati_sehim=round(zati_sehim,2), maksimum_sehim=round(maksimum_sehim,2), ilave_q=ilave_q, kesitt=kesit_2,
+                        celik_sinifi="S"+str(int(celik_sinifi)), sehim_limiti=int(sehim_limiti), yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
                 elif len(satir_dict) != 0:
                     satir_dict.pop(kesit_2)
                     print(satir_dict, "pop sonrası değer")
