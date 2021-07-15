@@ -477,7 +477,7 @@ def yontem_2():
 
                 Mg = Mn / 1.67
                 print("Mg = ", Mg)
-                Mp = celik_sinifi * float(satir[0][17])
+                Mp = celik_sinifi * float(satir_2[0][17])
                 print("Mp = ", Mp)
 
 
