@@ -489,7 +489,7 @@ def yontem_2():
                     ilave_moment = (ilave_q * (L ** 2)) / (2)
                     ilave_kesme = (ilave_q * L)
 
-                elif yukleme_durumlari == 1 or yukleme_durumlari == 7:
+                if (yukleme_durumlari == 1) or (yukleme_durumlari == 7):
                     zati_sehim = ((5 * zati_agirlik * (9.81 / 1000) * (L * 1000)
                                    ** 4) / (384 * E * (float(satir_2[0][15]) * (10 ** 4))))
                     zati_moment = (zati_agirlik * 9.81 * (L ** 2)) / (8)
