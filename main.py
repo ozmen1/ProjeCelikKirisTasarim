@@ -512,10 +512,6 @@ def yontem_2():
                 print("ilave moment :", ilave_moment)
                 print("ilave kesme :", ilave_kesme)
 
-                print("maksimum sehim :", maksimum_sehim)
-                print("maksimum moment :", maksimum_moment)
-                print("maksimum kesme :", maksimum_kesme)
-
                 toplam_sehim = (zati_sehim + maksimum_sehim+ilave_sehim)
                 print("toplam sehim :", toplam_sehim)
 

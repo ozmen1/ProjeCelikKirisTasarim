@@ -84,8 +84,8 @@
               </td>
             </tr>
             <tr>
-              <td><label id="p_degeri2" for="p_degeri">P değeri (N):</label></td>
-              <td><input class="w3-input" style="max-width:250px;" type="number" value="0" min="0" id="p_degeri"
+              <td><label id="p_degeri2" for="p_degeri">P (N):</label></td>
+              <td><input class="w3-input" style="max-width:250px;" type="number" step="any" value="0" min="0" id="p_degeri"
                   name="P" placeholder="p değeri girin"></td>
             </tr>
             <tr>
@@ -99,22 +99,22 @@
             </tr>
             <tr>
               <td><label id="ww2" for="ww">Yayılı Yük, w (N/m) :</label></td>
-              <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="w" id="ww"
+              <td><input class="w3-input" type="number" step="any" min="0" value="0" style="max-width:250px;" name="w" id="ww"
                   placeholder="w değeri girin"></td>
             </tr>
             <tr>
               <td><label id="qq2" for="qq">İlave Yayılı Yük, q (N/m) :</label></td>
-              <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="ilave_q"
+              <td><input class="w3-input" type="number" step="any" min="0" value="0" style="max-width:250px;" name="ilave_q"
                   id="qq" placeholder="q değeri girin"></td>
             </tr>
             <tr>
-              <td><label for="ll">L değeri (m):</label></td>
-              <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="L" id="ll"
+              <td><label for="ll">L (m):</label></td>
+              <td><input class="w3-input" type="number" step="any" min="0" value="0" style="max-width:250px;" name="L" id="ll"
                   placeholder="l değeri girin"></td>
             </tr>
             <tr>
-              <td><label for="llb">Lb değeri (m):</label></td>
-              <td><input class="w3-input" type="number" min="0" value="0" style="max-width:250px;" name="Lb" id="llb"
+              <td><label for="llb">Lb (m):</label></td>
+              <td><input class="w3-input" type="number" step="any" min="0" value="0" style="max-width:250px;" name="Lb" id="llb"
                   placeholder="Lb değeri girin"></td>
             </tr>
             <tr>
@@ -208,6 +208,7 @@
         <br>Vg (N) = {{guvenli_kesme}}
         <br>----------------------------------------------------------------------------
         <br>Güvenli eğilme momenti dayanımı Mg'nin belirlenmesi:
+        <br>Cb = 1.0
         <br>Mp (N.m) = {{Mp}}
         <br>Mn (N.m) = {{Mn}}
         <br>Mg (N.m) = {{Mg}}
