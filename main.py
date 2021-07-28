@@ -387,7 +387,7 @@ def yontem_2():
             yukleme_durumlari = int(yukleme_durumlari)
             yayili_yuk = float(yayili_yuk)
             sehim_limiti = float(sehim_limiti)
-            ilave_q = float(ilave_q)  # eklenecek
+            ilave_q = float(ilave_q)
             Lb = float(Lb)
             if Lb == 0 or Lb > L:
                 Lb = L
@@ -550,7 +550,6 @@ def yontem_2():
                 if ((Mg >= toplam_moment) and ((L*1000/sehim_limiti) >= toplam_sehim) and (guvenli_kesme >= toplam_kesme)):
                     uygun_mu = "UYGUN"
                     print(uygun_mu)
-                    # return render_template("yontem_2.html", P=P, L=L, Lb=Lb, E=E, Mn=round(Mn,2), Mg=round(Mg,2), Mp=round(Mp,2),  guvenli_kesme=round(guvenli_kesme,2), Aw=Aw, toplam_kesme=toplam_kesme, toplam_moment=toplam_moment, toplam_sehim=toplam_sehim, ilave_kesme=ilave_kesme, zati_kesme=zati_kesme, maksimum_kesme=maksimum_kesme, ilave_moment=ilave_moment, zati_moment=zati_moment, maksimum_moment=maksimum_moment, ilave_sehim=ilave_sehim, zati_sehim=zati_sehim, maksimum_sehim=maksimum_sehim, ilave_q=ilave_q, kesitt=kesit_2, celik_sinifi=celik_sinifi, sehim_limiti=sehim_limiti, yayili_yuk=yayili_yuk, uygun_mu=uygun_mu)
                     return render_template("yontem_2.html", P=P, L=L, Lb=Lb, E=E, Mp=round(Mp,2), Mn=round(Mn,2),
                         Mg=round(Mg,2),  guvenli_kesme=round(guvenli_kesme,2), Aw=round(Aw,2), toplam_kesme=round(toplam_kesme,2),
                         toplam_moment=round(toplam_moment,2), toplam_sehim=round(toplam_sehim,2), ilave_kesme=round(ilave_kesme,2),
