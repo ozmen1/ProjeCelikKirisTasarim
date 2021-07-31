@@ -18,12 +18,6 @@ def index():
             password="",
             database="kesitler"
         )
-        # mydb = mysql.connector.connect(
-        #     host="remotemysql.com",
-        #     user="P0xYObZY55",
-        #     password="3bT6PmoVEb",
-        #     database="P0xYObZY55"
-        # )
         mycursor = mydb.cursor()
         print("LOCAL_VERİTABANI BAŞARILI ALINDI")
 
@@ -51,12 +45,6 @@ def yontem1():
             password="",
             database="kesitler"
         )
-        # mydb = mysql.connector.connect(
-        #     host="remotemysql.com",
-        #     user="P0xYObZY55",
-        #     password="3bT6PmoVEb",
-        #     database="P0xYObZY55"
-        # )
         mycursor = mydb.cursor()
         print("LOCAL_VERİTABANI BAŞARILI ALINDI")
 
@@ -95,12 +83,6 @@ def yontem2():
             password="",
             database="kesitler"
         )
-        # mydb = mysql.connector.connect(
-        #     host="remotemysql.com",
-        #     user="P0xYObZY55",
-        #     password="3bT6PmoVEb",
-        #     database="P0xYObZY55"
-        # )
         mycursor = mydb.cursor()
         print("LOCAL_VERİTABANI BAŞARILI ALINDI")
 
@@ -132,12 +114,6 @@ def yontem_1():
             password="",
             database="kesitler"
         )
-        # mydb = mysql.connector.connect(
-        #     host="remotemysql.com",
-        #     user="P0xYObZY55",
-        #     password="3bT6PmoVEb",
-        #     database="P0xYObZY55"
-        # )
         mycursor = mydb.cursor()
         print("LOCAL_VERİTABANI BAŞARILI ALINDI")
 
@@ -333,12 +309,6 @@ def yontem_2():
             password="",
             database="kesitler"
         )
-        # mydb = mysql.connector.connect(
-        #     host="remotemysql.com",
-        #     user="P0xYObZY55",
-        #     password="3bT6PmoVEb",
-        #     database="P0xYObZY55"
-        # )
         mycursor = mydb.cursor()
         print("LOCAL_VERİTABANI BAŞARILI ALINDI")
 
