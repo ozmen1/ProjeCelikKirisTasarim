@@ -3,13 +3,13 @@ Proje Kaynak Dosyalarının Çalıştırılması:
 Projemiz 2 yöntem ile çalışmaktadır.
 
 1.	Klasör içerisindeki main.py dosyası çalıştırılarak Flask sunucusu aktif olmaktadır ve 
-	Visual Studio Code üzerinde kodlar derlendikten sonra site http://localhost:5000 linki ile açılmaktadır.
-	Veritabanı için localde MySQL çalıştırılarak tablo oluşturulmalıdır.
+	Visual Studio Code veya PyCharm üzerinde kodlar derlendikten sonra site http://localhost:5000 linki ile açılmaktadır.
+	Veritabanı için localde XAMPP veya WAMP çalıştırılarak phpmyadmin'e girip "kesitler" isminde bir veritabanı oluşturup bu veritabanına klasördeki "database.sql" dosyası SQL formatında import edilmelidir.
 	
 	Projenin Local'de Host Edilmesi için Gerekenler:
 *	Python 3.8
-*	XAMPP Web Server (Veritabanı MySQL bağlantısını sağlamak için)
-*	Visual Studio Code (Proje kodlarını Flask sunucusu vasıtası ile çalıştırmak için)
+*	XAMPP Web Server veya WAMP Server (Veritabanı MySQL bağlantısını sağlamak için)
+*	Visual Studio Code veya PyCharm (Proje kodlarını Flask sunucusu vasıtası ile çalıştırmak için)
 
 2.	www.pythonanywhere.com sitesine admin paneli üzerinden proje yüklenmiştir. 
 	http://projecelikkiristasarim.pythonanywhere.com/ linki ile proje açılmaktadır.
